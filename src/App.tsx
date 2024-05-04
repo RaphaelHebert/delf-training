@@ -1,7 +1,7 @@
 import '@/App.css'
+import DiceRoll from './pages/DiceRoll'
 
 function App() {
-  return <>Hello world!</>
+  return <DiceRoll />
 }
-
 export default App
