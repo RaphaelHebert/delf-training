@@ -3,6 +3,7 @@ import { diceScores } from '@/signals'
 import { fetchDiceRollsMock } from './api'
 
 export function useFetchDiceRolls() {
+  // if user is not logged in use location function otherwise call backend
   return useQuery({
     queryKey: 'diceRolls',
     queryFn: async () => {

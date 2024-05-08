@@ -18,8 +18,13 @@ import { diceScores } from '@/signals'
 
 import { useFetchDiceRolls } from '../services/queries'
 
-const roll = signal(1)
+const roll = signal({ one: 1, two: 1, three: 1 })
 const rolling = signal(false)
+const easeIn = signal(true)
+
+// TODO fetch scores only on page load if user is logged in
+// add new score on state (score are saved on call for logged in users)
+// implement infinite query or query only last 100 scores?
 
 const DiceRoll: React.FC = () => {
   useSignals()
@@ -29,22 +34,25 @@ const DiceRoll: React.FC = () => {
   const handleRollDice = () => {
     rolling.value = true
     const dices = setInterval(() => {
-      roll.value = Math.ceil(Math.random() * 6)
+      roll.value = {
+        one: Math.ceil(Math.random() * 6),
+        two: Math.ceil(Math.random() * 6),
+        three: Math.ceil(Math.random() * 6),
+      }
     }, 500)
+    const easing = setInterval(() => {
+      easeIn.value = !easeIn.value
+    }, 250)
     setTimeout(() => {
       clearInterval(dices)
+      clearInterval(easing)
       rolling.value = false
     }, 3000)
     refetch()
   }
 
   const isRolling = isFetching || rolling.value
-  const derivedFaceOne = roll?.value
-    ? Math.ceil(((roll.value % 6) + (6 - roll.value)) * Math.random())
-    : 1
-  const derivedFaceTwo = roll?.value
-    ? Math.ceil(((roll.value % 6) + (6 - roll.value)) * Math.random())
-    : 1
+
   return (
     <div
       style={{
@@ -72,9 +80,18 @@ const DiceRoll: React.FC = () => {
           >
             {isRolling ? (
               <>
-                <Dice face={roll?.value || 1} />
-                <Dice face={derivedFaceOne} />
-                <Dice face={derivedFaceTwo} />
+                <Dice
+                  face={roll?.value.one || 1}
+                  easeIn={easeIn.value}
+                />
+                <Dice
+                  face={roll?.value.two || 1}
+                  easeIn={easeIn.value}
+                />
+                <Dice
+                  face={roll?.value.three || 1}
+                  easeIn={easeIn.value}
+                />
               </>
             ) : (
               <>
@@ -83,6 +100,7 @@ const DiceRoll: React.FC = () => {
                     <Dice
                       face={value}
                       key={key}
+                      easeIn={easeIn.value}
                     />
                   ))}
               </>
