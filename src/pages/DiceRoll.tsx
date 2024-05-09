@@ -18,7 +18,7 @@ import { diceScores } from '@/signals'
 
 import { useFetchDiceRolls } from '../services/queries'
 
-const roll = signal({ one: 1, two: 1, three: 1 })
+const roll = signal<number[]>([])
 const rolling = signal(false)
 const easeIn = signal(true)
 
@@ -28,17 +28,19 @@ const easeIn = signal(true)
 
 const DiceRoll: React.FC = () => {
   useSignals()
+  const numberOfDices = 6
 
-  const { data, isFetching, isError, refetch } = useFetchDiceRolls()
+  const { data, isFetching, isError, refetch } =
+    useFetchDiceRolls(numberOfDices)
 
   const handleRollDice = () => {
     rolling.value = true
     const dices = setInterval(() => {
-      roll.value = {
-        one: Math.ceil(Math.random() * 6),
-        two: Math.ceil(Math.random() * 6),
-        three: Math.ceil(Math.random() * 6),
+      const newDices = []
+      for (let x = 0; x < numberOfDices; x++) {
+        newDices.push(Math.ceil(Math.random() * 6))
       }
+      roll.value = newDices
     }, 500)
     const easing = setInterval(() => {
       easeIn.value = !easeIn.value
@@ -80,26 +82,21 @@ const DiceRoll: React.FC = () => {
           >
             {isRolling ? (
               <>
-                <Dice
-                  face={roll?.value.one || 1}
-                  easeIn={easeIn.value}
-                />
-                <Dice
-                  face={roll?.value.two || 1}
-                  easeIn={easeIn.value}
-                />
-                <Dice
-                  face={roll?.value.three || 1}
-                  easeIn={easeIn.value}
-                />
+                {roll.value.map((dice, index) => (
+                  <Dice
+                    key={index}
+                    face={dice || 1}
+                    easeIn={easeIn.value}
+                  />
+                ))}
               </>
             ) : (
               <>
                 {data &&
-                  Object.entries(data).map(([key, value]) => (
+                  data.map((value, index) => (
                     <Dice
                       face={value}
-                      key={key}
+                      key={index}
                       easeIn={easeIn.value}
                     />
                   ))}
@@ -123,7 +120,7 @@ const DiceRoll: React.FC = () => {
                 <React.Fragment key={index}>
                   <ListItem>
                     <ListItemText
-                      primary={`${key}: ${value?.roll1}, ${value?.roll2}, ${value?.roll3}`}
+                      primary={`${key}: ${value.map((val) => val)}`}
                     />
                   </ListItem>
                   {index < Object.keys(diceScores).length - 1 && <Divider />}

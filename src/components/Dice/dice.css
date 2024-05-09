@@ -26,5 +26,5 @@
   -moz-transition: transform 0.2s ease-in;
   -ms-transition: transform 0.2s ease-in;
   -o-transition: transform 0.2s ease-in;
-  transform: rotateY(45deg);
+  transform: rotateY(80deg);
 }

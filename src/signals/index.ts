@@ -1,10 +1,6 @@
 import { signal, Signal } from '@preact/signals-react'
 
-interface DiceRoll {
-  roll1: number
-  roll2: number
-  roll3: number
-}
+type DiceRoll = number[]
 
 export const loginOpen: Signal<boolean> = signal(false)
 
