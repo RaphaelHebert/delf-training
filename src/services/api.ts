@@ -1,15 +1,20 @@
-import axios from 'axios'
+import { configureAxios } from './helpers'
+import { DiceRoll } from '@/signals'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+console.log('API_BASE_URL', API_BASE_URL)
 
-const API_BASE_URL = 'https://example.com/api'
+const axiosInstance = configureAxios()
 
-export async function fetchDiceRolls() {
-  return axios.get(`${API_BASE_URL}/roll-dice`)
+export async function fetchDiceRolls(n: number): Promise<{
+  data: DiceRoll
+}> {
+  return axiosInstance.get(`${API_BASE_URL}/roll-dices?n=${n}`)
 }
 
 export const fetchDiceRollsMock = async (
   n: number
 ): Promise<{
-  data: number[]
+  data: DiceRoll
 }> => {
   // Simulate delay
   await new Promise((resolve) => setTimeout(resolve, 1000))

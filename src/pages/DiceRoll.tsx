@@ -14,11 +14,11 @@ import {
   Stack,
 } from '@mui/material'
 import LoginButton from '@/components/LoginButton'
-import { diceScores } from '@/signals'
+import { diceScores, DiceRoll as DiceRollType } from '@/signals'
 
 import { useFetchDiceRolls } from '../services/queries'
 
-const roll = signal<number[]>([])
+const roll = signal<DiceRollType>([])
 const rolling = signal(false)
 const easeIn = signal(true)
 
@@ -30,13 +30,16 @@ const DiceRoll: React.FC = () => {
   useSignals()
   const numberOfDices = 6
 
-  const { data, isFetching, isError, refetch } =
+  const { isSuccess, data, isFetching, isError, refetch } =
     useFetchDiceRolls(numberOfDices)
 
+  if (isSuccess) {
+    console.log({ data })
+  }
   const handleRollDice = () => {
     rolling.value = true
     const dices = setInterval(() => {
-      const newDices = []
+      const newDices: DiceRollType = []
       for (let x = 0; x < numberOfDices; x++) {
         newDices.push(Math.ceil(Math.random() * 6))
       }
@@ -82,7 +85,7 @@ const DiceRoll: React.FC = () => {
           >
             {isRolling ? (
               <>
-                {roll.value.map((dice, index) => (
+                {roll.value?.map((dice, index) => (
                   <Dice
                     key={index}
                     face={dice || 1}
@@ -119,11 +122,11 @@ const DiceRoll: React.FC = () => {
               Object.entries(diceScores.value).map(([key, value], index) => (
                 <React.Fragment key={index}>
                   <ListItem>
-                    <ListItemText
-                      primary={`${key}: ${value.map((val) => val)}`}
-                    />
+                    <ListItemText primary={`${key}: ${value}`} />
                   </ListItem>
-                  {index < Object.keys(diceScores).length - 1 && <Divider />}
+                  {index < Object.keys(diceScores.value).length - 1 && (
+                    <Divider />
+                  )}
                 </React.Fragment>
               ))}
           </List>
