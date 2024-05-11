@@ -1,6 +1,7 @@
 import { useSignals } from '@preact/signals-react/runtime'
 import { Button } from '@mui/material'
-import { loginOpen } from '../signals'
+import { loginOpen, isLoggedIn } from '@/signals'
+import { logout } from '@/services/auth'
 
 const LoginModal: React.FC = () => {
   useSignals()
@@ -11,11 +12,11 @@ const LoginModal: React.FC = () => {
       variant='contained'
       color='primary'
       onClick={() => {
-        loginOpen.value = true
+        isLoggedIn.value ? logout() : (loginOpen.value = true)
       }}
     >
       {' '}
-      Login{' '}
+      {isLoggedIn.value ? 'Logout' : 'Login'}
     </Button>
   )
 }

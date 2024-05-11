@@ -29,12 +29,9 @@ const DiceRoll: React.FC = () => {
   useSignals()
   const numberOfDices = 6
 
-  const { isSuccess, data, isFetching, isError, refetch } =
+  const { data, isFetching, isError, refetch } =
     useFetchDiceRolls(numberOfDices)
 
-  if (isSuccess) {
-    console.log({ data })
-  }
   const handleRollDice = () => {
     rolling.value = true
     const dices = setInterval(() => {

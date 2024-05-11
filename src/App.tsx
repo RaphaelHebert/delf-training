@@ -1,7 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+
+import Home from '@/pages/Home'
+import { isUserLoggedIn } from '@/services/auth'
 
 function App() {
+  isUserLoggedIn()
   return (
     <Routes>
       {/* TODO: add a loader to the Route */}

@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Button, TextField } from '@mui/material'
 import { useMutation } from 'react-query'
 
-import { authToken, loginOpen } from '@/signals'
+import { handleLoginSuccess } from '@/services/auth'
 import { login } from '@/api/auth'
 interface FormData {
   email: string
@@ -17,8 +17,7 @@ const LoginForm: React.FC = () => {
 
   const mutation = useMutation(login, {
     onSuccess: ({ data }) => {
-      authToken.value = data
-      loginOpen.value = false
+      handleLoginSuccess(data)
     },
     onError: () => {
       console.log('TODO: handle catch')
@@ -26,16 +25,13 @@ const LoginForm: React.FC = () => {
   })
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault() // Prevent default form submission behavior
-    // Access form data from the state
+    event.preventDefault()
     mutation.mutate(formData)
-
-    // Call your login function or API with formData
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    // Update form data state when input values change
+    // control form
     setFormData({ ...formData, [name]: value })
   }
 
