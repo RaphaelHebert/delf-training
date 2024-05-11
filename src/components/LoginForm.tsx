@@ -37,6 +37,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2 id='login-modal-title'>Login</h2>
       <TextField
         name='email'
         id='emailInput'

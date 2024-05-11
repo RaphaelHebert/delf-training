@@ -1,10 +1,18 @@
+import { useState } from 'react'
 import { useSignals } from '@preact/signals-react/runtime'
 
 import { loginOpen } from '@/signals'
-import { Modal, Box } from '@mui/material'
+import { Modal, Box, Button } from '@mui/material'
 import LoginForm from './LoginForm'
+import SignUpForm from './SignUpForm'
 
 const LoginModal: React.FC = () => {
+  const [isLogin, setIsLogin] = useState<boolean>(true)
+
+  const toggleIsLogin = (): void => {
+    setIsLogin((prev) => !prev)
+  }
+
   useSignals()
 
   return (
@@ -35,8 +43,18 @@ const LoginModal: React.FC = () => {
           bottom: 0,
         }}
       >
-        <h2 id='login-modal-title'>Login</h2>
-        <LoginForm />
+        {isLogin ? <LoginForm /> : <SignUpForm />}
+        <p>
+          {isLogin ? "Don't have an account yet?" : 'Already have an account?'}
+        </p>
+        <Button
+          type='button'
+          variant='contained'
+          color='primary'
+          onClick={toggleIsLogin}
+        >
+          {isLogin ? 'Create Account' : 'Login'}
+        </Button>
       </Box>
     </Modal>
   )
