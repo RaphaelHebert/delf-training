@@ -1,5 +1,6 @@
 import React from 'react'
 import './dice.css'
+// https://www.flaticon.com/free-icons/dice
 import One from '../../assets/svg/dices/one.png'
 import Two from '../../assets/svg/dices/two.png'
 import Three from '../../assets/svg/dices/three.png'

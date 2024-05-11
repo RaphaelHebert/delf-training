@@ -15,8 +15,7 @@ import {
 } from '@mui/material'
 import LoginButton from '@/components/LoginButton'
 import { diceScores, DiceRoll as DiceRollType } from '@/signals'
-
-import { useFetchDiceRolls } from '../services/queries'
+import { useFetchDiceRolls } from '@/hooks/queries'
 
 const roll = signal<DiceRollType>([])
 const rolling = signal(false)
