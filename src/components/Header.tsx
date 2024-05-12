@@ -4,7 +4,6 @@ import LoginButton from '@/components/LoginButton'
 import { isLoggedIn } from '@/signals'
 
 const Header: React.FC = () => {
-  console.log(isLoggedIn.value)
   return (
     <div
       style={{

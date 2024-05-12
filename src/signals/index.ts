@@ -15,4 +15,4 @@ export const authToken: Signal<string | null> = signal(null)
 
 export const isLoggedIn: Signal<boolean> = signal(false)
 
-export const user: Signal<IUser | null> = signal(null)
+export const user: Signal<IUser> = signal({ username: '', email: '', uid: '' })

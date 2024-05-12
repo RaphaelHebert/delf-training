@@ -11,3 +11,8 @@ export async function addUser(user: IUserLogin): Promise<IUser> {
 export async function deleteUser(user: IUser): Promise<void> {
   await axios.delete(`${base_URL}/user/?id=${user.uid}`)
 }
+
+export async function updateUser(user: IUser): Promise<IUser> {
+  const response = await axios.post(`${base_URL}/user/?id=${user.uid}`, user)
+  return response.data as IUser
+}
