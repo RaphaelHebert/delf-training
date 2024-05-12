@@ -25,8 +25,6 @@ const SignUpForm: React.FC = () => {
 
   const loginMutation = useMutation(login, {
     onSuccess: ({ data }) => {
-      console.log({ data })
-
       handleLoginSuccess(data)
     },
     onError: () => {
@@ -36,7 +34,6 @@ const SignUpForm: React.FC = () => {
 
   const mutation = useMutation(addUser, {
     onSuccess: (user) => {
-      console.log({ user })
       loginMutation.mutate({ ...user, password: formData.password })
     },
     onError: () => {

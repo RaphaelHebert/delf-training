@@ -1,6 +1,7 @@
 import { jwtDecode } from 'jwt-decode'
 
-import { authToken, loginOpen, isLoggedIn } from '@/signals'
+import { IUser } from '@/type/user'
+import { authToken, loginOpen, isLoggedIn, user } from '@/signals'
 
 interface JwtPayload {
   exp: number
@@ -20,15 +21,20 @@ export const isTokenExpired = (token: string): boolean => {
 export const handleLoginSuccess = (token: string): void => {
   authToken.value = token
 
+  window.localStorage.removeItem('token')
   window.localStorage.setItem('token', token)
+
+  const userData = jwtDecode<IUser>(token)
+  user.value = userData
   isLoggedIn.value = true
   loginOpen.value = false
+
   return
 }
 
 export const isUserLoggedIn = (): void => {
   const token = window.localStorage.getItem('token')
-  isLoggedIn.value = !!token && !isTokenExpired
+  isLoggedIn.value = !!token && !isTokenExpired(token)
   return
 }
 

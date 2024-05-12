@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 import LoginModal from '@/components/LoginModal'
-import ProfilModal from '@/components/ProfilModal'
+import ProfileModal from '@/components/ProfileModal'
 
 import Header from '@/components/Header'
 
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
           element={<DiceRoll />}
         />
       </Routes>
-      <ProfilModal />
+      <ProfileModal />
       <LoginModal />
     </>
   )

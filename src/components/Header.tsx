@@ -1,8 +1,10 @@
-import ProfilButton from './ProfilButton'
+import ProfileButton from './ProfileButton'
 import LoginButton from '@/components/LoginButton'
 
 import { isLoggedIn } from '@/signals'
+
 const Header: React.FC = () => {
+  console.log(isLoggedIn.value)
   return (
     <div
       style={{
@@ -11,7 +13,7 @@ const Header: React.FC = () => {
         justifyContent: 'flex-end',
       }}
     >
-      {isLoggedIn.value ? <ProfilButton /> : <LoginButton />}
+      {isLoggedIn.value ? <ProfileButton /> : <LoginButton />}
     </div>
   )
 }
