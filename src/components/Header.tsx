@@ -1,5 +1,7 @@
 import ProfilButton from './ProfilButton'
+import LoginButton from '@/components/LoginButton'
 
+import { isLoggedIn } from '@/signals'
 const Header: React.FC = () => {
   return (
     <div
@@ -9,7 +11,7 @@ const Header: React.FC = () => {
         justifyContent: 'flex-end',
       }}
     >
-      <ProfilButton />
+      {isLoggedIn.value ? <ProfilButton /> : <LoginButton />}
     </div>
   )
 }

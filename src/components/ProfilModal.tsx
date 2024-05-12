@@ -1,4 +1,5 @@
-import LoginButton from '@/components/LoginButton'
+import DeleteIcon from '@mui/icons-material/Delete'
+import { Button } from '@mui/material'
 
 import { profileOpen } from '@/signals'
 import { Modal, Box, Stack } from '@mui/material'
@@ -32,8 +33,18 @@ const ProfilModal: React.FC = () => {
           bottom: 0,
         }}
       >
-        <Stack>
-          <LoginButton />
+        <Stack spacing={2}>
+          <Button
+            type='button'
+            variant='outlined'
+            color='secondary'
+            onClick={() => {
+              //do something
+            }}
+            startIcon={<DeleteIcon />}
+          >
+            delete my account
+          </Button>
         </Stack>
       </Box>
     </Modal>
