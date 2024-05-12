@@ -3,14 +3,10 @@ import { Button, TextField } from '@mui/material'
 import { useMutation } from 'react-query'
 
 import { handleLoginSuccess } from '@/services/auth'
-import { login } from '@/api/auth'
-interface FormData {
-  email: string
-  password: string
-}
+import { login, ILoginInput } from '@/api/auth'
 
 const LoginForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ILoginInput>({
     email: '',
     password: '',
   })

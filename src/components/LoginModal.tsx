@@ -7,13 +7,12 @@ import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 const LoginModal: React.FC = () => {
+  useSignals()
   const [isLogin, setIsLogin] = useState<boolean>(true)
 
   const toggleIsLogin = (): void => {
     setIsLogin((prev) => !prev)
   }
-
-  useSignals()
 
   return (
     <Modal
