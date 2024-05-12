@@ -1,9 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
+import { useSignals } from '@preact/signals-react/runtime'
 
 import Home from '@/pages/Home'
 import { isUserLoggedIn } from '@/services/auth'
 
 function App() {
+  useSignals()
   isUserLoggedIn()
   return (
     <Routes>

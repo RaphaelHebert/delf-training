@@ -1,7 +1,7 @@
 import React from 'react'
-import { useSignals } from '@preact/signals-react/runtime'
 import { signal } from '@preact/signals-react'
 import Dice from '@/components/Dice'
+import { formatDate } from '@/services/date'
 
 import {
   List,
@@ -26,7 +26,6 @@ const easeIn = signal(true)
 // implement infinite query or query only last 100 scores?
 
 const DiceRoll: React.FC = () => {
-  useSignals()
   const numberOfDices = 6
 
   const { data, isFetching, isError, refetch } =
@@ -64,9 +63,10 @@ const DiceRoll: React.FC = () => {
       <Stack sx={{ flex: 1 }}>
         <h1>Dice Roller</h1>
         <Button
-          onClick={() => {
-            handleRollDice()
-          }}
+          type='button'
+          onClick={handleRollDice}
+          variant='contained'
+          color='secondary'
           disabled={isFetching}
         >
           {isRolling ? 'Rolling...' : 'Roll Dice'}
@@ -104,21 +104,34 @@ const DiceRoll: React.FC = () => {
           </Stack>
         </div>
       </Stack>
-      <Stack style={{ minWidth: '25%', padding: '16px', marginLeft: '20px' }}>
+      <Stack
+        style={{
+          minWidth: '25%',
+          padding: '16px',
+          marginLeft: '20px',
+          height: '90vh',
+        }}
+      >
         <Typography
           variant='h5'
           gutterBottom
         >
           Last Dice Scores
         </Typography>
-        <Paper elevation={3}>
+        <LoginButton />
+        <Paper
+          elevation={3}
+          sx={{ height: '80vh' }}
+        >
           <List>
             {diceScores.value &&
               Object.entries(diceScores.value).length > 0 &&
-              Object.entries(diceScores.value).map(([key, value], index) => (
+              Object.entries(diceScores.value).map(([num, value], index) => (
                 <React.Fragment key={index}>
                   <ListItem>
-                    <ListItemText primary={`${key}: ${value}`} />
+                    <ListItemText
+                      primary={`${formatDate(parseInt(num))}: ${value}`}
+                    />
                   </ListItem>
                   {index < Object.keys(diceScores.value).length - 1 && (
                     <Divider />
@@ -126,7 +139,6 @@ const DiceRoll: React.FC = () => {
                 </React.Fragment>
               ))}
           </List>
-          <LoginButton />
         </Paper>
       </Stack>
     </div>

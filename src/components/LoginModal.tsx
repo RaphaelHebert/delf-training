@@ -1,14 +1,19 @@
 import { useState } from 'react'
-import { useSignals } from '@preact/signals-react/runtime'
+import { useSignalEffect } from '@preact/signals-react/runtime'
 
 import { loginOpen } from '@/signals'
-import { Modal, Box, Button } from '@mui/material'
+import { Modal, Box, Link } from '@mui/material'
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 const LoginModal: React.FC = () => {
-  useSignals()
   const [isLogin, setIsLogin] = useState<boolean>(true)
+
+  useSignalEffect(() => {
+    if (!loginOpen.value) {
+      setIsLogin(true)
+    }
+  })
 
   const toggleIsLogin = (): void => {
     setIsLogin((prev) => !prev)
@@ -46,14 +51,13 @@ const LoginModal: React.FC = () => {
         <p>
           {isLogin ? "Don't have an account yet?" : 'Already have an account?'}
         </p>
-        <Button
-          type='button'
-          variant='contained'
-          color='primary'
+        <Link
+          component='button'
+          variant='body2'
           onClick={toggleIsLogin}
         >
           {isLogin ? 'Create Account' : 'Login'}
-        </Button>
+        </Link>
       </Box>
     </Modal>
   )

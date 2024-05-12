@@ -1,12 +1,12 @@
 import React from 'react'
 import './dice.css'
 // https://www.flaticon.com/free-icons/dice
-import One from '../../assets/svg/dices/one.png'
-import Two from '../../assets/svg/dices/two.png'
-import Three from '../../assets/svg/dices/three.png'
-import Four from '../../assets/svg/dices/four.png'
-import Five from '../../assets/svg/dices/five.png'
-import Six from '../../assets/svg/dices/six.png'
+import One from '../../assets/png/dices/one.png'
+import Two from '../../assets/png/dices/two.png'
+import Three from '../../assets/png/dices/three.png'
+import Four from '../../assets/png/dices/four.png'
+import Five from '../../assets/png/dices/five.png'
+import Six from '../../assets/png/dices/six.png'
 
 interface IProps {
   face: number
