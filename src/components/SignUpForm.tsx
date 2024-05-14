@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Button, TextField } from '@mui/material'
 import { useMutation } from 'react-query'
+import * as yup from 'yup'
 
 import { handleLoginSuccess } from '@/services/auth'
 import { login } from '@/api/auth'
@@ -22,6 +23,7 @@ const SignUpForm: React.FC = () => {
     confirmPassword: '',
     username: '',
   })
+  const [formErrors, setFormErrors] = useState<Partial<FormData>>({}) // State to track form errors
 
   const loginMutation = useMutation(login, {
     onSuccess: ({ data }) => {
@@ -41,33 +43,62 @@ const SignUpForm: React.FC = () => {
     },
   })
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    // Password checking logic
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match')
-      return
-    }
-    if (formData.password.length < 8) {
-      alert('Password must be at least 8 characters long')
-      return
-    }
+    try {
+      // Validate form data using Yup schema
+      await signUpSchema.validate(formData, { abortEarly: false })
 
-    const payload: IUserLogin = {
-      email: formData.email,
-      username: formData.username,
-      password: formData.password,
-    }
+      // Password checking logic
+      if (formData.password !== formData.confirmPassword) {
+        throw new Error('Passwords do not match')
+      }
 
-    mutation.mutate(payload)
+      const payload: IUserLogin = {
+        email: formData.email,
+        username: formData.username,
+        password: formData.password,
+      }
+
+      mutation.mutate(payload)
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        // Update form errors state with Yup validation errors
+        const errors: Partial<FormData> = {}
+        error.inner.forEach((err) => {
+          errors[err.path as keyof FormData] = err.message
+        })
+        setFormErrors(errors)
+      } else {
+        console.error(error)
+      }
+    }
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    // control form
+    // Control form
     setFormData({ ...formData, [name]: value })
+    // Clear errors for changed field
+    setFormErrors({ ...formErrors, [name]: undefined })
   }
+
+  const signUpSchema = yup.object().shape({
+    email: yup.string().email('Invalid email').required('Email is required'),
+    username: yup
+      .string()
+      .min(2, 'Username must be at least 8 characters')
+      .required('Username is required'),
+    password: yup
+      .string()
+      .min(8, 'Password must be at least 8 characters')
+      .required('Password is required'),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password')], 'Passwords must match')
+      .required('Confirm Password is required'),
+  })
 
   return (
     <form onSubmit={handleSubmit}>
@@ -83,6 +114,8 @@ const SignUpForm: React.FC = () => {
         required
         value={formData.email}
         onChange={handleChange}
+        error={!!formErrors.email} // Set error state based on formErrors
+        helperText={formErrors.email} // Display error message if present
       />
       <TextField
         name='username'
@@ -94,6 +127,8 @@ const SignUpForm: React.FC = () => {
         required
         value={formData.username}
         onChange={handleChange}
+        error={!!formErrors.username} // Set error state based on formErrors
+        helperText={formErrors.username} // Display error message if present
       />
       <TextField
         name='password'
@@ -106,11 +141,13 @@ const SignUpForm: React.FC = () => {
         required
         value={formData.password}
         onChange={handleChange}
+        error={!!formErrors.password} // Set error state based on formErrors
+        helperText={formErrors.password} // Display error message if present
       />
       <TextField
         name='confirmPassword'
         id='confirmPasswordInput'
-        type='password' // Corrected to 'password'
+        type='password'
         label='Confirm Password'
         variant='outlined'
         margin='normal'
@@ -118,6 +155,8 @@ const SignUpForm: React.FC = () => {
         required
         value={formData.confirmPassword}
         onChange={handleChange}
+        error={!!formErrors.confirmPassword} // Set error state based on formErrors
+        helperText={formErrors.confirmPassword} // Display error message if present
       />
       <Button
         type='submit'

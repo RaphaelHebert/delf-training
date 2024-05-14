@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Button, TextField } from '@mui/material'
 import { useMutation } from 'react-query'
+import * as yup from 'yup'
 
 import { user } from '@/signals'
 import { updateUser } from '@/api/user'
@@ -16,8 +17,8 @@ const UpdateForm: React.FC = () => {
     email: user.value.email,
     username: user.value.username,
   })
-
   const [isUpdating, setIsUpdating] = useState<boolean>(false)
+  const [formErrors, setFormErrors] = useState<Partial<FormData>>({}) // State to track form errors
 
   const mutation = useMutation(updateUser, {
     onSuccess: () => {
@@ -28,23 +29,45 @@ const UpdateForm: React.FC = () => {
     },
   })
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const payload: IUser = {
-      email: formData.email,
-      username: formData.username,
-      uid: user.value.uid,
+    try {
+      // Validate form data using Yup schema
+      await updateSchema.validate(formData, { abortEarly: false })
+      const payload: IUser = {
+        email: formData.email,
+        username: formData.username,
+        uid: user.value.uid,
+      }
+      mutation.mutate(payload)
+    } catch (error) {
+      if (error instanceof yup.ValidationError) {
+        // Update form errors state with Yup validation errors
+        const errors: Partial<FormData> = {}
+        error.inner.forEach((err) => {
+          errors[err.path as keyof FormData] = err.message
+        })
+        setFormErrors(errors)
+      }
     }
-
-    mutation.mutate(payload)
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    // control form
+    // Control form
     setFormData({ ...formData, [name]: value })
+    // Clear errors for changed field
+    setFormErrors({ ...formErrors, [name]: undefined })
   }
+
+  const updateSchema = yup.object().shape({
+    email: yup.string().email('Invalid email').required('Email is required'),
+    username: yup
+      .string()
+      .min(2, 'Username must be at least 8 characters')
+      .required('Username is required'),
+  })
 
   return (
     <form onSubmit={handleSubmit}>
@@ -61,6 +84,8 @@ const UpdateForm: React.FC = () => {
         value={formData.email}
         disabled={!isUpdating}
         onChange={handleChange}
+        error={!!formErrors.email} // Set error state based on formErrors
+        helperText={formErrors.email} // Display error message if present
       />
       <TextField
         name='username'
@@ -69,10 +94,12 @@ const UpdateForm: React.FC = () => {
         variant='outlined'
         margin='normal'
         fullWidth
-        disabled={!isUpdating}
         required
         value={formData.username}
+        disabled={!isUpdating}
         onChange={handleChange}
+        error={!!formErrors.username} // Set error state based on formErrors
+        helperText={formErrors.username} // Display error message if present
       />
       {!isUpdating ? (
         <Button
@@ -107,6 +134,7 @@ const UpdateForm: React.FC = () => {
                 username: user.value.username,
                 email: user.value.email,
               })
+              setFormErrors({}) // Clear form errors
             }}
           >
             Cancel
