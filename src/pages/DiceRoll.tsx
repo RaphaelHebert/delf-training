@@ -1,20 +1,11 @@
 import React from 'react'
 import { signal } from '@preact/signals-react'
 import Dice from '@/components/Dice'
-import { formatDate } from '@/services/date'
 
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Divider,
-  Typography,
-  Paper,
-  Button,
-  Stack,
-} from '@mui/material'
-import { diceScores, DiceRoll as DiceRollType } from '@/signals'
+import { Button, Stack } from '@mui/material'
+import { DiceRoll as DiceRollType } from '@/signals'
 import { useFetchDiceRolls } from '@/hooks/queries'
+import Scores from '@/components/Scores'
 
 const roll = signal<DiceRollType>([])
 const rolling = signal(false)
@@ -103,42 +94,7 @@ const DiceRoll: React.FC = () => {
           </Stack>
         </div>
       </Stack>
-      <Stack
-        style={{
-          minWidth: '25%',
-          padding: '16px',
-          marginLeft: '20px',
-          height: '90vh',
-        }}
-      >
-        <Typography
-          variant='h5'
-          gutterBottom
-        >
-          Last Dice Scores
-        </Typography>
-        <Paper
-          elevation={3}
-          sx={{ height: '80vh' }}
-        >
-          <List>
-            {diceScores.value &&
-              Object.entries(diceScores.value).length > 0 &&
-              Object.entries(diceScores.value).map(([num, value], index) => (
-                <React.Fragment key={index}>
-                  <ListItem>
-                    <ListItemText
-                      primary={`${formatDate(parseInt(num))}: ${value}`}
-                    />
-                  </ListItem>
-                  {index < Object.keys(diceScores.value).length - 1 && (
-                    <Divider />
-                  )}
-                </React.Fragment>
-              ))}
-          </List>
-        </Paper>
-      </Stack>
+      <Scores />
     </div>
   )
 }
