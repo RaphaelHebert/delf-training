@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { signal } from '@preact/signals-react'
 import Dice from '@/components/Dice'
+import { DiceRoll as DiceRollType } from '@/type/dice'
 
-import { Button, Stack } from '@mui/material'
-import { DiceRoll as DiceRollType } from '@/signals'
+import { Button, Stack, Alert } from '@mui/material'
 import { useFetchDiceRolls } from '@/hooks/queries'
 import Scores from '@/components/Scores'
+import { diceScores } from '@/signals'
 
 const roll = signal<DiceRollType>([])
 const rolling = signal(false)
@@ -18,8 +19,23 @@ const easeIn = signal(true)
 const DiceRoll: React.FC = () => {
   const numberOfDices = 6
 
-  const { data, isFetching, isError, refetch } =
-    useFetchDiceRolls(numberOfDices)
+  const {
+    data: score,
+    isFetching,
+    isError,
+    isSuccess,
+    refetch,
+    error,
+  } = useFetchDiceRolls(numberOfDices)
+
+  useEffect(() => {
+    if (isSuccess) {
+      const values = diceScores.value
+      console.log({ values })
+      diceScores.value =
+        isSuccess && values.length ? [...values, score] : [score]
+    }
+  }, [isSuccess, score])
 
   const handleRollDice = () => {
     rolling.value = true
@@ -37,9 +53,11 @@ const DiceRoll: React.FC = () => {
       clearInterval(dices)
       clearInterval(easing)
       rolling.value = false
+      refetch()
     }, 3000)
-    refetch()
   }
+
+  console.log('score :', score)
 
   const isRolling = isFetching || rolling.value
 
@@ -57,19 +75,17 @@ const DiceRoll: React.FC = () => {
           onClick={handleRollDice}
           variant='contained'
           color='secondary'
-          disabled={isFetching}
+          disabled={isRolling}
         >
           {isRolling ? 'Rolling...' : 'Roll Dice'}
         </Button>
-        {isError && <div>Unknown error</div>}
-
         <div>
           <h2>Dice Rolls:</h2>
           <Stack
             direction={'row'}
             spacing={3}
           >
-            {isRolling ? (
+            {isRolling && (
               <>
                 {roll.value?.map((dice, index) => (
                   <Dice
@@ -79,10 +95,11 @@ const DiceRoll: React.FC = () => {
                   />
                 ))}
               </>
-            ) : (
+            )}
+            {!isRolling && isSuccess && (
               <>
-                {data &&
-                  data.map((value, index) => (
+                {score &&
+                  score.score.map((value, index) => (
                     <Dice
                       face={value}
                       key={index}
@@ -90,6 +107,9 @@ const DiceRoll: React.FC = () => {
                     />
                   ))}
               </>
+            )}
+            {!isRolling && isError && (
+              <Alert severity='error'>{`An error occurred: ${error}`}</Alert>
             )}
           </Stack>
         </div>

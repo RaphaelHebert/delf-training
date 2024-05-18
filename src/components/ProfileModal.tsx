@@ -18,7 +18,7 @@ const ProfileModal: React.FC = () => {
     },
     onError: (error: Error) => {
       // Handle errors, e.g., log them or show a notification
-      console.error('Error deleting user:', error)
+      console.log(error)
     },
   })
 

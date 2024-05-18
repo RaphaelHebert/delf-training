@@ -3,7 +3,7 @@ import LoginIcon from '@mui/icons-material/login'
 import { loginOpen, isLoggedIn, profileOpen } from '@/signals'
 import { logout } from '@/services/auth'
 
-const LoginModal: React.FC = () => {
+const LoginButton: React.FC = () => {
   return (
     <Button
       type='button'
@@ -20,4 +20,4 @@ const LoginModal: React.FC = () => {
   )
 }
 
-export default LoginModal
+export default LoginButton

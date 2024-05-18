@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { diceScores, authToken } from '@/signals'
+import { authToken } from '@/signals'
 import { fetchDiceRollsMock, fetchDiceRolls } from '@/api/dice'
 
 export function useFetchDiceRolls(n: number) {
@@ -10,8 +10,6 @@ export function useFetchDiceRolls(n: number) {
       const response = authToken.value
         ? await fetchDiceRolls(n)
         : await fetchDiceRollsMock(n)
-
-      diceScores.value = { ...diceScores.value, [Date.now()]: response.data }
       return response.data
     },
     enabled: false,

@@ -15,7 +15,7 @@ const LoginForm: React.FC = () => {
   const [errorLogin, setErrorLogin] = useState<string>('') // Error message state
   const [formErrors, setFormErrors] = useState<Partial<ILoginInput>>({}) // State to track form errors
 
-  const mutation = useMutation(login, {
+  const loginMutation = useMutation(login, {
     onSuccess: ({ data }) => {
       handleLoginSuccess(data)
     },
@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
     try {
       // Validate form data using Yup schema
       await loginSchema.validate(formData, { abortEarly: false })
-      mutation.mutate(formData)
+      loginMutation.mutate(formData)
     } catch (error) {
       if (error instanceof yup.ValidationError) {
         // Update form errors state with Yup validation errors

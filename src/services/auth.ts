@@ -25,6 +25,7 @@ export const handleLoginSuccess = (token: string): void => {
   window.localStorage.setItem('token', token)
 
   const userData = jwtDecode<IUser>(token)
+
   user.value = userData
   isLoggedIn.value = true
   loginOpen.value = false
