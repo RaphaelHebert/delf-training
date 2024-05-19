@@ -31,7 +31,6 @@ const DiceRoll: React.FC = () => {
   useEffect(() => {
     if (isSuccess) {
       const values = diceScores.value
-      console.log({ values })
       diceScores.value =
         isSuccess && values.length ? [...values, score] : [score]
     }
@@ -56,8 +55,6 @@ const DiceRoll: React.FC = () => {
       refetch()
     }, 3000)
   }
-
-  console.log('score :', score)
 
   const isRolling = isFetching || rolling.value
 

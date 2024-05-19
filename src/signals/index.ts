@@ -1,6 +1,7 @@
 import { signal, Signal } from '@preact/signals-react'
 import { IUser } from '@/type/user'
 import { Scores } from '@/type/dice'
+
 // login modal open
 export const loginOpen: Signal<boolean> = signal(false)
 

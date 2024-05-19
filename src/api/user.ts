@@ -20,6 +20,13 @@ export async function updateUser(user: IUser): Promise<IUser> {
   return response.data as IUser
 }
 
+export async function getUserById(id: string): Promise<IUser> {
+  const axiosInstance = configureAxios()
+
+  const response = await axiosInstance.get(`${base_URL}/user?id=${id}`)
+  return response.data as IUser
+}
+
 export async function scores(): Promise<Scores> {
   const axiosInstance = configureAxios()
   return axiosInstance.get(`/scores`)

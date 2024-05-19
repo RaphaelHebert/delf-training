@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
-import { Button, TextField } from '@mui/material'
+import { Button, Stack, TextField } from '@mui/material'
 import { useMutation } from 'react-query'
 import * as yup from 'yup'
 
@@ -20,9 +20,10 @@ const UpdateForm: React.FC = () => {
   const [isUpdating, setIsUpdating] = useState<boolean>(false)
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({}) // State to track form errors
 
-  const mutation = useMutation(updateUser, {
-    onSuccess: () => {
+  const { mutate: updateUserMutation } = useMutation(updateUser, {
+    onSuccess: (data) => {
       setIsUpdating(false)
+      user.value = data
     },
     onError: () => {
       console.log('TODO: handle catch')
@@ -40,7 +41,7 @@ const UpdateForm: React.FC = () => {
         username: formData.username,
         uid: user.value.uid,
       }
-      mutation.mutate(payload)
+      updateUserMutation(payload)
     } catch (error) {
       if (error instanceof yup.ValidationError) {
         // Update form errors state with Yup validation errors
@@ -106,6 +107,7 @@ const UpdateForm: React.FC = () => {
           type='submit'
           variant='outlined'
           color='primary'
+          sx={{ width: '100%' }}
           onClick={() => {
             setIsUpdating(true)
           }}
@@ -113,21 +115,23 @@ const UpdateForm: React.FC = () => {
           Update Account details
         </Button>
       ) : (
-        <>
+        <Stack
+          direction={'row'}
+          spacing={2}
+        >
           <Button
             type='submit'
             variant='contained'
             color='primary'
-            onClick={() => {
-              console.log('updating...')
-            }}
+            sx={{ flex: 1 }}
           >
             Confirm changes
           </Button>
           <Button
-            type='submit'
+            type='button'
             variant='contained'
             color='secondary'
+            sx={{ flex: 1 }}
             onClick={() => {
               setIsUpdating(false)
               setFormData({
@@ -139,7 +143,7 @@ const UpdateForm: React.FC = () => {
           >
             Cancel
           </Button>
-        </>
+        </Stack>
       )}
     </form>
   )
