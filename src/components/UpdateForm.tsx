@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Button, Stack, TextField } from '@mui/material'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 import * as yup from 'yup'
 
 import { user } from '@/signals'
@@ -20,10 +20,17 @@ const UpdateForm: React.FC = () => {
   const [isUpdating, setIsUpdating] = useState<boolean>(false)
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({}) // State to track form errors
 
+  const queryClient = useQueryClient()
   const { mutate: updateUserMutation } = useMutation(updateUser, {
     onSuccess: (data) => {
+      queryClient.invalidateQueries(['user'])
       setIsUpdating(false)
-      user.value = data
+      user.value = {
+        ...user.value,
+        username: data.data?.username,
+        email: data.data?.email,
+      }
+      //user.value.email = data.data?.email
     },
     onError: () => {
       console.log('TODO: handle catch')
@@ -124,6 +131,10 @@ const UpdateForm: React.FC = () => {
             variant='contained'
             color='primary'
             sx={{ flex: 1 }}
+            disabled={
+              user.value.username === formData.username &&
+              user.value.email === formData.email
+            }
           >
             Confirm changes
           </Button>

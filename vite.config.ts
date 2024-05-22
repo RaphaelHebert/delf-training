@@ -6,7 +6,13 @@ import { fileURLToPath } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [['module:@preact/signals-react-transform']],
+      },
+    }),
+  ],
   resolve: {
     alias: [
       {

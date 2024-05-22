@@ -1,6 +1,5 @@
 import ProfileButton from './ProfileButton'
 import LoginButton from '@/components/LoginButton'
-
 import { isLoggedIn } from '@/signals'
 
 const Header: React.FC = () => {

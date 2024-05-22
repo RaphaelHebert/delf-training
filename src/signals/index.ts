@@ -15,3 +15,12 @@ export const authToken: Signal<string | null> = signal(null)
 export const isLoggedIn: Signal<boolean> = signal(false)
 
 export const user: Signal<IUser> = signal({ username: '', email: '', uid: '' })
+
+export const createAppState = () => ({
+  loginOpen,
+  profileOpen,
+  diceScores,
+  authToken,
+  isLoggedIn,
+  user,
+})
