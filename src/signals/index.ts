@@ -16,6 +16,8 @@ export const isLoggedIn: Signal<boolean> = signal(false)
 
 export const user: Signal<IUser> = signal({ username: '', email: '', uid: '' })
 
+export const isScoreFetched = signal(false)
+
 export const createAppState = () => ({
   loginOpen,
   profileOpen,

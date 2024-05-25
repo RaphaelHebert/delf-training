@@ -33,5 +33,6 @@ export async function getUserById(id: string): Promise<IUser> {
 
 export async function scores(): Promise<Scores> {
   const axiosInstance = configureAxios()
-  return axiosInstance.get(`/scores`)
+  const response = await axiosInstance.get(`/scores`)
+  return response.data
 }

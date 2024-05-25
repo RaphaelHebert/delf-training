@@ -1,7 +1,15 @@
 import { jwtDecode } from 'jwt-decode'
 
 import { IUser } from '@/type/user'
-import { authToken, loginOpen, isLoggedIn, user } from '@/signals'
+
+import {
+  authToken,
+  loginOpen,
+  isLoggedIn,
+  user,
+  isScoreFetched,
+  diceScores,
+} from '@/signals'
 
 interface JwtPayload {
   exp: number
@@ -54,7 +62,9 @@ export const isUserLoggedIn = (): void => {
 }
 
 export const logout = (): void => {
-  window.localStorage.removeItem('token')
+  isScoreFetched.value = false
+  diceScores.value = []
   isLoggedIn.value = false
   authToken.value = null
+  window.localStorage.removeItem('token')
 }
