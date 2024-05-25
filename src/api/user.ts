@@ -12,7 +12,7 @@ export async function addUser(user: IUserLogin): Promise<IUser> {
 }
 
 export async function deleteUser(user: IUser): Promise<void> {
-  await axios.delete(`${base_URL}/user/?id=${user.uid}`)
+  await axios.delete(`${base_URL}/user/${user.uid}`)
 }
 
 export async function updateUser(user: IUser): Promise<AxiosResponse> {

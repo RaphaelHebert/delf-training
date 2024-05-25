@@ -1,27 +1,11 @@
-import DeleteIcon from '@mui/icons-material/Delete'
-import { useMutation } from 'react-query'
-import { Button } from '@mui/material'
+import LoginButton from './LoginButton'
+import UpdateForm from './UpdateForm'
+import DeleteForm from './DeleteForm'
 
-import { deleteUser } from '@/api/user'
-import { IUser } from '@/type/user'
-import LoginButton from '@/components/LoginButton'
-import UpdateForm from '@/components/UpdateForm'
-import { profileOpen, user } from '@/signals'
+import { profileOpen } from '@/signals'
 import { Modal, Box, Stack } from '@mui/material'
-import { logout } from '@/services/auth'
 
 const ProfileModal: React.FC = () => {
-  const deleteMutation = useMutation<void, Error, IUser>(deleteUser, {
-    onSuccess: () => {
-      logout()
-      profileOpen.value = false
-    },
-    onError: (error: Error) => {
-      // Handle errors, e.g., log them or show a notification
-      console.log(error)
-    },
-  })
-
   return (
     <Modal
       open={profileOpen.value}
@@ -53,19 +37,7 @@ const ProfileModal: React.FC = () => {
         <Stack spacing={2}>
           <UpdateForm />
           <LoginButton />
-          <Button
-            type='button'
-            variant='outlined'
-            color='secondary'
-            onClick={() => {
-              if (user) {
-                deleteMutation.mutate(user.value as unknown as IUser)
-              }
-            }}
-            startIcon={<DeleteIcon />}
-          >
-            delete my account
-          </Button>
+          <DeleteForm />
         </Stack>
       </Box>
     </Modal>
