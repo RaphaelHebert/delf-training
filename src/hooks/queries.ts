@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 import { authToken } from '@/signals'
 import { fetchDiceRollsMock, fetchDiceRolls } from '@/api/dice'
 
-export function useFetchDiceRolls(n: number) {
+function useFetchDiceRolls(n: number) {
   // if user is not logged in use location function otherwise call backend
   return useQuery({
     queryKey: 'diceRolls',
@@ -16,3 +16,5 @@ export function useFetchDiceRolls(n: number) {
     refetchOnMount: false,
   })
 }
+
+export default useFetchDiceRolls

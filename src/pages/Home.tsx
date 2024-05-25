@@ -1,9 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import LoginModal from '@/components/LoginModal'
-import ProfileModal from '@/components/ProfileModal'
-
-import Header from '@/components/Header'
+import { LoginModal, ProfileModal, Header } from '@/components'
 
 import DiceRoll from './DiceRoll'
 

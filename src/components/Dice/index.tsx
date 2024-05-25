@@ -1,22 +1,11 @@
 import React from 'react'
-import './dice.css'
 // https://www.flaticon.com/free-icons/dice
-import One from '../../assets/png/dices/one.png'
-import Two from '../../assets/png/dices/two.png'
-import Three from '../../assets/png/dices/three.png'
-import Four from '../../assets/png/dices/four.png'
-import Five from '../../assets/png/dices/five.png'
-import Six from '../../assets/png/dices/six.png'
+import { One, Two, Three, Four, Five, Six } from '@/assets'
 
-interface IProps {
-  face: number
-  easeIn: boolean
-}
-interface DiceFaces {
-  [key: number]: string
-}
+import { IProps, IDiceFaces } from './types'
+import './dice.css'
 
-const diceFaces: DiceFaces = {
+const diceFaces: IDiceFaces = {
   1: One,
   2: Two,
   3: Three,

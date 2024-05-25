@@ -5,7 +5,8 @@ import { Button, TextField } from '@mui/material'
 import * as yup from 'yup' // Import Yup
 
 import { handleLoginSuccess } from '@/services/auth'
-import { login, ILoginInput } from '@/api/auth'
+import { login } from '@/api'
+import { ILoginInput } from '@/type'
 
 const LoginForm: React.FC = () => {
   const [formData, setFormData] = useState<ILoginInput>({

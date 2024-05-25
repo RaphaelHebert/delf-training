@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
-import { signal } from '@preact/signals-react'
-import Dice from '@/components/Dice'
-import { DiceRoll as DiceRollType } from '@/type/dice'
-
 import { Button, Stack, Alert } from '@mui/material'
-import { useFetchDiceRolls } from '@/hooks/queries'
-import Scores from '@/components/Scores'
+import { signal } from '@preact/signals-react'
+
+import { DiceRoll as DiceRollType } from '@/type'
+import { Scores, Dice } from '@/components'
+import { useFetchDiceRolls } from '@/hooks'
 import { diceScores } from '@/signals'
 
 const roll = signal<DiceRollType>([])

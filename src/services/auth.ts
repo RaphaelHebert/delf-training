@@ -1,6 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 
-import { IUser } from '@/type/user'
+import { IUser, JwtPayload } from '@/type'
 
 import {
   authToken,
@@ -10,13 +10,6 @@ import {
   isScoreFetched,
   diceScores,
 } from '@/signals'
-
-interface JwtPayload {
-  exp: number
-  email: string
-  username: string
-  uid: string
-}
 
 export const isTokenExpired = (token: string): boolean => {
   try {
