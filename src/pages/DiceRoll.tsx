@@ -11,10 +11,6 @@ const roll = signal<DiceRollType>([])
 const rolling = signal(false)
 const easeIn = signal(true)
 
-// TODO fetch scores only on page load if user is logged in
-// add new score on state (score are saved on call for logged in users)
-// implement infinite query or query only last 100 scores?
-
 const DiceRoll: React.FC = () => {
   const numberOfDices = 6
 

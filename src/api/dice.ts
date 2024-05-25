@@ -1,5 +1,5 @@
 import { configureAxios } from './helpers'
-import { Score, DiceRoll } from '@/type/dice'
+import { Score, DiceRoll } from '@/type'
 import { v4 as uuidv4 } from 'uuid'
 
 export async function fetchDiceRolls(n: number): Promise<{
@@ -14,8 +14,6 @@ export const fetchDiceRollsMock = async (
 ): Promise<{
   data: Score
 }> => {
-  // Simulate delay
-  // await new Promise((resolve) => setTimeout(resolve, 1000))
   // Generate random dice rolls
   const res: DiceRoll = []
   for (let i = 0; i < n; i++) {
