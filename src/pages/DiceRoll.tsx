@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Button, Stack, Alert } from '@mui/material'
 import { signal } from '@preact/signals-react'
+import { useQuery } from 'react-query'
+import { fetchDiceRollsMock, fetchDiceRolls } from '@/api/dice'
 
 import { DiceRoll as DiceRollType } from '@/type'
-import { Scores, Dice } from '@/components'
-import { useFetchDiceRolls } from '@/hooks'
-import { diceScores } from '@/signals'
+import { Dice, Scores } from '@/components'
+import { diceScores, authToken } from '@/signals'
 
 const roll = signal<DiceRollType>([])
+
 const rolling = signal(false)
 const easeIn = signal(true)
 
@@ -21,15 +23,20 @@ const DiceRoll: React.FC = () => {
     isSuccess,
     refetch,
     error,
-  } = useFetchDiceRolls(numberOfDices)
-
-  useEffect(() => {
-    if (isSuccess) {
-      const values = diceScores.value
-      diceScores.value =
-        isSuccess && values.length ? [...values, score] : [score]
-    }
-  }, [isSuccess, score])
+  } = useQuery({
+    queryKey: 'diceRolls',
+    queryFn: async () => {
+      const response = authToken.value
+        ? await fetchDiceRolls(6)
+        : await fetchDiceRollsMock(6)
+      return response.data
+    },
+    onSuccess: (score) => {
+      diceScores.value.push(score)
+    },
+    enabled: false,
+    refetchOnMount: false,
+  })
 
   const handleRollDice = () => {
     rolling.value = true

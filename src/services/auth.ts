@@ -6,9 +6,9 @@ import {
   authToken,
   loginOpen,
   isLoggedIn,
-  user,
   isScoreFetched,
   diceScores,
+  user,
 } from '@/signals'
 
 export const isTokenExpired = (token: string): boolean => {
@@ -24,9 +24,6 @@ export const isTokenExpired = (token: string): boolean => {
 
 export const handleLoginSuccess = (token: string): void => {
   authToken.value = token
-  console.log(token)
-  console.log(authToken.value)
-
   window.localStorage.removeItem('token')
   window.localStorage.setItem('token', token)
 
@@ -55,6 +52,7 @@ export const isUserLoggedIn = (): void => {
 }
 
 export const logout = (): void => {
+  user.value = { username: '', email: '', uid: '' }
   isScoreFetched.value = false
   diceScores.value = []
   isLoggedIn.value = false

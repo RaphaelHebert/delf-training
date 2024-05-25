@@ -17,20 +17,15 @@ import { diceScores, isLoggedIn, isScoreFetched } from '@/signals'
 // TODO implement infinite query or query only last 100 scores?
 
 const Scores: React.FC = () => {
-  console.log(isLoggedIn.value)
-  console.log(isLoggedIn.value)
-  const { data, isFetching, isSuccess } = useQuery({
+  const { isFetching } = useQuery({
     queryKey: 'fetchingScores',
     queryFn: scores,
     enabled: isLoggedIn.value && !isScoreFetched.value,
+    onSuccess: (data) => {
+      diceScores.value = data
+      isScoreFetched.value = true
+    },
   })
-
-  if (isSuccess && !isScoreFetched.value && isLoggedIn.value) {
-    diceScores.value = data
-    isScoreFetched.value = true
-    console.log({ data })
-    console.log(diceScores.value)
-  }
 
   return (
     <Stack

@@ -69,9 +69,12 @@ const DeleteForm: React.FC = () => {
         variant='outlined'
         color='secondary'
         onClick={() => {
-          isDeleting.value = !isDeleting.value
-          if (user && isDeleting.value && isChecked.value) {
+          if (user.value && isDeleting.value && isChecked.value) {
+            isChecked.value = false
+            isDeleting.value = false
             deleteMutation.mutate(user.value as unknown as IUser)
+          } else {
+            isDeleting.value = true
           }
         }}
         startIcon={<DeleteIcon />}

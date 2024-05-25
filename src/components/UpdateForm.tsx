@@ -3,12 +3,11 @@ import { Button, Stack, TextField } from '@mui/material'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import * as yup from 'yup'
 
-import { user, authToken } from '@/signals'
-import { updateUser } from '@/api/user'
-import { token } from '@/api/auth'
-import { handleLoginSuccess } from '@/services/auth'
+import { user } from '@/signals'
+import { updateUser, token } from '@/api'
+import { handleLoginSuccess } from '@/services'
 
-import { IUser } from '@/type/user'
+import { IUser } from '@/type'
 
 interface FormData {
   email: string
@@ -31,14 +30,11 @@ const UpdateForm: React.FC = () => {
         queryClient.invalidateQueries(['user'])
 
         setIsUpdating(false)
-        console.log({ data })
         user.value = {
           ...user.value,
           username: data.username,
           email: data.email,
         }
-        const u = user.value
-        console.log({ u })
       },
       onError: () => {
         console.log('TODO: handle catch')
@@ -60,8 +56,6 @@ const UpdateForm: React.FC = () => {
     if (successToken) {
       handleLoginSuccess(tokenData.data)
     }
-    console.log('authToken.value')
-    console.log(authToken.value)
   }, [successToken, errorToken, tokenData])
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
