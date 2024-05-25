@@ -16,7 +16,8 @@ export async function deleteUser(user: IUser): Promise<void> {
 }
 
 export async function updateUser(user: IUser): Promise<AxiosResponse> {
-  const response = await axios.put(`${base_URL}/user/${user.uid}`, {
+  const axiosInstance = configureAxios()
+  const response = await axiosInstance.put(`${base_URL}/user/${user.uid}`, {
     email: user.email,
     username: user.username,
   })

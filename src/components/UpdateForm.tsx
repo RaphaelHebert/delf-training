@@ -1,10 +1,13 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react'
 import { Button, Stack, TextField } from '@mui/material'
-import { useMutation, useQueryClient } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import * as yup from 'yup'
 
-import { user } from '@/signals'
+import { user, authToken } from '@/signals'
 import { updateUser } from '@/api/user'
+import { token } from '@/api/auth'
+import { handleLoginSuccess } from '@/services/auth'
+
 import { IUser } from '@/type/user'
 
 interface FormData {
@@ -21,21 +24,45 @@ const UpdateForm: React.FC = () => {
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({}) // State to track form errors
 
   const queryClient = useQueryClient()
-  const { mutate: updateUserMutation } = useMutation(updateUser, {
-    onSuccess: (data) => {
-      queryClient.invalidateQueries(['user'])
-      setIsUpdating(false)
-      user.value = {
-        ...user.value,
-        username: data.data?.username,
-        email: data.data?.email,
-      }
-      //user.value.email = data.data?.email
-    },
-    onError: () => {
-      console.log('TODO: handle catch')
-    },
+  const { mutate: updateUserMutation, isSuccess: updateSuccess } = useMutation(
+    updateUser,
+    {
+      onSuccess: ({ data }) => {
+        queryClient.invalidateQueries(['user'])
+
+        setIsUpdating(false)
+        console.log({ data })
+        user.value = {
+          ...user.value,
+          username: data.username,
+          email: data.email,
+        }
+        const u = user.value
+        console.log({ u })
+      },
+      onError: () => {
+        console.log('TODO: handle catch')
+      },
+    }
+  )
+
+  const {
+    data: tokenData,
+    isError: errorToken,
+    isSuccess: successToken,
+  } = useQuery({
+    queryKey: 'renewingTOken',
+    queryFn: token,
+    enabled: updateSuccess,
   })
+
+  useEffect(() => {
+    if (successToken) {
+      handleLoginSuccess(tokenData.data)
+    }
+    console.log('authToken.value')
+    console.log(authToken.value)
+  }, [successToken, errorToken, tokenData])
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()

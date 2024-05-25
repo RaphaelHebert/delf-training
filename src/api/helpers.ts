@@ -7,7 +7,7 @@ export const configureAxios = (): AxiosInstance => {
     baseURL: import.meta.env.VITE_API_BASE_URL, // Your API base URL
     headers: {
       common: {
-        Authorization: `Bearer ${authToken.value}`,
+        Authorization: `bearer ${authToken.value}`,
       },
     },
   })

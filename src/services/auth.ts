@@ -23,6 +23,8 @@ export const isTokenExpired = (token: string): boolean => {
 
 export const handleLoginSuccess = (token: string): void => {
   authToken.value = token
+  console.log(token)
+  console.log(authToken.value)
 
   window.localStorage.removeItem('token')
   window.localStorage.setItem('token', token)
@@ -45,6 +47,7 @@ export const isUserLoggedIn = (): void => {
       user.value.username = decoded.username
       user.value.email = decoded.email
       user.value.uid = decoded.uid
+      authToken.value = token
     }
   }
   return
