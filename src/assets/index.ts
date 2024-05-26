@@ -1,0 +1,6 @@
+export { default as One } from './png/dices/one.png'
+export { default as Two } from './png/dices/two.png'
+export { default as Three } from './png/dices/three.png'
+export { default as Four } from './png/dices/four.png'
+export { default as Five } from './png/dices/five.png'
+export { default as Six } from './png/dices/six.png'
