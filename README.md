@@ -1,6 +1,4 @@
-# Daily Dices
-
-![Profile Image](/src/assets/profile.png)
+# Delf Training
 
 Basic environment
 
