@@ -1,5 +1,6 @@
-import { Button, Flex, RadioGroup } from '@radix-ui/themes'
+import { Button, Flex, Text, Radio } from '@radix-ui/themes'
 import React, { useState } from 'react'
+import './styles.css'
 
 type Props = {
   title: string
@@ -9,16 +10,40 @@ type Props = {
     answers: string[]
     correct: string
   }
+  sendSummary: () => void
 }
-const ExerciceCard: React.FC<Props> = ({ title, qcm, instructions }) => {
+const ExerciceCard: React.FC<Props> = ({
+  title,
+  qcm,
+  instructions,
+  sendSummary = () => {},
+}) => {
   const { question, answers, correct } = qcm
 
   const [selectedOption, setSelectedOption] = useState('')
-  const [submittedValue, setSubmittedValue] = useState('')
+  const [hasFormBeenSubmited, setHasFormBeenSubmited] = useState(false)
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
-    setSubmittedValue(selectedOption)
+    if (hasFormBeenSubmited) {
+      sendSummary()
+      return
+    }
+    setHasFormBeenSubmited(true)
+  }
+
+  const defineColor = (answer: string): any => {
+    // TODO find types for radix colors
+    if (!hasFormBeenSubmited) return 'mint'
+    return hasFormBeenSubmited && answer !== correct ? 'red' : 'green'
+  }
+
+  const defineClassName = (answer: string): any => {
+    // TODO find types for radix colors
+    if (!hasFormBeenSubmited) return ''
+    return hasFormBeenSubmited && answer !== correct
+      ? 'wrongAnswer'
+      : 'goodAnswer'
   }
 
   return (
@@ -35,21 +60,31 @@ const ExerciceCard: React.FC<Props> = ({ title, qcm, instructions }) => {
 
       <Flex width='100%'>
         <form onSubmit={handleSubmit}>
-          <RadioGroup.Root
-            color='mint'
-            name='qcm'
-            value={selectedOption}
-            onValueChange={setSelectedOption}
-          >
-            {answers.map((answer) => (
-              <RadioGroup.Item
-                key={question}
-                value={answer}
+          {answers.map((answer) => (
+            <Flex
+              asChild
+              gap='2'
+              align='center'
+              key={answer}
+            >
+              <Text
+                as='label'
+                size='3'
+                className={defineClassName(answer)}
               >
+                <Radio
+                  size='1'
+                  name={answer}
+                  value={answer}
+                  checked={answer === selectedOption}
+                  onClick={() => setSelectedOption(answer)}
+                  disabled={hasFormBeenSubmited && answer !== selectedOption}
+                  color={defineColor(answer)}
+                />
                 {answer}
-              </RadioGroup.Item>
-            ))}
-          </RadioGroup.Root>
+              </Text>
+            </Flex>
+          ))}
           <Flex
             direction='row'
             justify={'between'}
@@ -63,14 +98,18 @@ const ExerciceCard: React.FC<Props> = ({ title, qcm, instructions }) => {
               {' '}
               Pass{' '}
             </Button>
-            <Button color='mint'> Check </Button>
+            <Button color='mint'>
+              {' '}
+              {hasFormBeenSubmited ? 'Next' : 'Check'}
+            </Button>
           </Flex>
         </form>
       </Flex>
-      {submittedValue && (
+      {hasFormBeenSubmited && (
         <p>
-          Submitted value:{' '}
-          {submittedValue === correct ? 'correct' : `the answer was ${correct}`}
+          {selectedOption === correct
+            ? 'Correct !'
+            : `La bonne reponse est ${correct}`}
         </p>
       )}
     </Flex>

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header, ExerciceCard } from '@/components'
 import { Flex } from '@radix-ui/themes'
 
 const Home: React.FC = () => {
+  const [count, setCount] = useState(0)
+
+  const handleQuestionSubmission = () => {
+    setCount((prev) => prev + 1)
+  }
+
   return (
     <Flex
       gap='3'
@@ -14,6 +20,7 @@ const Home: React.FC = () => {
       }}
     >
       <Header />
+      {count}
       <ExerciceCard
         title='Level 1 debutant'
         qcm={{
@@ -22,6 +29,7 @@ const Home: React.FC = () => {
           correct: 'aiment',
         }}
         instructions='Choisissez la bonne reponse:'
+        sendSummary={handleQuestionSubmission}
       />
     </Flex>
   )
