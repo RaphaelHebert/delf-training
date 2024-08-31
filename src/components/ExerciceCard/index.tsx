@@ -10,7 +10,7 @@ type Props = {
     answers: string[]
     correct: string
   }
-  sendSummary: () => void
+  sendSummary?: (isCorrect?: boolean) => void
 }
 const ExerciceCard: React.FC<Props> = ({
   title,
@@ -20,13 +20,15 @@ const ExerciceCard: React.FC<Props> = ({
 }) => {
   const { question, answers, correct } = qcm
 
+  console.log('rerednder')
   const [selectedOption, setSelectedOption] = useState('')
   const [hasFormBeenSubmited, setHasFormBeenSubmited] = useState(false)
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
     if (hasFormBeenSubmited) {
-      sendSummary()
+      setHasFormBeenSubmited(false)
+      sendSummary(selectedOption === correct)
       return
     }
     setHasFormBeenSubmited(true)

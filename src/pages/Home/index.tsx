@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import { Header, ExerciceCard } from '@/components'
 import { Flex } from '@radix-ui/themes'
+import { a1 } from '@/data/questionsA1'
 
 const Home: React.FC = () => {
   const [count, setCount] = useState(0)
+  const [countGoodAnswer, setCountGoodAnswer] = useState(0)
 
-  const handleQuestionSubmission = () => {
+  const handleQuestionSubmission = (isGoodAnswer?: boolean): void => {
     setCount((prev) => prev + 1)
+    if (isGoodAnswer) {
+      setCountGoodAnswer((prev) => prev + 1)
+    }
   }
 
   return (
@@ -21,16 +26,16 @@ const Home: React.FC = () => {
     >
       <Header />
       {count}
-      <ExerciceCard
-        title='Level 1 debutant'
-        qcm={{
-          question: 'Ils _____ manger des glaces.',
-          answers: ['aiment', 'aime', 'aimes', 'aimer'],
-          correct: 'aiment',
-        }}
-        instructions='Choisissez la bonne reponse:'
-        sendSummary={handleQuestionSubmission}
-      />
+      {count !== a1.length ? (
+        <ExerciceCard
+          title={a1[count].title}
+          qcm={a1[count].qcm}
+          instructions={a1[count].instructions}
+          sendSummary={handleQuestionSubmission}
+        />
+      ) : (
+        <div>{`Your score is ${countGoodAnswer} / ${count} `}</div>
+      )}
     </Flex>
   )
 }
