@@ -1,5 +1,5 @@
 import { Button, Flex, RadioGroup } from '@radix-ui/themes'
-import React from 'react'
+import React, { useState } from 'react'
 
 type Props = {
   title: string
@@ -13,10 +13,14 @@ type Props = {
 const ExerciceCard: React.FC<Props> = ({ title, qcm, instructions }) => {
   const { question, answers, correct } = qcm
 
-  const manageSubmit = (e: any) => {
-    e.preventDefault()
-    console.log(e.target)
+  const [selectedOption, setSelectedOption] = useState('')
+  const [submittedValue, setSubmittedValue] = useState('')
+
+  const handleSubmit = (event: React.SyntheticEvent) => {
+    event.preventDefault()
+    setSubmittedValue(selectedOption)
   }
+
   return (
     <Flex
       direction='column'
@@ -28,34 +32,47 @@ const ExerciceCard: React.FC<Props> = ({ title, qcm, instructions }) => {
 
       <h3>{instructions}</h3>
       <p>{question}</p>
-      <form onSubmit={manageSubmit}>
-        <Flex width='100%'>
+
+      <Flex width='100%'>
+        <form onSubmit={handleSubmit}>
           <RadioGroup.Root
             color='mint'
-            name='example'
+            name='qcm'
+            value={selectedOption}
+            onValueChange={setSelectedOption}
           >
             {answers.map((answer) => (
-              <RadioGroup.Item value={answer}>{answer}</RadioGroup.Item>
+              <RadioGroup.Item
+                key={question}
+                value={answer}
+              >
+                {answer}
+              </RadioGroup.Item>
             ))}
           </RadioGroup.Root>
-        </Flex>
-
-        <Flex
-          direction='row'
-          justify={'between'}
-          width='100%'
-          py='6'
-        >
-          <Button
-            type='button'
-            color='gray'
+          <Flex
+            direction='row'
+            justify={'between'}
+            width='100%'
+            py='6'
           >
-            {' '}
-            Pass{' '}
-          </Button>
-          <Button color='mint'> Check </Button>
-        </Flex>
-      </form>
+            <Button
+              type='button'
+              color='gray'
+            >
+              {' '}
+              Pass{' '}
+            </Button>
+            <Button color='mint'> Check </Button>
+          </Flex>
+        </form>
+      </Flex>
+      {submittedValue && (
+        <p>
+          Submitted value:{' '}
+          {submittedValue === correct ? 'correct' : `the answer was ${correct}`}
+        </p>
+      )}
     </Flex>
   )
 }
