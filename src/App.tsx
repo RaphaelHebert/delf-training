@@ -1,12 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import { useSignals } from '@preact/signals-react/runtime'
-import Home from '@/pages/Home'
-import { isUserLoggedIn } from '@/services/auth'
+import { Home } from '@/pages'
 
 function App() {
-  useSignals()
-  isUserLoggedIn()
-
   return (
     <Routes>
       {/* TODO: add a loader to the Route */}
