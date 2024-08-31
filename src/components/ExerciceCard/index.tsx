@@ -34,13 +34,13 @@ const ExerciceCard: React.FC<Props> = ({
     setHasFormBeenSubmited(true)
   }
 
-  const defineColor = (answer: string): any => {
+  const defineColor = (answer: string) => {
     // TODO find types for radix colors
     if (!hasFormBeenSubmited) return 'mint'
     return hasFormBeenSubmited && answer !== correct ? 'red' : 'green'
   }
 
-  const defineClassName = (answer: string): any => {
+  const defineClassName = (answer: string) => {
     // TODO find types for radix colors
     if (!hasFormBeenSubmited) return ''
     return hasFormBeenSubmited && answer !== correct
