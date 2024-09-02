@@ -1,0 +1,7 @@
+.wrongAnswer {
+  text-decoration: line-through;
+}
+
+.goodAnswer {
+  color: green;
+}
