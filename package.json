@@ -15,7 +15,8 @@
     "lint:fix": "eslint --fix --quiet --cache",
     "format": "prettier --write --ignore-unknown .",
     "prepare": "husky install",
-    "test": "vitest"
+    "test": "vitest",
+    "test:once": "vitest run"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
