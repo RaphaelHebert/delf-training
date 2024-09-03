@@ -47,6 +47,10 @@ jobs:
           path: |
             ~/.npm
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: install
+        run: |
+          npm ci
+          npm i @rollup/rollup-linux-x64-gnu
       - name: Lint
         run: npm run lint
   test:
