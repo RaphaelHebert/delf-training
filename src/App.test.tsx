@@ -21,7 +21,7 @@ describe('Renders main page correctly', () => {
       </BrowserRouter>
     )
 
-    const home = await screen.queryByText('Hoime')
+    const home = await screen.queryByText('Home')
 
     expect(home).toBeInTheDocument()
   })
