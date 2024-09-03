@@ -9,7 +9,6 @@ function App() {
         path='*'
         element={<Home />}
       />
-      {/* some comment */}
     </Routes>
   )
 }

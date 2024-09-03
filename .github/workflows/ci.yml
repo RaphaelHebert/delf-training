@@ -16,17 +16,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          npm ci
-          npm i @rollup/rollup-linux-x64-gnu
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
         with:
           path: ./node_modules
           key: modules-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm i @rollup/rollup-linux-x64-gnu
   lint:
     needs: install
     runs-on: ubuntu-latest
@@ -57,6 +57,7 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
