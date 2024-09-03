@@ -16,17 +16,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: install
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm ci
           npm i @rollup/rollup-linux-x64-gnu
-      - name: cache dependencies
+      - name: Cache dependencies
+        id: cache
         uses: actions/cache@v4
         with:
-          name: packages
-          path: |
-            ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
   lint:
     needs: install
     runs-on: ubuntu-latest
@@ -40,14 +40,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: cache dependencies
+      - name: Cache dependencies
+        id: cache
         uses: actions/cache@v4
         with:
-          name: packages
-          path: |
-            ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: install
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm ci
           npm i @rollup/rollup-linux-x64-gnu
@@ -57,12 +57,16 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     steps:
-      - name: cache dependencies
+      - name: Cache dependencies
+        id: cache
         uses: actions/cache@v4
         with:
-          name: packages
-          path: |
-            ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm i @rollup/rollup-linux-x64-gnu
       - name: Unit tests
         run: npm run test:once
