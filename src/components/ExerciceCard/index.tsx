@@ -20,7 +20,6 @@ const ExerciceCard: React.FC<Props> = ({
 }) => {
   const { question, answers, correct } = qcm
 
-  console.log('rerednder')
   const [selectedOption, setSelectedOption] = useState('')
   const [hasFormBeenSubmited, setHasFormBeenSubmited] = useState(false)
 
@@ -58,7 +57,9 @@ const ExerciceCard: React.FC<Props> = ({
       <h2>{title}</h2>
 
       <h3>{instructions}</h3>
-      <p>{question}</p>
+      <p>
+        {selectedOption ? question.replace('_____', selectedOption) : question}
+      </p>
 
       <Flex width='100%'>
         <form onSubmit={handleSubmit}>
