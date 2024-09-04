@@ -5,3 +5,29 @@
 .goodAnswer {
   color: green;
 }
+
+.defaultAnswer {
+  border-radius: 12px;
+  background: lightgray;
+}
+
+.defaultAnswer:hover {
+  background: red;
+}
+
+.selectedAnswer {
+  background: yellow;
+}
+
+.questionClass {
+  white-space: nowrap;
+}
+
+.noHover {
+  pointer-events: none;
+  width: 100%;
+}
+
+.answerButton {
+  width: 100%;
+}
