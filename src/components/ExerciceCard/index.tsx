@@ -30,7 +30,7 @@ type Props = {
   sendSummary?: (isCorrect?: boolean) => void
 }
 
-const ExerciceCard: React.FC<Props> = ({
+const ExerciseCard: React.FC<Props> = ({
   title,
   qcm,
   instructions,
@@ -167,4 +167,4 @@ const ExerciceCard: React.FC<Props> = ({
   )
 }
 
-export default ExerciceCard
+export default ExerciseCard
