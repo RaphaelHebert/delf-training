@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Header, ExerciseCard } from '@/components'
 import { Flex } from '@radix-ui/themes'
 import { a1 } from '@/data/questionsA1'
+import shuffle from '@/utils/shuffle-array'
 
 const Home: React.FC = () => {
   const [count, setCount] = useState(0)
@@ -13,6 +14,9 @@ const Home: React.FC = () => {
       setCountGoodAnswer((prev) => prev + 1)
     }
   }
+
+  // shuffle the questions
+  shuffle(a1)
 
   return (
     <Flex
