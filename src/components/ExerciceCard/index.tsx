@@ -57,9 +57,7 @@ const ExerciseCard: React.FC<Props> = ({
       return answer === selectedOption ? COLOR_SUCCESS : COLOR_FAIL
     }
 
-    return hasFormBeenSubmitted && answer !== correct
-      ? COLOR_ERROR
-      : COLOR_CORRECT
+    return answer !== correct ? COLOR_ERROR : COLOR_CORRECT
   }
 
   const defineVariant = (answer: string): Variant => {
@@ -138,7 +136,7 @@ const ExerciseCard: React.FC<Props> = ({
                 size='3'
                 //className={answerClass()}
                 onClick={() => setSelectedOption(answer)}
-                id={answer}
+                type='button'
                 variant={defineVariant(answer)}
                 color={defineColor(answer)}
                 className={hasFormBeenSubmitted ? 'noHover' : ''}
