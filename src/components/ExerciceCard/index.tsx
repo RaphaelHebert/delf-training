@@ -1,6 +1,23 @@
-import { Button, Flex, Text, Radio } from '@radix-ui/themes'
+import { Button, Flex, Text, Heading, Card, Container } from '@radix-ui/themes'
 import React, { useState } from 'react'
+import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
+
 import './styles.css'
+
+const COLOR_CORRECT = 'green'
+const COLOR_ERROR = 'red'
+const COLOR_SUCCESS = 'mint'
+const COLOR_FAIL = 'gray'
+
+// TODO extract type from Radix
+type Variant =
+  | 'surface'
+  | 'classic'
+  | 'solid'
+  | 'soft'
+  | 'outline'
+  | 'ghost'
+  | undefined
 
 type Props = {
   title: string
@@ -12,7 +29,8 @@ type Props = {
   }
   sendSummary?: (isCorrect?: boolean) => void
 }
-const ExerciceCard: React.FC<Props> = ({
+
+const ExerciseCard: React.FC<Props> = ({
   title,
   qcm,
   instructions,
@@ -20,32 +38,35 @@ const ExerciceCard: React.FC<Props> = ({
 }) => {
   const { question, answers, correct } = qcm
 
-  console.log('rerednder')
   const [selectedOption, setSelectedOption] = useState('')
-  const [hasFormBeenSubmited, setHasFormBeenSubmited] = useState(false)
+  const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    event.preventDefault()
-    if (hasFormBeenSubmited) {
-      setHasFormBeenSubmited(false)
+  const handleSubmit = () => {
+    if (hasFormBeenSubmitted) {
+      setHasFormBeenSubmitted(false)
+      setSelectedOption('')
       sendSummary(selectedOption === correct)
       return
     }
-    setHasFormBeenSubmited(true)
+    setHasFormBeenSubmitted(true)
   }
 
   const defineColor = (answer: string) => {
     // TODO find types for radix colors
-    if (!hasFormBeenSubmited) return 'mint'
-    return hasFormBeenSubmited && answer !== correct ? 'red' : 'green'
+    if (!hasFormBeenSubmitted) {
+      return answer === selectedOption ? COLOR_SUCCESS : COLOR_FAIL
+    }
+
+    return hasFormBeenSubmitted && answer !== correct
+      ? COLOR_ERROR
+      : COLOR_CORRECT
   }
 
-  const defineClassName = (answer: string) => {
-    // TODO find types for radix colors
-    if (!hasFormBeenSubmited) return ''
-    return hasFormBeenSubmited && answer !== correct
-      ? 'wrongAnswer'
-      : 'goodAnswer'
+  const defineVariant = (answer: string): Variant => {
+    if (!hasFormBeenSubmitted) {
+      return answer === selectedOption ? 'surface' : 'outline'
+    }
+    return 'soft'
   }
 
   return (
@@ -53,69 +74,97 @@ const ExerciceCard: React.FC<Props> = ({
       direction='column'
       justify='center'
       align='center'
-      px='35%'
     >
-      <h2>{title}</h2>
-
-      <h3>{instructions}</h3>
-      <p>{question}</p>
-
-      <Flex width='100%'>
-        <form onSubmit={handleSubmit}>
-          {answers.map((answer) => (
-            <Flex
-              asChild
-              gap='2'
-              align='center'
-              key={answer}
-            >
-              <Text
-                as='label'
-                size='3'
-                className={defineClassName(answer)}
-              >
-                <Radio
-                  size='1'
-                  name={answer}
-                  value={answer}
-                  checked={answer === selectedOption}
-                  onClick={() => setSelectedOption(answer)}
-                  disabled={hasFormBeenSubmited && answer !== selectedOption}
-                  color={defineColor(answer)}
-                />
-                {answer}
-              </Text>
-            </Flex>
-          ))}
-          <Flex
-            direction='row'
-            justify={'between'}
-            width='100%'
-            py='6'
+      <Heading
+        as='h2'
+        size='6'
+        mb='6'
+      >
+        {title}
+      </Heading>
+      <Container>
+        <Card>
+          <Heading
+            as='h3'
+            size='4'
+            mb='5'
+            mx='6'
           >
-            <Button
-              type='button'
-              color='gray'
+            {instructions}
+          </Heading>{' '}
+          <Flex
+            mb='6'
+            justify='center'
+            wrap={'nowrap'}
+            align='center'
+          >
+            {hasFormBeenSubmitted && selectedOption !== correct && (
+              <Cross2Icon
+                color={COLOR_ERROR}
+                width='30'
+                height='30'
+                data-testid='cross-icon'
+              />
+            )}
+            {hasFormBeenSubmitted && selectedOption === correct && (
+              <CheckIcon
+                color={COLOR_CORRECT}
+                width='30'
+                height='30'
+                data-testid='check-icon'
+              />
+            )}
+            <Text
+              wrap={'nowrap'}
+              as='div'
+              ml='3'
             >
-              {' '}
-              Pass{' '}
-            </Button>
-            <Button color='mint'>
-              {' '}
-              {hasFormBeenSubmited ? 'Next' : 'Check'}
-            </Button>
+              {selectedOption
+                ? question.replace('_____', selectedOption)
+                : question}
+            </Text>
           </Flex>
-        </form>
-      </Flex>
-      {hasFormBeenSubmited && (
-        <p>
-          {selectedOption === correct
-            ? 'Correct !'
-            : `La bonne reponse est ${correct}`}
-        </p>
-      )}
+          <Flex
+            width='100%'
+            justify='start'
+            align='stretch'
+            direction='column'
+          >
+            {answers.map((answer) => (
+              <Button
+                key={answer}
+                my='2'
+                mx='8'
+                size='3'
+                //className={answerClass()}
+                onClick={() => setSelectedOption(answer)}
+                id={answer}
+                variant={defineVariant(answer)}
+                color={defineColor(answer)}
+                className={hasFormBeenSubmitted ? 'noHover' : ''}
+              >
+                {answer}
+              </Button>
+            ))}
+          </Flex>
+        </Card>
+        <Flex
+          direction='column'
+          align='stretch'
+          width='100%'
+          py='6'
+        >
+          <Button
+            color='gray'
+            type='button'
+            onClick={handleSubmit}
+          >
+            {hasFormBeenSubmitted ? 'Next' : 'Check'}
+          </Button>
+        </Flex>
+      </Container>
     </Flex>
   )
 }
 
-export default ExerciceCard
+export default ExerciseCard

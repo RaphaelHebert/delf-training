@@ -1,7 +1,26 @@
+@import '@radix-ui/colors/green.css';
+
 .wrongAnswer {
   text-decoration: line-through;
 }
 
 .goodAnswer {
   color: green;
+}
+
+.defaultAnswer {
+  border-radius: 12px;
+  background: lightgray;
+}
+
+.defaultAnswer:hover {
+  background: red;
+}
+
+.selectedAnswer {
+  background: yellow;
+}
+
+.noHover {
+  pointer-events: none;
 }

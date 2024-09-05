@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Header, ExerciceCard } from '@/components'
+import { Header, ExerciseCard } from '@/components'
 import { Flex } from '@radix-ui/themes'
 import { a1 } from '@/data/questionsA1'
 
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
       <Header />
       {count}
       {count !== a1.length ? (
-        <ExerciceCard
+        <ExerciseCard
           title={a1[count].title}
           qcm={a1[count].qcm}
           instructions={a1[count].instructions}
