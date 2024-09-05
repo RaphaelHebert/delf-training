@@ -39,10 +39,10 @@ const ExerciceCard: React.FC<Props> = ({
   const { question, answers, correct } = qcm
 
   const [selectedOption, setSelectedOption] = useState('')
-  const [hasFormBeenSubmited, setHasFormBeenSubmitted] = useState(false)
+  const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
 
   const handleSubmit = () => {
-    if (hasFormBeenSubmited) {
+    if (hasFormBeenSubmitted) {
       setHasFormBeenSubmitted(false)
       setSelectedOption('')
       sendSummary(selectedOption === correct)
@@ -53,17 +53,17 @@ const ExerciceCard: React.FC<Props> = ({
 
   const defineColor = (answer: string) => {
     // TODO find types for radix colors
-    if (!hasFormBeenSubmited) {
+    if (!hasFormBeenSubmitted) {
       return answer === selectedOption ? COLOR_SUCCESS : COLOR_FAIL
     }
 
-    return hasFormBeenSubmited && answer !== correct
+    return hasFormBeenSubmitted && answer !== correct
       ? COLOR_ERROR
       : COLOR_CORRECT
   }
 
   const defineVariant = (answer: string): Variant => {
-    if (!hasFormBeenSubmited) {
+    if (!hasFormBeenSubmitted) {
       return answer === selectedOption ? 'surface' : 'outline'
     }
     return 'soft'
@@ -98,18 +98,20 @@ const ExerciceCard: React.FC<Props> = ({
             wrap={'nowrap'}
             align='center'
           >
-            {hasFormBeenSubmited && selectedOption !== correct && (
+            {hasFormBeenSubmitted && selectedOption !== correct && (
               <Cross2Icon
                 color={COLOR_ERROR}
                 width='30'
                 height='30'
+                data-testid='cross-icon'
               />
             )}
-            {hasFormBeenSubmited && selectedOption === correct && (
+            {hasFormBeenSubmitted && selectedOption === correct && (
               <CheckIcon
                 color={COLOR_CORRECT}
                 width='30'
                 height='30'
+                data-testid='check-icon'
               />
             )}
             <Text
@@ -139,7 +141,7 @@ const ExerciceCard: React.FC<Props> = ({
                 id={answer}
                 variant={defineVariant(answer)}
                 color={defineColor(answer)}
-                className={hasFormBeenSubmited ? 'noHover' : ''}
+                className={hasFormBeenSubmitted ? 'noHover' : ''}
               >
                 {answer}
               </Button>
@@ -157,8 +159,7 @@ const ExerciceCard: React.FC<Props> = ({
             type='button'
             onClick={handleSubmit}
           >
-            {' '}
-            {hasFormBeenSubmited ? 'Next' : 'Check'}
+            {hasFormBeenSubmitted ? 'Next' : 'Check'}
           </Button>
         </Flex>
       </Container>
