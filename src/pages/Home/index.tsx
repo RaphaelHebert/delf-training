@@ -32,9 +32,9 @@ const Home: React.FC = () => {
       {count}
       {count !== a1.length ? (
         <ExerciseCard
-          title={a1[count].title}
-          qcm={a1[count].qcm}
-          instructions={a1[count].instructions}
+          title='Level: A1'
+          qcm={a1[count]}
+          instructions='Choisissez la bonne reponse:'
           sendSummary={handleQuestionSubmission}
         />
       ) : (
