@@ -1,8 +1,13 @@
-import { Button, Flex, Text } from '@radix-ui/themes'
+import { Button, Flex, Text, Heading, Card, Container } from '@radix-ui/themes'
 import React, { useState } from 'react'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
 
 import './styles.css'
+
+const COLOR_CORRECT = 'green'
+const COLOR_ERROR = 'red'
+const COLOR_SUCCESS = 'mint'
+const COLOR_FAIL = 'gray'
 
 // TODO extract type from Radix
 type Variant =
@@ -24,6 +29,7 @@ type Props = {
   }
   sendSummary?: (isCorrect?: boolean) => void
 }
+
 const ExerciceCard: React.FC<Props> = ({
   title,
   qcm,
@@ -48,106 +54,106 @@ const ExerciceCard: React.FC<Props> = ({
   const defineColor = (answer: string) => {
     // TODO find types for radix colors
     if (!hasFormBeenSubmited) {
-      return answer === selectedOption ? 'mint' : 'gray'
+      return answer === selectedOption ? COLOR_SUCCESS : COLOR_FAIL
     }
 
-    return hasFormBeenSubmited && answer !== correct ? 'red' : 'green'
+    return hasFormBeenSubmited && answer !== correct
+      ? COLOR_ERROR
+      : COLOR_CORRECT
   }
 
   const defineVariant = (answer: string): Variant => {
     if (!hasFormBeenSubmited) {
       return answer === selectedOption ? 'surface' : 'outline'
     }
-    return 'surface'
+    return 'soft'
   }
-  //   const defineClassName = (answer: string) => {
-  //     // TODO find types for radix colors
-  //     if (!hasFormBeenSubmited) return ''
-  //     return hasFormBeenSubmited && answer !== correct
-  //       ? 'wrongAnswer'
-  //       : 'goodAnswer'
-  //   }
-
-  //   const answerClass = (): string => {
-  //     return 'defaultAnswer'
-  //   }
 
   return (
     <Flex
       direction='column'
       justify='center'
       align='center'
-      px='35%'
-      height='1000px'
     >
-      <h2>{title}</h2>
-
-      <h3>{instructions}</h3>
-
-      <Text
-        mb='5'
-        className={'questionClass'}
+      <Heading
+        as='h2'
+        size='6'
+        mb='6'
       >
-        <Flex align={'center'}>
-          {hasFormBeenSubmited && (
-            <span>
-              {selectedOption === correct ? (
-                <CheckIcon
-                  color='green'
-                  width='30'
-                  height='30'
-                />
-              ) : (
-                <Cross2Icon
-                  color='red'
-                  width='30'
-                  height='30'
-                />
-              )}
-            </span>
-          )}
-          <span>
-            {selectedOption
-              ? question.replace('_____', selectedOption)
-              : question}
-          </span>
-        </Flex>
-      </Text>
-      <Flex
-        width='100%'
-        justify='start'
-        align='center'
-        direction='column'
-      >
-        {answers.map((answer) => (
-          <Button
-            key={answer}
-            my='2'
-            //className={answerClass()}
-            onClick={() => setSelectedOption(answer)}
-            id={answer}
-            variant={defineVariant(answer)}
-            color={defineColor(answer)}
-            className={hasFormBeenSubmited ? 'noHover' : 'answerButton'}
+        {title}
+      </Heading>
+      <Container>
+        <Card>
+          <Heading
+            as='h3'
+            size='4'
+            mb='5'
+            mx='6'
           >
-            {answer}
-          </Button>
-        ))}
+            {instructions}
+          </Heading>{' '}
+          <Flex
+            mb='6'
+            justify='center'
+            wrap={'nowrap'}
+            align='center'
+          >
+            {hasFormBeenSubmited && selectedOption !== correct && (
+              <Cross2Icon
+                color={COLOR_ERROR}
+                width='30'
+                height='30'
+              />
+            )}
+            {hasFormBeenSubmited && selectedOption === correct && (
+              <CheckIcon
+                color={COLOR_CORRECT}
+                width='30'
+                height='30'
+              />
+            )}
+            <Text
+              wrap={'nowrap'}
+              as='div'
+              ml='3'
+            >
+              {selectedOption
+                ? question.replace('_____', selectedOption)
+                : question}
+            </Text>
+          </Flex>
+          <Flex
+            width='100%'
+            justify='start'
+            align='stretch'
+            direction='column'
+          >
+            {answers.map((answer) => (
+              <Button
+                key={answer}
+                my='2'
+                mx='8'
+                size='3'
+                //className={answerClass()}
+                onClick={() => setSelectedOption(answer)}
+                id={answer}
+                variant={defineVariant(answer)}
+                color={defineColor(answer)}
+                className={hasFormBeenSubmited ? 'noHover' : ''}
+              >
+                {answer}
+              </Button>
+            ))}
+          </Flex>
+        </Card>
         <Flex
-          direction='row'
-          justify={'between'}
+          direction='column'
+          align='stretch'
           width='100%'
           py='6'
         >
           <Button
-            type='button'
             color='gray'
-          >
-            {' '}
-            Pass{' '}
-          </Button>
-          <Button
-            color='mint'
             type='button'
             onClick={handleSubmit}
           >
@@ -155,7 +161,7 @@ const ExerciceCard: React.FC<Props> = ({
             {hasFormBeenSubmited ? 'Next' : 'Check'}
           </Button>
         </Flex>
-      </Flex>
+      </Container>
     </Flex>
   )
 }

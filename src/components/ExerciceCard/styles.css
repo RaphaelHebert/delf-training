@@ -1,3 +1,5 @@
+@import '@radix-ui/colors/green.css';
+
 .wrongAnswer {
   text-decoration: line-through;
 }
@@ -19,15 +21,6 @@
   background: yellow;
 }
 
-.questionClass {
-  white-space: nowrap;
-}
-
 .noHover {
   pointer-events: none;
-  width: 100%;
-}
-
-.answerButton {
-  width: 100%;
 }
