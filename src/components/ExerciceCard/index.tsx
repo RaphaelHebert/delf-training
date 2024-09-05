@@ -33,17 +33,16 @@ const ExerciceCard: React.FC<Props> = ({
   const { question, answers, correct } = qcm
 
   const [selectedOption, setSelectedOption] = useState('')
-  const [hasFormBeenSubmited, setHasFormBeenSubmited] = useState(false)
+  const [hasFormBeenSubmited, setHasFormBeenSubmitted] = useState(false)
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    event.preventDefault()
+  const handleSubmit = () => {
     if (hasFormBeenSubmited) {
-      setHasFormBeenSubmited(false)
+      setHasFormBeenSubmitted(false)
       setSelectedOption('')
       sendSummary(selectedOption === correct)
       return
     }
-    setHasFormBeenSubmited(true)
+    setHasFormBeenSubmitted(true)
   }
 
   const defineColor = (answer: string) => {
@@ -149,6 +148,7 @@ const ExerciceCard: React.FC<Props> = ({
           </Button>
           <Button
             color='mint'
+            type='button'
             onClick={handleSubmit}
           >
             {' '}
