@@ -44,7 +44,7 @@ const Home: React.FC = () => {
       }}
     >
       <Header />
-      {count !== 0 && `${Math.trunc((countGoodAnswer / count) * 100)} %`}
+      {/* {count !== 0 && `${Math.trunc((countGoodAnswer / count) * 100)} %`} */}
       {count !== a1.length ? (
         <>
           <Flex
@@ -66,8 +66,11 @@ const Home: React.FC = () => {
               <Flex gap='2'>
                 <Text
                   as='span'
+                  title='unlimited questions and answer'
                   color={isExamMode ? 'gray' : 'mint'}
-                  style={isExamMode ? {} : { fontWeight: 700 }}
+                  style={
+                    isExamMode ? { cursor: 'pointer' } : { fontWeight: 700 }
+                  }
                 >
                   Training mode
                 </Text>
@@ -78,8 +81,11 @@ const Home: React.FC = () => {
                 />
                 <Text
                   as='span'
+                  title='20 questions and final score'
                   color={isExamMode ? 'mint' : 'gray'}
-                  style={isExamMode ? { fontWeight: 700 } : {}}
+                  style={
+                    isExamMode ? { fontWeight: 700 } : { cursor: 'pointer' }
+                  }
                 >
                   Exam mode
                 </Text>
@@ -87,7 +93,7 @@ const Home: React.FC = () => {
             </Text>
           </Flex>
           <ExerciseCard
-            qcm={a1[count]}
+            qcm={{ ...a1[count], answers: shuffle(a1[count].answers) }}
             instructions='Choisissez la bonne reponse:'
             sendSummary={handleQuestionSubmission}
             count={count}
@@ -95,7 +101,7 @@ const Home: React.FC = () => {
           />
         </>
       ) : (
-        <Results percent={Math.trunc((countGoodAnswer / count) * 100)} />
+        <Results percent={Math.trunc((countGoodAnswer / 4) * 100)} /> // 4: number of questions for exam mode
       )}
     </Flex>
   )
