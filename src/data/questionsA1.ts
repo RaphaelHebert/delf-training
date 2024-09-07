@@ -77,7 +77,7 @@ export const a1 = [
   },
   {
     question: 'Le week-end, avec nos amis, nous _____ la fête.',
-    answers: ['faites', 'fais', 'faisons', 'faisons'],
+    answers: ['faites', 'fais', 'faisions', 'faisons'],
     correct: 'faisons',
   },
   {

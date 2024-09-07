@@ -1,5 +1,5 @@
 import { Button, Flex, Text, Heading, Card } from '@radix-ui/themes'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
 import { CardContainer } from '@/primitiveComponents'
 import './styles.css'
@@ -51,6 +51,11 @@ const ExerciseCard: React.FC<Props> = ({
     }
     setHasFormBeenSubmitted(true)
   }
+
+  useEffect(() => {
+    setHasFormBeenSubmitted(false)
+    setSelectedOption('')
+  }, [isExamMode])
 
   const defineColor = (answer: string) => {
     // TODO find types for radix colors
@@ -142,7 +147,7 @@ const ExerciseCard: React.FC<Props> = ({
                 type='button'
                 variant={defineVariant(answer)}
                 color={defineColor(answer)}
-                className={hasFormBeenSubmitted ? 'noHover' : ''}
+                className={hasFormBeenSubmitted ? 'noHover' : 'simple'}
               >
                 {answer}
               </Button>
