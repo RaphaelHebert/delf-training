@@ -101,13 +101,8 @@ export const a1 = [
     correct: 'est',
   },
   {
-    question: 'Tu connais Marie,elle  _____ professeur de _____.',
-    answers: [
-      'a - français',
-      'est - française',
-      'est - français',
-      'a - française',
-    ],
+    question: 'Tu connais Marie,elle _____ professeur de piano.',
+    answers: ['a', 'est', 'es', 'sont'],
     correct: 'est - français',
   },
   {
@@ -207,17 +202,17 @@ export const a1 = [
     correct: 'déjeuner',
   },
   {
-    question: 'Je _____ chez mon ami boir un verre.',
+    question: 'Je _____ chez mon ami boire un verre.',
     answers: ['va', 'vais', 'ai', 'aller'],
     correct: 'vais',
   },
   {
-    question: 'Nous _____ du rize tous les jours.',
+    question: 'Nous _____ du riz tous les jours.',
     answers: ['mangeons', 'mangons', 'aimons', 'mange'],
     correct: 'mangeons',
   },
   {
-    question: 'Mon père _____ beau coup.',
+    question: 'Mon père _____ beaucoup.',
     answers: ['voyage', 'va', 'a', 'aime'],
     correct: 'voyage',
   },
