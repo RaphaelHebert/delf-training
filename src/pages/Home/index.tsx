@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Header, ExerciseCard } from '@/components'
+import React, { useState, useEffect } from 'react'
+import { Header, ExerciseCard, Results } from '@/components'
 import { Flex } from '@radix-ui/themes'
 import { a1 } from '@/data/questionsA1'
 import shuffle from '@/utils/shuffle-array'
@@ -15,8 +15,9 @@ const Home: React.FC = () => {
     }
   }
 
-  // shuffle the questions
-  shuffle(a1)
+  useEffect(() => {
+    shuffle(a1)
+  }, [])
 
   return (
     <Flex
@@ -29,7 +30,7 @@ const Home: React.FC = () => {
       }}
     >
       <Header />
-      {count}
+      {count !== 0 && `${Math.trunc((countGoodAnswer / count) * 100)} %`}
       {count !== a1.length ? (
         <ExerciseCard
           title='Level: A1'
@@ -38,7 +39,7 @@ const Home: React.FC = () => {
           sendSummary={handleQuestionSubmission}
         />
       ) : (
-        <div>{`Your score is ${countGoodAnswer} / ${count} `}</div>
+        <Results percent={Math.trunc((countGoodAnswer / count) * 100)} />
       )}
     </Flex>
   )
