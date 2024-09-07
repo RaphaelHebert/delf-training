@@ -1,7 +1,7 @@
-import { Button, Flex, Text, Heading, Card, Container } from '@radix-ui/themes'
+import { Button, Flex, Text, Heading, Card } from '@radix-ui/themes'
 import React, { useState } from 'react'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
-
+import { CardContainer } from '@/primitiveComponents'
 import './styles.css'
 
 const COLOR_CORRECT = 'green'
@@ -80,7 +80,7 @@ const ExerciseCard: React.FC<Props> = ({
       >
         {title}
       </Heading>
-      <Container>
+      <CardContainer>
         <Card>
           <Heading
             as='h3'
@@ -113,7 +113,6 @@ const ExerciseCard: React.FC<Props> = ({
               />
             )}
             <Text
-              wrap={'nowrap'}
               as='div'
               ml='3'
             >
@@ -160,7 +159,7 @@ const ExerciseCard: React.FC<Props> = ({
             {hasFormBeenSubmitted ? 'Next' : 'Check'}
           </Button>
         </Flex>
-      </Container>
+      </CardContainer>
     </Flex>
   )
 }
