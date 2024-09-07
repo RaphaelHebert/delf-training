@@ -10,7 +10,7 @@ export const a1 = [
     correct: 'pouvez',
   },
   {
-    question: 'Tu _____ bien et présenter à nos auditeurs ?',
+    question: 'Tu _____ bien te présenter à nos auditeurs ?',
     answers: ['veux', 'veut', 'voulons', 'voulez'],
     correct: 'veux',
   },
@@ -94,5 +94,161 @@ export const a1 = [
     question: 'Ils _____ un film ensemble.',
     answers: ['voient', 'regardent', 'écoutent', 'entendent'],
     correct: 'regardent',
+  },
+  {
+    question: "Voilà Pierre,c' _____ mon frère.",
+    answers: ['est', 'a', 'être', 'as'],
+    correct: 'est',
+  },
+  {
+    question: 'Tu connais Marie,elle  _____ professeur de _____.',
+    answers: [
+      'a - français',
+      'est - française',
+      'est - français',
+      'a - française',
+    ],
+    correct: 'est - français',
+  },
+  {
+    question: 'Le docteur, il _____ un ami de mon père.',
+    answers: ['a', 'as', 'est', 'es'],
+    correct: 'est',
+  },
+  {
+    question:
+      'Monsieur et madame Lenoir, ils _____ les professeurs de ma soeur.',
+    answers: ['ont', 'sont', 'vont', 'est'],
+    correct: 'sont',
+  },
+  {
+    question: 'Ces étudiantes, elles _____ très sympathiques.',
+    answers: ['ont', 'sont', 'vont', 'est'],
+    correct: 'sont',
+  },
+  {
+    question: 'Est ce que vous vous souvenez de Marc, il  _____ directeur.',
+    answers: ['a', 'est', 'as', 'es'],
+    correct: 'est',
+  },
+  {
+    question: 'Alain  _____ secrétaire.',
+    answers: ['a', 'est', 'as', 'es'],
+    correct: 'est',
+  },
+  {
+    question: 'Nicole  _____ 57 ans.',
+    answers: ['a', 'est', 'as', 'es'],
+    correct: 'a',
+  },
+  {
+    question: 'Claire  _____ une belle jupe rouge.',
+    answers: ['a', 'est', 'as', 'es'],
+    correct: 'a',
+  },
+  {
+    question: 'Jean  _____ mécontent.',
+    answers: ['a', 'est', 'as', 'es'],
+    correct: 'est',
+  },
+  {
+    question: 'Ils  _____ deux enfants.',
+    answers: ['sont', 'ont', 'vont', 'a'],
+    correct: 'ont',
+  },
+  {
+    question: 'Ces enfants  _____ très adorables .',
+    answers: ['ont', 'vont', 'sont', 'est'],
+    correct: 'sont',
+  },
+  {
+    question: 'Ces couples  _____ à la retraite.',
+    answers: ['vont', 'ont', 'es', 'sont'],
+    correct: 'sont',
+  },
+  {
+    question: 'Paul et moi  _____ une belle maison neuve.',
+    answers: ['sommes', 'est', 'a', 'avons'],
+    correct: 'avons',
+  },
+  {
+    question: 'Vous  _____ un peu malade.',
+    answers: ['avez', 'est', 'êtes', 'avons'],
+    correct: 'êtes',
+  },
+  {
+    question: 'Qui est-ce? Il  _____ Pierre, mon ami.',
+    answers: ['a', 'ont', 'sont', 'est'],
+    correct: 'est',
+  },
+  {
+    question: 'Ils  _____ des acteurs connus.',
+    answers: ['est', 'ont', 'a', 'sont'],
+    correct: 'sont',
+  },
+  {
+    question: 'Vous _____ français.',
+    answers: ['liez', 'dites', 'raconter', 'parlez'],
+    correct: 'parlez',
+  },
+  {
+    question: ' _____ téléphonez à votre mère.',
+    answers: ['tu', 'il/elle', 'nous', 'vous'],
+    correct: 'vous',
+  },
+  {
+    question: 'Les enfants _____ dans le jardin.',
+    answers: ['jouent', 'travaillent', 'parlent', 'étudient'],
+    correct: 'jouent',
+  },
+  {
+    question: 'Ma mère _____ dans un petit restaurant.',
+    answers: ['écoute', 'joue', 'parle', 'déjeuner'],
+    correct: 'déjeuner',
+  },
+  {
+    question: 'Je _____ chez mon ami boir un verre.',
+    answers: ['va', 'vais', 'ai', 'aller'],
+    correct: 'vais',
+  },
+  {
+    question: 'Nous _____ du rize tous les jours.',
+    answers: ['mangeons', 'mangons', 'aimons', 'mange'],
+    correct: 'mangeons',
+  },
+  {
+    question: 'Mon père _____ beau coup.',
+    answers: ['voyage', 'va', 'a', 'aime'],
+    correct: 'voyage',
+  },
+  {
+    question: 'Ton mari et moi _____ à 8 heures.',
+    answers: ['commence', 'commençons', 'commences', 'commencez'],
+    correct: 'commençons',
+  },
+  {
+    question: 'Je _____ les devoirs de ma fille.',
+    answers: ['corrige', 'corrigeons', 'corrigez', 'corriges'],
+    correct: 'corrige',
+  },
+  {
+    question: 'Il _____ son écran avec moi.',
+    answers: ['partage', 'change', 'place', 'achète'],
+    correct: 'partage',
+  },
+  {
+    question: "Nous _____ partir aujourd'hui.",
+    answers: ['préférez', 'préfère', 'aimons', 'préférons'],
+    correct: 'préférons',
+  },
+  {
+    question: 'Mon amie _____ que je suis contente.',
+    answers: ['croit', 'espère', 'pense', 'sens'],
+    correct: 'espère',
+  },
+  {
+    question: 'Nous _____ en espèces.',
+    answers: ['avons', 'payons', 'gagnons', 'prenons'],
+    correct: 'payons',
   },
 ]
