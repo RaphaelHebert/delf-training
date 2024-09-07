@@ -20,21 +20,22 @@ type Variant =
   | undefined
 
 type Props = {
-  title: string
   instructions: string
   qcm: {
     question: string
     answers: string[]
     correct: string
   }
-  sendSummary?: (isCorrect?: boolean) => void
+  sendSummary?: (isCorrect?: boolean, done?: boolean) => void
+  count?: number
+  isExamMode?: boolean
 }
 
 const ExerciseCard: React.FC<Props> = ({
-  title,
   qcm,
-  instructions,
   sendSummary = () => {},
+  count = 1,
+  isExamMode = false,
 }) => {
   const { question, answers, correct } = qcm
 
@@ -42,10 +43,10 @@ const ExerciseCard: React.FC<Props> = ({
   const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
 
   const handleSubmit = () => {
-    if (hasFormBeenSubmitted) {
+    if (hasFormBeenSubmitted || isExamMode) {
       setHasFormBeenSubmitted(false)
       setSelectedOption('')
-      sendSummary(selectedOption === correct)
+      sendSummary(selectedOption === correct, isExamMode && count === 3)
       return
     }
     setHasFormBeenSubmitted(true)
@@ -73,23 +74,26 @@ const ExerciseCard: React.FC<Props> = ({
       justify='center'
       align='center'
     >
-      <Heading
-        as='h2'
-        size='6'
-        mb='6'
-      >
-        {title}
-      </Heading>
       <CardContainer>
         <Card>
-          <Heading
-            as='h3'
-            size='4'
+          {isExamMode && (
+            <Heading
+              as='h3'
+              size='4'
+              mb='6'
+            >
+              Question #{count + 1}
+            </Heading>
+          )}
+          {/* <Heading
+            as='h4'
+            size='3'
             mb='5'
             mx='6'
+            align='center'
           >
             {instructions}
-          </Heading>{' '}
+          </Heading>{' '} */}
           <Flex
             mb='6'
             justify='center'
@@ -156,7 +160,7 @@ const ExerciseCard: React.FC<Props> = ({
             type='button'
             onClick={handleSubmit}
           >
-            {hasFormBeenSubmitted ? 'Next' : 'Check'}
+            {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>
         </Flex>
       </CardContainer>
