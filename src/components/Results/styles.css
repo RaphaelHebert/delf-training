@@ -1,0 +1,63 @@
+:root {
+  --angle: 0deg;
+}
+
+@property --angle {
+  syntax: '<angle>'; /* its type */
+  inherits: true;
+  initial-value: 0deg; /* the initial value */
+}
+
+.resultPercent {
+  --angle: 10deg;
+  position: relative;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%; /* Makes the div a circle */
+  transition: --angle 5s; /* we add transition to it */
+  background: conic-gradient(
+    lightgreen var(--angle),
+    /* Sector color */ lightgreen var(--angle),
+    /* The angle of the sector */ transparent var(--angle)
+      /* Rest of the circle transparent */
+  );
+  {{/* animation: load-results 10s ease-out forwards; */}}
+}
+.resultPercentAnimation {
+  --angle: var(--angle);
+}
+{{/* @keyframes load-results {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: var(--angle);
+  }
+} */}}
+.resultPercentBackground {
+  position: relative;
+  margin: auto;
+  top: 10vh;
+  width: 400px;
+  height: 400px;
+  background: red;
+  border-radius: 50%; /* Makes the div a circle */
+}
+
+.resultPercentCenter {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  background: white;
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+}
+
+.resultPercentText {
+  position: relative;
+  top: 95px;
+  left: 80px;
+  font-size: 72px;
+}
