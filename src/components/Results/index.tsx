@@ -40,7 +40,10 @@ const Results: React.FC<Props> = ({ percent }) => {
       width='100%'
     >
       <div className='resultPercentBackground'>
-        <div className={classNameAnimation}>
+        <div
+          className={classNameAnimation}
+          data-testid='animated-result'
+        >
           <div className='resultPercentCenter'>
             <Text
               className='resultPercentText'
