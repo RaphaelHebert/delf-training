@@ -14,10 +14,23 @@ const updatePercentDisplay = (percent: number): void => {
 
 const Results: React.FC<Props> = ({ percent }) => {
   const [classNameAnimation, setClassNameAnimation] = useState('resultPercent')
+  const [percentAnimation, setPercentAnimation] = useState(0)
+
   useEffect(() => {
     updatePercentDisplay(percent)
     setClassNameAnimation('resultPercent resultPercentAnimation')
   }, [percent])
+
+  useEffect(() => {
+    if (percentAnimation !== percent) {
+      setTimeout(
+        () => {
+          setPercentAnimation((prev) => prev + 1)
+        },
+        Math.trunc(4000 / percent)
+      )
+    }
+  }, [percentAnimation])
 
   return (
     <Flex
@@ -33,7 +46,7 @@ const Results: React.FC<Props> = ({ percent }) => {
               className='resultPercentText'
               align='center'
             >
-              {percent} %
+              {percentAnimation} %
             </Text>
           </div>
         </div>
