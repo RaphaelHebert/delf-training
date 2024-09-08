@@ -32,6 +32,7 @@ type Props = {
 }
 
 const ExerciseCard: React.FC<Props> = ({
+  instructions,
   qcm,
   sendSummary = () => {},
   count = 1,
@@ -90,7 +91,7 @@ const ExerciseCard: React.FC<Props> = ({
               Question #{count + 1}
             </Heading>
           )}
-          {/* <Heading
+          <Heading
             as='h4'
             size='3'
             mb='5'
@@ -98,7 +99,7 @@ const ExerciseCard: React.FC<Props> = ({
             align='center'
           >
             {instructions}
-          </Heading>{' '} */}
+          </Heading>{' '}
           <Flex
             mb='6'
             justify='center'
