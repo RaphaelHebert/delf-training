@@ -15,7 +15,7 @@
   width: 400px;
   height: 400px;
   border-radius: 50%; /* Makes the div a circle */
-  transition: --angle 5s; /* we add transition to it */
+  transition: --angle 3s; /* we add transition to it */
   background: conic-gradient(
     lightgreen var(--angle),
     /* Sector color */ lightgreen var(--angle),
