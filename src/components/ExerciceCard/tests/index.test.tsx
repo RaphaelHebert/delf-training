@@ -4,7 +4,6 @@ import ExerciseCard from '../../ExerciceCard'
 
 // Test Props
 const mockProps = {
-  title: 'Test Title',
   instructions: 'Test Instructions',
   qcm: {
     question: 'What is the capital of France?',
@@ -18,7 +17,6 @@ describe('ExerciseCard Component', () => {
   it('renders the component with provided props', () => {
     render(<ExerciseCard {...mockProps} />)
 
-    expect(screen.getByText('Test Title')).toBeInTheDocument()
     expect(screen.getByText('Test Instructions')).toBeInTheDocument()
     expect(
       screen.getByText('What is the capital of France?')
@@ -104,7 +102,7 @@ describe('ExerciseCard Component', () => {
 
     fireEvent.click(nextButton)
 
-    expect(mockProps.sendSummary).toHaveBeenCalledWith(true)
+    expect(mockProps.sendSummary).toHaveBeenCalledWith(true, false)
   })
   it('calls sendSummary with correct for wrong answer parameter after submission', () => {
     render(<ExerciseCard {...mockProps} />)
@@ -118,6 +116,6 @@ describe('ExerciseCard Component', () => {
 
     fireEvent.click(nextButton)
 
-    expect(mockProps.sendSummary).toHaveBeenCalledWith(false)
+    expect(mockProps.sendSummary).toHaveBeenCalledWith(false, false)
   })
 })
