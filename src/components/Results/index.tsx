@@ -27,10 +27,10 @@ const Results: React.FC<Props> = ({ percent }) => {
         () => {
           setPercentAnimation((prev) => prev + 1)
         },
-        Math.trunc(4000 / percent)
+        Math.trunc(2500 / percent)
       )
     }
-  }, [percentAnimation])
+  }, [percentAnimation, percent])
 
   return (
     <Flex
