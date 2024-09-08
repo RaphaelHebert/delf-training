@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Header, ExerciseCard, Results } from '@/components'
 import { Flex, Heading, Text, Switch } from '@radix-ui/themes'
+import { ProgressBar } from '@/primitiveComponents'
 import { a1 } from '@/data/questionsA1'
 import shuffle from '@/utils/shuffle-array'
 
@@ -99,6 +100,12 @@ const Home: React.FC = () => {
             count={count}
             isExamMode={isExamMode}
           />
+          {isExamMode && (
+            <ProgressBar
+              total={4}
+              progress={count}
+            />
+          )}
         </>
       ) : (
         <Results percent={Math.trunc((countGoodAnswer / 4) * 100)} /> // 4: number of questions for exam mode
