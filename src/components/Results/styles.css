@@ -22,19 +22,11 @@
     /* The angle of the sector */ transparent var(--angle)
       /* Rest of the circle transparent */
   );
-  {{/* animation: load-results 10s ease-out forwards; */}}
 }
 .resultPercentAnimation {
   --angle: var(--angle);
 }
-{{/* @keyframes load-results {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: var(--angle);
-  }
-} */}}
+
 .resultPercentBackground {
   position: relative;
   margin: auto;
