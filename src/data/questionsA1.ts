@@ -101,7 +101,7 @@ export const a1 = [
     correct: 'est',
   },
   {
-    question: 'Tu connais Marie,elle _____ professeur de piano.',
+    question: 'Tu connais Marie, elle _____ professeur de piano.',
     answers: ['a', 'est', 'es', 'sont'],
     correct: 'est - français',
   },
