@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Header, ExerciseCard, Results } from '@/components'
 import { Flex, Heading, Text, Switch } from '@radix-ui/themes'
 import { ProgressBar } from '@/primitiveComponents'
 import { a1 } from '@/data/questionsA1'
 import shuffle from '@/utils/shuffle-array'
 
+const EXAM_QUESTION: number = 4
+
 const Home: React.FC = () => {
   const [count, setCount] = useState(0)
   const [countGoodAnswer, setCountGoodAnswer] = useState(0)
   const [isExamMode, setIsExamMode] = useState(false)
 
-  useEffect(() => {
+  const resetCounts = () => {
     setCount(0)
     setCountGoodAnswer(0)
     shuffle(a1)
-  }, [isExamMode])
-
+  }
   const toggleExamMode = () => {
-    setIsExamMode((prev) => !prev)
+    setIsExamMode((prev) => {
+      resetCounts()
+      return !prev
+    })
   }
 
   const handleQuestionSubmission = (
@@ -101,14 +105,25 @@ const Home: React.FC = () => {
             isExamMode={isExamMode}
           />
           {isExamMode && (
-            <ProgressBar
-              total={4}
-              progress={count}
-            />
+            <Flex justify='center'>
+              <ProgressBar
+                total={EXAM_QUESTION}
+                progress={count}
+              />
+              <Text
+                ml='4'
+                as='span'
+              >{`${count} / ${EXAM_QUESTION}`}</Text>
+            </Flex>
           )}
         </>
       ) : (
-        <Results percent={Math.trunc((countGoodAnswer / 4) * 100)} /> // 4: number of questions for exam mode
+        <>
+          <Results
+            percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
+            goBack={resetCounts}
+          />
+        </>
       )}
     </Flex>
   )
