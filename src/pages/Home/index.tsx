@@ -7,6 +7,7 @@ import shuffle from '@/utils/shuffle-array'
 
 const EXAM_QUESTION: number = 4
 
+
 const Home: React.FC = () => {
   const [count, setCount] = useState(0)
   const [countGoodAnswer, setCountGoodAnswer] = useState(0)
@@ -38,6 +39,9 @@ const Home: React.FC = () => {
     }
   }
 
+  // shuffle the questions
+  shuffle(a1)
+
   return (
     <Flex
       gap='3'
@@ -49,7 +53,6 @@ const Home: React.FC = () => {
       }}
     >
       <Header />
-      {/* {count !== 0 && `${Math.trunc((countGoodAnswer / count) * 100)} %`} */}
       {count !== a1.length ? (
         <>
           <Flex
