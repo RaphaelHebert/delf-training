@@ -198,8 +198,8 @@ export const a1 = [
   },
   {
     question: 'Ma mère _____ dans un petit restaurant.',
-    answers: ['écoute', 'joue', 'parle', 'déjeuner'],
-    correct: 'déjeuner',
+    answers: ['écoute', 'joue', 'parle', 'déjeune'],
+    correct: 'déjeune',
   },
   {
     question: 'Je _____ chez mon ami boire un verre.',
