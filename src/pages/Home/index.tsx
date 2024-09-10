@@ -105,16 +105,11 @@ const Home: React.FC = () => {
             isExamMode={isExamMode}
           />
           {isExamMode && (
-            <Flex justify='center'>
-              <ProgressBar
-                total={EXAM_QUESTION}
-                progress={count}
-              />
-              <Text
-                ml='4'
-                as='span'
-              >{`${count} / ${EXAM_QUESTION}`}</Text>
-            </Flex>
+            <ProgressBar
+              total={EXAM_QUESTION}
+              progress={count}
+              numeric={true}
+            />
           )}
         </>
       ) : (
