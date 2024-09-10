@@ -1,22 +1,29 @@
-import { Flex, Button } from '@radix-ui/themes'
-import { HamburgerMenuIcon } from '@radix-ui/react-icons'
+import { Flex, Text } from '@radix-ui/themes'
+// import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 
 import React from 'react'
 
 const Header: React.FC = () => {
   return (
     <Flex
-      justify='start'
+      px='6'
+      justify='between'
       align='center'
       style={{
         borderBottom: '1px solid lightGrey',
       }} //for dev
       height='5rem'
     >
-      <Button mx='3'>
+      {/* <Button mx='3'>
         <HamburgerMenuIcon />
-      </Button>
-      DELF Training
+      </Button> */}
+      <Text
+        as='label'
+        size='2'
+      >
+        {' '}
+        DELF Training
+      </Text>
     </Flex>
   )
 }
