@@ -31,8 +31,7 @@
 
 .resultPercentBackground {
   position: relative;
-  margin: auto;
-  top: 10vh;
+  margin: 5% auto;
   width: 400px;
   height: 400px;
   background: red;
@@ -74,6 +73,7 @@
 }
 
 .backButton {
+  margin-top: 5%;
   background: #58d5ba;
   animation-name: myAnimation;
   animation-duration: 3000ms;
