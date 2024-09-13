@@ -82,15 +82,6 @@ const ExerciseCard: React.FC<Props> = ({
     >
       <CardContainer>
         <Card>
-          {isExamMode && (
-            <Heading
-              as='h3'
-              size='4'
-              mb='6'
-            >
-              Question #{count + 1}
-            </Heading>
-          )}
           <Heading
             as='h4'
             size='3'
