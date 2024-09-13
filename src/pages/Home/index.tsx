@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Header, ExerciseCard, Results } from '@/components'
-import { Flex, Heading, Text, Switch } from '@radix-ui/themes'
-import { ProgressBar } from '@/primitiveComponents'
+import { Header, ExerciseCard, Results, CustomSwitch } from '@/components'
+import { Flex, Heading } from '@radix-ui/themes'
+import { ProgressBar, Select } from '@/primitiveComponents'
 import { a1 } from '@/data/questionsA1'
 import shuffle from '@/utils/shuffle-array'
 
@@ -49,77 +49,80 @@ const Home: React.FC = () => {
       }}
     >
       <Header />
-      {/* {count !== 0 && `${Math.trunc((countGoodAnswer / count) * 100)} %`} */}
-      {count !== a1.length ? (
-        <>
+
+      <>
+        <Flex
+          justify='start'
+          pr='9'
+          pl='2'
+        >
           <Flex
-            width='100%'
-            justify='between'
+            gap='3'
+            minHeight='100vh'
+            width='25%'
+            justify='start'
             align='center'
-            px='9'
+            direction='column'
+            style={{
+              borderRight: '1px solid lightGrey',
+            }}
           >
+            <CustomSwitch
+              textLeft='Training'
+              textRight='Exam'
+              toggleSelect={toggleExamMode}
+              isSelected={isExamMode}
+            />
             <Heading
               as='h2'
               size='6'
+              mt='6'
             >
-              Level: A1
+              Level:
             </Heading>
-            <Text
-              as='label'
-              size='3'
-            >
-              <Flex gap='2'>
-                <Text
-                  as='span'
-                  title='unlimited questions and answer'
-                  color={isExamMode ? 'gray' : 'mint'}
-                  style={
-                    isExamMode ? { cursor: 'pointer' } : { fontWeight: 700 }
-                  }
-                >
-                  Training mode
-                </Text>
-                <Switch
-                  size='1'
-                  checked={isExamMode} // Bind the state to the switch
-                  onCheckedChange={toggleExamMode}
-                />
-                <Text
-                  as='span'
-                  title='20 questions and final score'
-                  color={isExamMode ? 'mint' : 'gray'}
-                  style={
-                    isExamMode ? { fontWeight: 700 } : { cursor: 'pointer' }
-                  }
-                >
-                  Exam mode
-                </Text>
-              </Flex>
-            </Text>
-          </Flex>
-          <ExerciseCard
-            qcm={{ ...a1[count], answers: shuffle(a1[count].answers) }}
-            instructions='Choisissez la bonne reponse:'
-            sendSummary={handleQuestionSubmission}
-            count={count}
-            isExamMode={isExamMode}
-          />
-          {isExamMode && (
-            <ProgressBar
-              total={EXAM_QUESTION}
-              progress={count}
-              numeric={true}
+            <Select
+              placeholder='Level'
+              choice={{ A1: 'A1', A2: 'A2', B1: 'B1', B2: 'B2' }}
             />
+          </Flex>
+          {count !== a1.length ? (
+            <Flex
+              justify='center'
+              width='100%'
+              pt='6'
+            >
+              <Flex
+                direction='column'
+                width='100%'
+                justify='start'
+              >
+                <div style={!isExamMode ? { visibility: 'hidden' } : {}}>
+                  <ProgressBar
+                    total={EXAM_QUESTION}
+                    progress={count}
+                    numeric={true}
+                  />
+                </div>
+
+                <ExerciseCard
+                  qcm={{ ...a1[count], answers: shuffle(a1[count].answers) }}
+                  instructions='Choisissez la bonne reponse:'
+                  sendSummary={handleQuestionSubmission}
+                  count={count}
+                  isExamMode={isExamMode}
+                />
+              </Flex>
+            </Flex>
+          ) : (
+            <>
+              <Results
+                percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
+                goBack={resetCounts}
+              />
+            </>
           )}
-        </>
-      ) : (
-        <>
-          <Results
-            percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
-            goBack={resetCounts}
-          />
-        </>
-      )}
+        </Flex>
+      </>
     </Flex>
   )
 }

@@ -36,19 +36,10 @@ const Results: React.FC<Props> = ({ percent, goBack }) => {
   return (
     <Flex
       direction='column'
-      justify='center'
+      justify='start'
       align='stretch'
       width='100%'
     >
-      <Button
-        type='button'
-        onClick={goBack}
-        mx='9'
-        size='4'
-        className='backButton'
-      >
-        Retry
-      </Button>
       <div className='resultPercentBackground'>
         <div
           className={classNameAnimation}
@@ -64,6 +55,15 @@ const Results: React.FC<Props> = ({ percent, goBack }) => {
           </div>
         </div>
       </div>
+      <Button
+        type='button'
+        onClick={goBack}
+        mx='9'
+        size='4'
+        className='backButton'
+      >
+        Retry
+      </Button>
     </Flex>
   )
 }
