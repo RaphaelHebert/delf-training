@@ -111,6 +111,14 @@ const Home: React.FC = () => {
                   count={count}
                   isExamMode={isExamMode}
                 />
+                {!isExamMode && (
+                  <Results
+                    percent={Math.trunc(
+                      (countGoodAnswer / EXAM_QUESTION) * 100
+                    )}
+                    speed={1}
+                  />
+                )}
               </Flex>
             </Flex>
           ) : (
@@ -118,6 +126,7 @@ const Home: React.FC = () => {
               <Results
                 percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
                 goBack={resetCounts}
+                speed={3}
               />
             </>
           )}
