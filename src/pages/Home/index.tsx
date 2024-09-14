@@ -117,6 +117,7 @@ const Home: React.FC = () => {
                       (countGoodAnswer / EXAM_QUESTION) * 100
                     )}
                     speed={1}
+                    size={100}
                   />
                 )}
               </Flex>
