@@ -12,13 +12,23 @@
   initial-value: 1s; /* the initial value */
 }
 
+@property --size {
+  syntax: '<length>'; /* its type */
+  inherits: true;
+  initial-value: 400px; /* the initial value */
+}
+
+.setSize {
+  --size: var(--size)
+}
+
 .resultPercent {
   --angle: 0deg;
   --speed: 0s;
   position: relative;
   margin: auto;
-  width: 400px;
-  height: 400px;
+  width: var(--size);
+  height: var(--size);
   border-radius: 50%; /* Makes the div a circle */
   transition: --angle var(--speed); /* we add transition to it */
   background: conic-gradient(
@@ -28,6 +38,7 @@
       /* Rest of the circle transparent */
   );
 }
+
 .resultPercentAnimation {
   --angle: var(--angle);
   --speed: var(--speed);
@@ -36,27 +47,27 @@
 .resultPercentBackground {
   position: relative;
   margin: 5% auto;
-  width: 400px;
-  height: 400px;
+  width: var(--size);
+  height: var(--size);
   background: red;
   border-radius: 50%; /* Makes the div a circle */
 }
 
 .resultPercentCenter {
   position: relative;
-  top: 50px;
-  left: 50px;
+  top: calc(var(--size) / 8);
+  left: calc(var(--size) / 8);
   background: white;
-  width: 300px;
-  height: 300px;
-  border-radius: 150px;
+  width: calc(0.75 * var(--size));
+  height: calc(0.75 * var(--size));
+  border-radius: calc(0.375 * var(--size));;
 }
 
 .resultPercentText {
   position: relative;
-  top: 95px;
-  left: 80px;
-  font-size: 72px;
+  top: calc(var(--size) / 5);
+  left: calc(var(--size) / 5.5);
+  font-size: calc(var(--size) / 4.5);
 }
 
 @keyframes myAnimation {
