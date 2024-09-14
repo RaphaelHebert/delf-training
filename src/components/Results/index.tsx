@@ -5,7 +5,8 @@ import './styles.css'
 
 type Props = {
   percent: number
-  goBack: () => void
+  speed: number // animation time in seconds
+  goBack?: () => void
 }
 
 const updatePercentDisplay = (percent: number): void => {
@@ -13,14 +14,19 @@ const updatePercentDisplay = (percent: number): void => {
   document.documentElement.style.setProperty('--angle', `${percent * 3.6}deg`)
 }
 
-const Results: React.FC<Props> = ({ percent, goBack }) => {
+const updateAnimationSpeed = (speed: number): void => {
+  document.documentElement.style.setProperty('--speed', `${speed}s`)
+}
+
+const Results: React.FC<Props> = ({ percent, goBack, speed = 3000 }) => {
   const [classNameAnimation, setClassNameAnimation] = useState('resultPercent')
   const [percentAnimation, setPercentAnimation] = useState(0)
 
   useEffect(() => {
     updatePercentDisplay(percent)
+    updateAnimationSpeed(speed)
     setClassNameAnimation('resultPercent resultPercentAnimation')
-  }, [percent])
+  }, [percent, speed])
 
   useEffect(() => {
     if (percentAnimation !== percent) {
@@ -28,7 +34,7 @@ const Results: React.FC<Props> = ({ percent, goBack }) => {
         () => {
           setPercentAnimation((prev) => prev + 1)
         },
-        Math.trunc(2500 / percent)
+        Math.trunc((speed * 1000 - 500) / percent)
       )
     }
   }, [percentAnimation, percent])
@@ -55,15 +61,17 @@ const Results: React.FC<Props> = ({ percent, goBack }) => {
           </div>
         </div>
       </div>
-      <Button
-        type='button'
-        onClick={goBack}
-        mx='9'
-        size='4'
-        className='backButton'
-      >
-        Retry
-      </Button>
+      {goBack && (
+        <Button
+          type='button'
+          onClick={goBack}
+          mx='9'
+          size='4'
+          className='backButton'
+        >
+          Retry
+        </Button>
+      )}
     </Flex>
   )
 }
