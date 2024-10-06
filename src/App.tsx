@@ -1,15 +1,25 @@
-import { Routes, Route } from 'react-router-dom'
-import { Home } from '@/pages'
+import './styles.css'
+import Routes from '@/Routes'
+import { Flex } from '@radix-ui/themes'
+import { Header, Footer } from '@/components'
 
 function App() {
   return (
-    <Routes>
-      {/* TODO: add a loader to the Route */}
-      <Route
-        path='*'
-        element={<Home />}
-      />
-    </Routes>
+    <Flex
+      gap='3'
+      direction='column'
+      style={{
+        maxHeight: '100vh',
+        height: '100vh',
+        borderLeft: '1px solid lightGrey',
+        borderRight: '1px solid lightGrey',
+      }}
+      className='mukta-regular'
+    >
+      <Header />
+      <Routes />
+      <Footer />
+    </Flex>
   )
 }
 export default App

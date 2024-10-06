@@ -2,12 +2,14 @@ import { Button, Flex, Text, Heading, Card } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
 import { CardContainer } from '@/primitiveComponents'
+import {
+  EXAM_QUESTION,
+  COLOR_CORRECT,
+  COLOR_ERROR,
+  COLOR_SUCCESS,
+  COLOR_FAIL,
+} from '@/constants'
 import './styles.css'
-
-const COLOR_CORRECT = 'green'
-const COLOR_ERROR = 'red'
-const COLOR_SUCCESS = 'mint'
-const COLOR_FAIL = 'gray'
 
 // TODO extract type from Radix
 type Variant =
@@ -47,7 +49,10 @@ const ExerciseCard: React.FC<Props> = ({
     if (hasFormBeenSubmitted || isExamMode) {
       setHasFormBeenSubmitted(false)
       setSelectedOption('')
-      sendSummary(selectedOption === correct, isExamMode && count === 3)
+      sendSummary(
+        selectedOption === correct,
+        isExamMode && count === EXAM_QUESTION
+      )
       return
     }
     setHasFormBeenSubmitted(true)
@@ -153,9 +158,9 @@ const ExerciseCard: React.FC<Props> = ({
           py='6'
         >
           <Button
-            color='gray'
             type='button'
             onClick={handleSubmit}
+            autoFocus
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>
