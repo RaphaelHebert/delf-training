@@ -3,9 +3,9 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
 
-vi.mock('@/pages/Home', () => ({
+vi.mock('@/pages/Welcome', () => ({
   default: () => {
-    return <div>Home</div>
+    return <div>Welcome</div>
   },
 }))
 
@@ -21,7 +21,7 @@ describe('Renders main page correctly', () => {
       </BrowserRouter>
     )
 
-    const home = await screen.queryByText('Home')
+    const home = await screen.queryByText('Welcome')
 
     expect(home).toBeInTheDocument()
   })

@@ -6,7 +6,7 @@ import './styles.css'
 type Props = {
   percent: number
   speed: number // animation time in seconds
-  size: number //the size in px
+  size?: number //the size in px
   goBack?: () => void
 }
 
@@ -41,12 +41,21 @@ const Results: React.FC<Props> = ({
 
   useEffect(() => {
     if (percentAnimation !== percent) {
-      setTimeout(
-        () => {
-          setPercentAnimation((prev) => prev + 1)
-        },
-        Math.trunc((speed * 1000 - 500) / percent)
-      )
+      if (percentAnimation < percent) {
+        setTimeout(
+          () => {
+            setPercentAnimation((prev) => prev + 1)
+          },
+          Math.trunc((speed * 1000 - 500) / percent)
+        )
+      } else {
+        setTimeout(
+          () => {
+            setPercentAnimation((prev) => prev - 1)
+          },
+          Math.trunc((speed * 1000 - 500) / (percentAnimation - percent))
+        )
+      }
     }
   }, [percentAnimation, percent])
 
