@@ -1,4 +1,4 @@
-export const a1 = [
+export default [
   {
     question: 'Vous _____ le temps pour une interview ?',
     answers: ['avez', 'avons', 'vont', 'va'],
