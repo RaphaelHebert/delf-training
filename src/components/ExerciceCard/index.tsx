@@ -161,6 +161,9 @@ const ExerciseCard: React.FC<Props> = ({
             type='button'
             onClick={handleSubmit}
             autoFocus
+            size='4'
+            mx='7'
+            mt='5'
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>

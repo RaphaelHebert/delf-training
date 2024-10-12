@@ -62,10 +62,11 @@ const Results: React.FC<Props> = ({
   return (
     <Flex
       direction='column'
-      justify='start'
+      justify='center'
       align='stretch'
       width='100%'
       className='setSize'
+      mt='9'
     >
       <div className='resultPercentBackground'>
         <div
@@ -86,9 +87,10 @@ const Results: React.FC<Props> = ({
         <Button
           type='button'
           onClick={goBack}
-          mx='9'
+          mx='auto'
           size='4'
           className='backButton'
+          style={{ width: '30%' }}
         >
           Retry
         </Button>

@@ -1,14 +1,16 @@
-import React from 'react'
-import { Flex, Box } from '@radix-ui/themes'
+import React, { useState } from 'react'
+import { Flex, IconButton, Box } from '@radix-ui/themes'
 import { useNavigate } from 'react-router-dom'
 // import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { Gear } from '@/components'
 import { slate } from '@radix-ui/colors'
 
 import './styles.css'
+import { appLogo } from '@/assets'
 
 const Header: React.FC = () => {
   const navigate = useNavigate()
+  const [isHovered, setIsHovered] = useState(false)
 
   const openSettings = () => {
     navigate('/settings')
@@ -29,24 +31,32 @@ const Header: React.FC = () => {
       }}
       height='5rem'
     >
-      {/* <Button mx='3'>
-        <HamburgerMenuIcon />
-      </Button> */}
-      <Box
-        //as='div'
-        className='logo'
+      <IconButton
         onClick={() => navigate('/')}
         title='Acceuil'
-        m='3'
-        p='4'
-        style={{}}
+        ml='5'
+        mb='2'
       >
-        DELF Training
-      </Box>
-      <Box onClick={openSettings}>
+        <img
+          className='logo'
+          src={appLogo}
+          alt='app logo'
+          width='75px'
+          height='75px'
+        />
+      </IconButton>
+      <Box
+        onClick={openSettings}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={isHovered ? 'rotate' : ''} // Apply the rotate class on hover
+        style={{ cursor: 'pointer', display: 'inline-block' }}
+        height='40px'
+        width='40px'
+      >
         <Gear
           size={40}
-          fillColor='red'
+          fillColor={isHovered ? slate.slate12 : slate.slate10}
         />
       </Box>
     </Flex>
