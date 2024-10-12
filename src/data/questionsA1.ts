@@ -25,7 +25,7 @@ export default [
     correct: 'ai',
   },
   {
-    question: 'Je _____ de Montréal et maintenant, j’habite à Paris.',
+    question: "Je _____ de Montréal et maintenant, j'habite à Paris.",
     answers: ['vient', 'venons', 'viens', 'venez'],
     correct: 'viens',
   },
@@ -96,7 +96,7 @@ export default [
     correct: 'regardent',
   },
   {
-    question: "Voilà Pierre,c' _____ mon frère.",
+    question: "Voilà Pierre, c' _____ mon frère.",
     answers: ['est', 'a', 'être', 'as'],
     correct: 'est',
   },
@@ -245,5 +245,130 @@ export default [
     question: 'Nous _____ en espèces.',
     answers: ['avons', 'payons', 'gagnons', 'prenons'],
     correct: 'payons',
+  },
+  {
+    question: '_____!',
+    answers: ['Salu', 'Salut', 'Salus', 'Salue'],
+    correct: 'Salut',
+  },
+  {
+    question: 'Je _____ Sofia!',
+    answers: ['mappelle', "m'apelle", "m'appele", "m'appelle"],
+    correct: "m'appelle",
+  },
+  {
+    question: 'Et _____!',
+    answers: ['toi', 'tu', 'vou', 'tus'],
+    correct: 'toi',
+  },
+  {
+    question: ' _____ _____ _____ , _____ _____?',
+    answers: [
+      "m'appelle Je Mathilde toi et",
+      "Je m'appelle Mathilde et toi",
+      "Mathilde m'appelle toi et je",
+      "je m'appelle Mathilde toi et",
+    ],
+    correct: "Je m'appelle Mathilde et toi",
+  },
+  {
+    question: ' Rachid dit  _____!',
+    answers: ['enchantée', 'enchanter', 'enchanté', 'ensanté'],
+    correct: 'enchanté',
+  },
+  {
+    question: ' Je  _____ content!',
+    answers: ['est', 'sui', 'ai', 'suis'],
+    correct: 'suis',
+  },
+  {
+    question: 'Pierre est  _____ !',
+    answers: ['content', 'contente', 'contant', 'contante'],
+    correct: 'content',
+  },
+  {
+    question: 'Je  _____ fatigué!',
+    answers: ['sui', 'suis', 'ai', 'ais'],
+    correct: 'suis',
+  },
+  {
+    question: 'Elle est  _____!',
+    answers: ['fatiguer', 'fatigué', 'fatiguée', 'fatigé'],
+    correct: 'fatiguée',
+  },
+  {
+    question: 'Il  _____ impatient!',
+    answers: ['es', 'a', 'est', 'ais'],
+    correct: 'est',
+  },
+  {
+    question: 'Elle est  _____!',
+    answers: ['impasiente', 'impaciente', 'impatient', 'impatiente'],
+    correct: 'impatiente',
+  },
+  {
+    question: 'Je  _____ fatigué!',
+    answers: ['suis', 'es', 'est', 'être'],
+    correct: 'suis',
+  },
+  {
+    question: 'Je  _____ contente et il _____ content aussi!',
+    answers: ['suit est', 'suis est', 'est suis', 'es être'],
+    correct: 'suit est',
+  },
+  {
+    question: 'Je suis  _____ fatiguée!',
+    answers: ['un petit peu', 'peu', 'un peu', 'peu'],
+    correct: 'un peu',
+  },
+  {
+    question: 'Je _____ en France.',
+    answers: ['habite', 'habites', 'habitent', 'habitez'],
+    correct: 'habite',
+  },
+  {
+    question: 'Elle _____ du café.',
+    answers: ['boit', 'bois', 'boivent', 'boire'],
+    correct: 'boit',
+  },
+  {
+    question: 'Nous _____ au cinéma.',
+    answers: ['allez', 'va', 'allons', 'vont'],
+    correct: 'allons',
+  },
+  {
+    question: 'Il _____ un livre.',
+    answers: ['lit', 'lis', 'lisent', 'lise'],
+    correct: 'lit',
+  },
+  {
+    question: 'Vous _____ quel âge?',
+    answers: ['as', 'avez', 'a', 'ont'],
+    correct: 'avez',
+  },
+  {
+    question: 'Tu _____ un chat?',
+    answers: ['as', 'a', 'avez', 'ont'],
+    correct: 'as',
+  },
+  {
+    question: 'Je prends _____ pommes.',
+    answers: ['des', 'de', 'du', 'le'],
+    correct: 'des',
+  },
+  {
+    question: 'Ils _____ à la plage.',
+    answers: ['va', 'vont', 'allez', 'allons'],
+    correct: 'vont',
+  },
+  {
+    question: 'Le matin, je _____ du pain.',
+    answers: ['mange', 'manges', 'mangent', 'mangeons'],
+    correct: 'mange',
+  },
+  {
+    question: 'Marie _____ très belle.',
+    answers: ['est', 'es', 'sont', 'êtes'],
+    correct: 'est',
   },
 ]
