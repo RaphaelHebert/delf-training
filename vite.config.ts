@@ -21,6 +21,8 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.ts'],
   },
   build: {
+    outDir: './dist',
+    emptyOutDir: true, // also necessary
     commonjsOptions: { transformMixedEsModules: true }, // Change
   },
 })

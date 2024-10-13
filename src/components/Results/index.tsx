@@ -5,7 +5,7 @@ import './styles.css'
 
 type Props = {
   percent: number
-  speed: number // animation time in seconds
+  speed?: number // animation time in seconds
   size?: number //the size in px
   goBack?: () => void
 }
