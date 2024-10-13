@@ -31,6 +31,9 @@
     "react-router-dom": "^6.23.0",
     "yup": "^1.4.0"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.1",
     "@testing-library/react": "^14.2.0",
