@@ -371,4 +371,104 @@ export default [
     answers: ['est', 'es', 'sont', 'êtes'],
     correct: 'est',
   },
+  {
+    question: 'Tu es de  _____ nationalité?',
+    answers: ['où', 'quoi', 'quel', 'quelle'],
+    correct: 'quelle',
+  },
+  {
+    question: 'Mathilde  _____ française.',
+    answers: ['est', 'es', 'suis', 'ête'],
+    correct: 'est',
+  },
+  {
+    question: 'Marrie est _____ .',
+    answers: ['français', 'française', 'france', 'francais'],
+    correct: 'rançaise',
+  },
+  {
+    question: 'Thomas? Il est _____ .',
+    answers: ['france', 'française', 'français', 'francais'],
+    correct: 'français',
+  },
+  {
+    question: 'Miles est _____ .',
+    answers: ['anlaise', 'anlais', 'anglaise', 'anglais'],
+    correct: 'anglais',
+  },
+  {
+    question: 'Hannah est _____ .',
+    answers: ['anlaise', 'anlais', 'anglaise', 'anglais'],
+    correct: 'anglaise',
+  },
+  {
+    question: 'Elle est _____ .',
+    answers: ['mecicain', 'mesicaine', 'mexicain', 'mexicaine'],
+    correct: 'mexicaine',
+  },
+  {
+    question: 'Il est _____ .',
+    answers: ['mexicain', 'mesicaine', 'mecicain', 'mexicaine'],
+    correct: 'mexicain',
+  },
+  {
+    question: 'Elle est _____ .',
+    answers: ['americane', 'américaine', 'américain', 'american'],
+    correct: 'américaine',
+  },
+  {
+    question: 'Il est _____ .',
+    answers: ['americane', 'américaine', 'américain', 'american'],
+    correct: 'américain',
+  },
+  {
+    question: 'Nous _____ anglaises.',
+    answers: ['est', 'sont', 'êtes', 'sommes'],
+    correct: 'sommes',
+  },
+  {
+    question: 'Vous êtes _____.',
+    answers: ['américains', 'américain', 'américan', 'américan'],
+    correct: 'américains',
+  },
+  {
+    question: 'Ils _____ mexicains.',
+    answers: ['êtes', 'sont', 'sommes', 'ont'],
+    correct: 'sont',
+  },
+  {
+    question: 'Elles sont _____.',
+    answers: ['mexicaine', 'mexicain', 'mexicaines', 'mexicains'],
+    correct: 'mexicaines',
+  },
+  {
+    question: 'Elles sont _____.',
+    answers: ['allemande', 'allemand', 'allemands', 'allemandes'],
+    correct: 'allemandes',
+  },
+  {
+    question: 'Ils sont _____.',
+    answers: ['allemands', 'allemand', 'allemands', 'allemandes'],
+    correct: 'allemands',
+  },
+  {
+    question: 'Ils  _____ allemands.',
+    answers: ['suis', 'sommes', 'êtes', 'sont'],
+    correct: 'sont',
+  },
+  {
+    question: 'Vous _____ mexicains.',
+    answers: ['êtes', 'sont', 'sommes', 'ont'],
+    correct: 'êtes',
+  },
+  {
+    question: 'Thomas et Marie sont _____.',
+    answers: ['mexicaines', 'mexicains', 'mexicain', 'mexicaine'],
+    correct: 'mexicains',
+  },
+  {
+    question: 'Il _____ ses vêtement.',
+    answers: ['lavent', 'lavons', 'lave', 'laves'],
+    correct: 'lave',
+  },
 ]
