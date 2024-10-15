@@ -3,3 +3,5 @@ export type question = {
   answers: string[]
   correct: string
 }
+
+export type level = 'A1' | 'A2' | 'B1' | 'B2'
