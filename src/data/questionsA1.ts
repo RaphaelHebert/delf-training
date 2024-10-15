@@ -371,4 +371,204 @@ export default [
     answers: ['est', 'es', 'sont', 'êtes'],
     correct: 'est',
   },
+  {
+    question: 'Tu es de  _____ nationalité?',
+    answers: ['où', 'quoi', 'quel', 'quelle'],
+    correct: 'quelle',
+  },
+  {
+    question: 'Mathilde  _____ française.',
+    answers: ['est', 'es', 'suis', 'ête'],
+    correct: 'est',
+  },
+  {
+    question: 'Marrie est _____ .',
+    answers: ['français', 'française', 'france', 'francais'],
+    correct: 'rançaise',
+  },
+  {
+    question: 'Thomas? Il est _____ .',
+    answers: ['france', 'française', 'français', 'francais'],
+    correct: 'français',
+  },
+  {
+    question: 'Miles est _____ .',
+    answers: ['anlaise', 'anlais', 'anglaise', 'anglais'],
+    correct: 'anglais',
+  },
+  {
+    question: 'Hannah est _____ .',
+    answers: ['anlaise', 'anlais', 'anglaise', 'anglais'],
+    correct: 'anglaise',
+  },
+  {
+    question: 'Elle est _____ .',
+    answers: ['mecicain', 'mesicaine', 'mexicain', 'mexicaine'],
+    correct: 'mexicaine',
+  },
+  {
+    question: 'Il est _____ .',
+    answers: ['mexicain', 'mesicaine', 'mecicain', 'mexicaine'],
+    correct: 'mexicain',
+  },
+  {
+    question: 'Elle est _____ .',
+    answers: ['americane', 'américaine', 'américain', 'american'],
+    correct: 'américaine',
+  },
+  {
+    question: 'Il est _____ .',
+    answers: ['americane', 'américaine', 'américain', 'american'],
+    correct: 'américain',
+  },
+  {
+    question: 'Nous _____ anglaises.',
+    answers: ['est', 'sont', 'êtes', 'sommes'],
+    correct: 'sommes',
+  },
+  {
+    question: 'Vous êtes _____.',
+    answers: ['américains', 'américain', 'américan', 'américan'],
+    correct: 'américains',
+  },
+  {
+    question: 'Ils _____ mexicains.',
+    answers: ['êtes', 'sont', 'sommes', 'ont'],
+    correct: 'sont',
+  },
+  {
+    question: 'Elles sont _____.',
+    answers: ['mexicaine', 'mexicain', 'mexicaines', 'mexicains'],
+    correct: 'mexicaines',
+  },
+  {
+    question: 'Elles sont _____.',
+    answers: ['allemande', 'allemand', 'allemands', 'allemandes'],
+    correct: 'allemandes',
+  },
+  {
+    question: 'Ils sont _____.',
+    answers: ['allemands', 'allemand', 'allemands', 'allemandes'],
+    correct: 'allemands',
+  },
+  {
+    question: 'Ils  _____ allemands.',
+    answers: ['suis', 'sommes', 'êtes', 'sont'],
+    correct: 'sont',
+  },
+  {
+    question: 'Vous _____ mexicains.',
+    answers: ['êtes', 'sont', 'sommes', 'ont'],
+    correct: 'êtes',
+  },
+  {
+    question: 'Thomas et Marie sont _____.',
+    answers: ['mexicaines', 'mexicains', 'mexicain', 'mexicaine'],
+    correct: 'mexicains',
+  },
+  {
+    question: 'Il _____ ses vêtement.',
+    answers: ['lavent', 'lavons', 'lave', 'laves'],
+    correct: 'lave',
+  },
+  {
+    question: 'Je _____ étudiant.',
+    answers: ['suis', 'es', 'est', 'sommes'],
+    correct: 'suis',
+  },
+  {
+    question: 'Tu _____ un chat?',
+    answers: ['as', 'es', 'as-tu', 'avoir'],
+    correct: 'as',
+  },
+  {
+    question: 'Elle _____ au travail tous les jours.',
+    answers: ['va', 'vas', 'vont', 'alle'],
+    correct: 'va',
+  },
+  {
+    question: 'Nous _____ à Paris.',
+    answers: ['habitons', 'habitez', 'habites', 'habitent'],
+    correct: 'habitons',
+  },
+  {
+    question: 'Ils _____ le bus chaque matin.',
+    answers: ['prennent', 'prend', 'prenons', 'prendre'],
+    correct: 'prennent',
+  },
+  {
+    question: "Je voudrais _____ café, s'il vous plaît.",
+    answers: ['un', 'une', 'le', 'des'],
+    correct: 'un',
+  },
+  {
+    question: 'Elle parle _____ français.',
+    answers: ['le', 'la', 'du', 'de'],
+    correct: 'le',
+  },
+  {
+    question: 'Nous avons _____ amis en Espagne.',
+    answers: ['des', 'du', 'de', 'la'],
+    correct: 'des',
+  },
+  {
+    question: 'Il y a beaucoup _____ voitures dans la rue.',
+    answers: ['de', 'des', 'du', 'la'],
+    correct: 'de',
+  },
+  {
+    question: 'Je _____ une glace au chocolat.',
+    answers: ['veux', 'veux-tu', 'voudrais', 'veux-vous'],
+    correct: 'veux',
+  },
+  {
+    question: 'Marie _____ dans une école.',
+    answers: ['travaille', 'travail', 'travaillez', 'travaillons'],
+    correct: 'travaille',
+  },
+  {
+    question: 'Tu _____ le chocolat ?',
+    answers: ['aimes', 'aime', 'aimez', 'aimer'],
+    correct: 'aimes',
+  },
+  {
+    question: 'Nous _____ du sport le week-end.',
+    answers: ['faisons', 'faites', 'fait', 'ferons'],
+    correct: 'faisons',
+  },
+  {
+    question: 'Vous _____ un café ?',
+    answers: ['prenez', 'prend', 'prends', 'prenons'],
+    correct: 'prenez',
+  },
+  {
+    question: 'Ils _____ la radio chaque matin.',
+    answers: ['écoutent', 'écoute', 'écoutez', 'écouter'],
+    correct: 'écoutent',
+  },
+  {
+    question: 'Il a _____ vélo rouge.',
+    answers: ['un', 'une', 'le', 'des'],
+    correct: 'un',
+  },
+  {
+    question: 'Elle est _____ de son cadeau.',
+    answers: ['contente', 'content', 'contents', 'contentez'],
+    correct: 'contente',
+  },
+  {
+    question: 'Paul et Sophie _____ amis depuis longtemps.',
+    answers: ['sont', 'es', 'êtes', 'est'],
+    correct: 'sont',
+  },
+  {
+    question: 'Nous _____ au restaurant ce soir.',
+    answers: ['mangeons', 'mange', 'mangent', 'manges'],
+    correct: 'mangeons',
+  },
+  {
+    question: 'Je _____ français et anglais.',
+    answers: ['parle', 'parlez', 'parles', 'parlons'],
+    correct: 'parle',
+  },
 ]
