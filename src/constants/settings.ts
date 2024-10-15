@@ -1,4 +1,6 @@
-export const levels: Record<string, string> = {
+import { level } from '@/data'
+
+export const levels: Record<level, string> = {
   A1: 'beginner',
   A2: 'advanced',
   B1: 'confirmed',
