@@ -1,7 +1,10 @@
+import ReactGA from 'react-ga4'
 import './styles.css'
 import Routes from '@/Routes'
 import { Flex } from '@radix-ui/themes'
 import { Header, Footer } from '@/components'
+
+ReactGA.initialize('G-05SL1S3Q77')
 
 function App() {
   return (
