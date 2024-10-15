@@ -471,4 +471,104 @@ export default [
     answers: ['lavent', 'lavons', 'lave', 'laves'],
     correct: 'lave',
   },
+  {
+    question: 'Je _____ étudiant.',
+    answers: ['suis', 'es', 'est', 'sommes'],
+    correct: 'suis',
+  },
+  {
+    question: 'Tu _____ un chat?',
+    answers: ['as', 'es', 'as-tu', 'avoir'],
+    correct: 'as',
+  },
+  {
+    question: 'Elle _____ au travail tous les jours.',
+    answers: ['va', 'vas', 'vont', 'alle'],
+    correct: 'va',
+  },
+  {
+    question: 'Nous _____ à Paris.',
+    answers: ['habitons', 'habitez', 'habites', 'habitent'],
+    correct: 'habitons',
+  },
+  {
+    question: 'Ils _____ le bus chaque matin.',
+    answers: ['prennent', 'prend', 'prenons', 'prendre'],
+    correct: 'prennent',
+  },
+  {
+    question: "Je voudrais _____ café, s'il vous plaît.",
+    answers: ['un', 'une', 'le', 'des'],
+    correct: 'un',
+  },
+  {
+    question: 'Elle parle _____ français.',
+    answers: ['le', 'la', 'du', 'de'],
+    correct: 'le',
+  },
+  {
+    question: 'Nous avons _____ amis en Espagne.',
+    answers: ['des', 'du', 'de', 'la'],
+    correct: 'des',
+  },
+  {
+    question: 'Il y a beaucoup _____ voitures dans la rue.',
+    answers: ['de', 'des', 'du', 'la'],
+    correct: 'de',
+  },
+  {
+    question: 'Je _____ une glace au chocolat.',
+    answers: ['veux', 'veux-tu', 'voudrais', 'veux-vous'],
+    correct: 'veux',
+  },
+  {
+    question: 'Marie _____ dans une école.',
+    answers: ['travaille', 'travail', 'travaillez', 'travaillons'],
+    correct: 'travaille',
+  },
+  {
+    question: 'Tu _____ le chocolat ?',
+    answers: ['aimes', 'aime', 'aimez', 'aimer'],
+    correct: 'aimes',
+  },
+  {
+    question: 'Nous _____ du sport le week-end.',
+    answers: ['faisons', 'faites', 'fait', 'ferons'],
+    correct: 'faisons',
+  },
+  {
+    question: 'Vous _____ un café ?',
+    answers: ['prenez', 'prend', 'prends', 'prenons'],
+    correct: 'prenez',
+  },
+  {
+    question: 'Ils _____ la radio chaque matin.',
+    answers: ['écoutent', 'écoute', 'écoutez', 'écouter'],
+    correct: 'écoutent',
+  },
+  {
+    question: 'Il a _____ vélo rouge.',
+    answers: ['un', 'une', 'le', 'des'],
+    correct: 'un',
+  },
+  {
+    question: 'Elle est _____ de son cadeau.',
+    answers: ['contente', 'content', 'contents', 'contentez'],
+    correct: 'contente',
+  },
+  {
+    question: 'Paul et Sophie _____ amis depuis longtemps.',
+    answers: ['sont', 'es', 'êtes', 'est'],
+    correct: 'sont',
+  },
+  {
+    question: 'Nous _____ au restaurant ce soir.',
+    answers: ['mangeons', 'mange', 'mangent', 'manges'],
+    correct: 'mangeons',
+  },
+  {
+    question: 'Je _____ français et anglais.',
+    answers: ['parle', 'parlez', 'parles', 'parlons'],
+    correct: 'parle',
+  },
 ]

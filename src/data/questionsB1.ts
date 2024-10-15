@@ -252,4 +252,111 @@ export default [
     answers: ['faut', 'faudra', 'fallait', 'fautait'],
     correct: 'faut',
   },
+  {
+    question: "Il me l'a dit dès qu'il _____ la nouvelle.",
+    answers: ['a reçu', 'reçoit', 'recevra', 'avait reçu'],
+    correct: 'a reçu',
+  },
+  {
+    question: 'Je ne sais pas _____ elle partira en vacances cette année.',
+    answers: ['si', 'que', 'dont', 'quand'],
+    correct: 'si',
+  },
+  {
+    question: 'Il est nécessaire que vous _____ un rendez-vous avant de venir.',
+    answers: ['preniez', 'preniez-vous', 'prenez', 'prendriez'],
+    correct: 'preniez',
+  },
+  {
+    question: 'Ils _____ de tout annuler à cause du mauvais temps.',
+    answers: ['ont décidé', 'avaient décidé', 'décideront', 'décident'],
+    correct: 'ont décidé',
+  },
+  {
+    question: "Elle _____ l'intention de déménager l'année prochaine.",
+    answers: ['a', 'avait', 'aurait', 'avait eu'],
+    correct: 'a',
+  },
+  {
+    question: "_____ je t'ai dit hier est très important.",
+    answers: ['Ce que', 'Ce qui', 'Lequel', 'Dont'],
+    correct: 'Ce que',
+  },
+  {
+    question:
+      "Nous avons rencontré quelqu'un _____ parle parfaitement français.",
+    answers: ['qui', 'que', 'dont', 'où'],
+    correct: 'qui',
+  },
+  {
+    question: "Si vous _____ plus attentif, vous auriez remarqué l'erreur.",
+    answers: ['aviez été', 'seriez', 'êtes', 'étiez'],
+    correct: 'aviez été',
+  },
+  {
+    question: "Je pense que ce restaurant est _____ celui d'hier.",
+    answers: ['meilleur que', 'mieux que', 'meilleur de', 'bien que'],
+    correct: 'meilleur que',
+  },
+  {
+    question:
+      "Il _____ beaucoup cette semaine, nous devons annuler l'événement.",
+    answers: ['a plu', 'pleut', 'plu', 'pleuvra'],
+    correct: 'a plu',
+  },
+  {
+    question: "Je t'aiderai quand tu _____ tes devoirs.",
+    answers: ['auras terminé', 'termineras', 'termines', 'avais terminé'],
+    correct: 'auras terminé',
+  },
+  {
+    question: "Je ne comprends pas _____ elle n'est pas venue hier.",
+    answers: ['pourquoi', 'si', 'que', 'ce que'],
+    correct: 'pourquoi',
+  },
+  {
+    question: "Il est possible qu'il _____ plus tard.",
+    answers: ['vienne', 'vient', 'viendrait', 'viendra'],
+    correct: 'vienne',
+  },
+  {
+    question: "C'est la raison pour _____ je t'ai appelé.",
+    answers: ['laquelle', 'que', 'qui', 'dont'],
+    correct: 'laquelle',
+  },
+  {
+    question: 'Tu devrais me téléphoner dès que tu _____ .',
+    answers: ['arrives', 'es arrivé', 'arriveras', 'seras arrivé'],
+    correct: 'seras arrivé',
+  },
+  {
+    question: 'Je _____ ce film la semaine dernière.',
+    answers: ['ai vu', 'voyais', 'ai vu vu', 'verrai'],
+    correct: 'ai vu',
+  },
+  {
+    question: 'Ils ont annulé la réunion _____ la météo.',
+    answers: ['à cause de', 'pour', 'malgré', 'par'],
+    correct: 'à cause de',
+  },
+  {
+    question: "Je voudrais quelqu'un _____ puisse m'expliquer cette règle.",
+    answers: ['qui', 'que', 'dont', 'où'],
+    correct: 'qui',
+  },
+  {
+    question: 'Si nous avions su, nous _____ .',
+    answers: [
+      'ne serions pas venus',
+      'ne venons pas',
+      'ne sommes pas venus',
+      'ne viendrions pas',
+    ],
+    correct: 'ne serions pas venus',
+  },
+  {
+    question: 'Elle préfère _____ rester à la maison ce soir.',
+    answers: ['plutôt', 'que', 'de', 'à'],
+    correct: 'plutôt',
+  },
 ]
