@@ -5,11 +5,6 @@ export default [
     correct: 'américain',
   },
   {
-    question: 'Vous êtes _____.',
-    answers: ['américains', 'américain', 'américan', 'américan'],
-    correct: 'américains',
-  },
-  {
     question: 'Elle est _____.',
     answers: ['grand', 'grande', 'grands', 'grandez'],
     correct: 'grande',
@@ -87,8 +82,8 @@ export default [
   },
   {
     question: 'Nous _____ des amis hier.',
-    answers: ['rencontrons', 'rencontré', 'rencontrer', 'rencontrons'],
-    correct: 'rencontré',
+    answers: ['rencontrons', 'avons rencontré', 'rencontrer', 'rencontrerons'],
+    correct: 'avons rencontré',
   },
   {
     question: 'Elle _____ de la musique tous les jours.',
@@ -151,174 +146,152 @@ export default [
     correct: 'habite',
   },
   {
-    question: 'Quel est le bon article pour compléter : Je voudrais _____ eau.',
+    question: 'Je voudrais _____ eau.',
     answers: ['le', 'la', 'une', "de l'"],
     correct: "de l'",
   },
   {
-    question:
-      'Choisissez la bonne forme du verbe : Nous _____ (aller) au marché demain.',
+    question: 'Nous _____ (aller) au marché demain.',
     answers: ['allons', 'allions', 'allez', 'va'],
     correct: 'allons',
   },
   {
-    question:
-      'Complétez avec la bonne préposition : Je vais _____ la boulangerie.',
+    question: 'Je vais _____ la boulangerie.',
     answers: ['à', 'en', 'au', 'chez'],
     correct: 'à',
   },
   {
-    question:
-      "Quel pronom remplace correctement l'objet : Tu vois la voiture ? Oui, je _____ vois.",
+    question: 'Tu vois la voiture ? Oui, je _____ vois.',
     answers: ['la', 'le', "l'", 'les'],
     correct: 'la',
   },
   {
-    question:
-      'Choisissez la bonne conjugaison : Elles _____ (manger) une glace.',
+    question: 'Elles _____ une glace.',
     answers: ['mangent', 'mangeons', 'mange', 'manges'],
     correct: 'mangent',
   },
   {
-    question:
-      "Quel est l'adverbe correct pour compléter : Il parle trop _____.",
+    question: 'Il parle trop _____.',
     answers: ['rapide', 'rapidement', 'vite', 'vitesse'],
     correct: 'vite',
   },
   {
-    question:
-      'Complétez avec la bonne forme : Il est plus grand _____ son frère.',
+    question: 'Il est plus grand _____ son frère.',
     answers: ['que', 'de', 'à', 'avec'],
     correct: 'que',
   },
   {
-    question:
-      "Complétez avec l'article correct : Elle prend _____ fruits pour le dessert.",
+    question: 'Elle prend _____ fruits pour le dessert.',
     answers: ['des', 'les', 'du', 'le'],
     correct: 'des',
   },
   {
-    question: 'Choisissez le bon temps : Hier, nous _____ (regarder) un film.',
+    question: 'Hier, nous _____ un film.',
     answers: ['regardons', 'regardé', 'regardais', 'avons regardé'],
     correct: 'avons regardé',
   },
   {
-    question: 'Complétez avec la bonne négation : Il _____ parle jamais.',
+    question: 'Il _____ parle jamais.',
     answers: ['ne', "n'", 'pas', 'non'],
     correct: 'ne',
   },
   {
-    question: "Complétez la phrase : Je n'aime pas _____ légumes.",
+    question: "Je n'aime pas _____ légumes.",
     answers: ['les', 'des', 'le', 'de'],
     correct: 'les',
   },
   {
-    question: 'Choisissez la bonne préposition : Il habite _____ Lyon.',
+    question: 'Il habite _____ Lyon.',
     answers: ['dans', 'en', 'à', 'sur'],
     correct: 'à',
   },
   {
-    question:
-      'Quel est le bon pronom pour compléter : Elle parle à ses amis. Elle _____ parle.',
+    question: 'Elle parle à ses amis. Elle _____ parle.',
     answers: ['lui', 'les', 'leur', 'le'],
     correct: 'leur',
   },
   {
-    question:
-      'Choisissez la bonne conjugaison : Nous _____ (finir) notre travail à 18h.',
-    answers: ['finissons', 'finirons', 'finissons', 'finit'],
+    question: 'Nous _____ notre travail à 18h.',
+    answers: ['finissez', 'finirons', 'finissons', 'finit'],
     correct: 'finissons',
   },
   {
-    question:
-      "Complétez avec l'adjectif correct : Cette robe est plus _____ que l'autre.",
+    question: "Cette robe est plus _____ que l'autre.",
     answers: ['belle', 'beau', 'bon', 'bien'],
     correct: 'belle',
   },
   {
-    question: 'Quel est le bon article : Elle mange _____ pomme chaque matin.',
+    question: 'Elle mange _____ pomme chaque matin.',
     answers: ['le', 'la', 'une', 'un'],
     correct: 'une',
   },
   {
-    question:
-      'Complétez avec la forme correcte : Nous _____ (être) très contents de vous voir.',
+    question: 'Nous _____ très contents de vous voir.',
     answers: ['sommes', 'serons', 'soyez', 'es'],
     correct: 'sommes',
   },
   {
-    question:
-      "Quel est le bon pronom pour remplacer l'objet : Il donne le livre à Pierre. Il _____ donne le livre.",
+    question: 'Il donne le livre à Pierre. Il _____ donne le livre.',
     answers: ['lui', 'le', 'leur', 'les'],
     correct: 'lui',
   },
   {
-    question: 'Choisissez la bonne négation : Ils ne _____ pas encore rentrés.',
+    question: 'Ils ne _____ pas encore rentrés.',
     answers: ['sont', 'ont', 'seront', 'étaient'],
     correct: 'sont',
   },
   {
-    question:
-      'Quel est le bon temps pour compléter : Demain, je _____ (partir) en vacances.',
+    question: 'Demain, je _____ en vacances.',
     answers: ['pars', 'partirai', 'partais', 'part'],
     correct: 'partirai',
   },
   {
-    question:
-      'Complétez avec la bonne forme verbale : Ils _____ (faire) du sport tous les matins.',
+    question: 'Ils _____ du sport tous les matins.',
     answers: ['font', 'faisons', 'faites', 'fais'],
     correct: 'font',
   },
   {
-    question:
-      'Choisissez la bonne préposition : Il part _____ vacances en juillet.',
+    question: 'Il part _____ vacances en juillet.',
     answers: ['à', 'en', 'dans', 'pour'],
     correct: 'en',
   },
   {
-    question:
-      "Quel est le bon article pour compléter : J'aime beaucoup _____ chocolat.",
+    question: "J'aime beaucoup _____ chocolat.",
     answers: ['du', 'le', 'un', 'de'],
     correct: 'le',
   },
   {
-    question:
-      "Complétez avec l'adjectif possessif correct : C'est _____ voiture.",
+    question: "C'est _____ voiture.",
     answers: ['ma', 'mon', 'mes', 'moi'],
     correct: 'ma',
   },
   {
-    question:
-      'Choisissez la bonne forme du verbe : Tu _____ (prendre) un café ?',
+    question: 'Tu _____ un café ?',
     answers: ['prends', 'prend', 'prendre', 'prenez'],
     correct: 'prends',
   },
   {
-    question:
-      'Quel est le bon pronom pour compléter : Je donne la lettre à Marie. Je _____ donne la lettre.',
+    question: 'Je donne la lettre à Marie. Je _____ donne la lettre.',
     answers: ['lui', 'les', 'leur', 'la'],
     correct: 'lui',
   },
   {
-    question: 'Complétez avec le bon adverbe : Il parle très _____.',
+    question: 'Il parle très _____.',
     answers: ['doucement', 'doux', 'douce', 'douces'],
     correct: 'doucement',
   },
   {
-    question:
-      'Choisissez la bonne forme verbale : Nous _____ (venir) de finir nos devoirs.',
+    question: 'Nous _____ de finir nos devoirs.',
     answers: ['venons', 'venez', 'viens', 'vient'],
     correct: 'venons',
   },
   {
-    question:
-      'Quel est le bon adjectif démonstratif : _____ homme est mon frère.',
+    question: '_____ homme est mon frère.',
     answers: ['Cet', 'Ce', 'Cette', 'Ces'],
     correct: 'Cet',
   },
   {
-    question:
-      'Complétez avec la bonne préposition : Elle arrive _____ Italie demain.',
+    question: 'Elle arrive _____ Italie demain.',
     answers: ['à', 'en', 'dans', 'de'],
     correct: 'en',
   },

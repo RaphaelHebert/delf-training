@@ -55,11 +55,6 @@ export default [
     correct: 'serais venu',
   },
   {
-    question: 'Je partirai dès que tu _____ prêt.',
-    answers: ['seras', 'serait', 'sois', 'serait'],
-    correct: 'seras',
-  },
-  {
     question: "Je connais quelqu'un _____ peut t'aider.",
     answers: ['qui', 'que', 'dont', 'lequel'],
     correct: 'qui',
@@ -178,7 +173,7 @@ export default [
   },
   {
     question: 'Vous _____ une réponse depuis longtemps.',
-    answers: ['attendez', 'attendez-vous', 'attendiez', 'attendez-vous'],
+    answers: ['attendez', 'attendais', 'attendiez', 'attendez-vous'],
     correct: 'attendez',
   },
   {
@@ -244,7 +239,7 @@ export default [
   },
   {
     question: 'Nous _____ le projet avant la date limite.',
-    answers: ['finissons', 'finirons', 'finissons', 'a terminé'],
+    answers: ['finissons', 'finirons', 'finir', 'a terminé'],
     correct: 'finirons',
   },
   {

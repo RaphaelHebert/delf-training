@@ -103,7 +103,7 @@ export default [
   {
     question: 'Tu connais Marie, elle _____ professeur de piano.',
     answers: ['a', 'est', 'es', 'sont'],
-    correct: 'est - français',
+    correct: 'est',
   },
   {
     question: 'Le docteur, il _____ un ami de mon père.',
@@ -318,7 +318,7 @@ export default [
   },
   {
     question: 'Je suis  _____ fatiguée!',
-    answers: ['un petit peu', 'peu', 'un peu', 'peu'],
+    answers: ['un petit peu', 'peut', 'un peu', 'peu'],
     correct: 'un peu',
   },
   {
@@ -382,9 +382,9 @@ export default [
     correct: 'est',
   },
   {
-    question: 'Marrie est _____ .',
+    question: 'Marie est _____ .',
     answers: ['français', 'française', 'france', 'francais'],
-    correct: 'rançaise',
+    correct: 'française',
   },
   {
     question: 'Thomas? Il est _____ .',
@@ -428,7 +428,7 @@ export default [
   },
   {
     question: 'Vous êtes _____.',
-    answers: ['américains', 'américain', 'américan', 'américan'],
+    answers: ['américains', 'américain', 'américanes', 'américan'],
     correct: 'américains',
   },
   {
@@ -448,7 +448,7 @@ export default [
   },
   {
     question: 'Ils sont _____.',
-    answers: ['allemands', 'allemand', 'allemands', 'allemandes'],
+    answers: ['allemands', 'allemand', 'allemans', 'allemandes'],
     correct: 'allemands',
   },
   {

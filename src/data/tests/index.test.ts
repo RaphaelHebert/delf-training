@@ -2,10 +2,13 @@ import { allQuestions } from '../../data'
 
 describe('Questions', () => {
   it('Should not have duplicated answers', async () => {
-    Object.values(allQuestions).forEach((questions) => {
+    Object.entries(allQuestions).forEach(([key, questions]) => {
+      console.log('testing level:', key)
       questions.forEach(({ question, answers, correct }) => {
         // Should contain a question
-        expect(question.length > 0).toBe(true)
+        const c = question && question.length > 0
+        if (!c) console.log(question, answers, correct)
+        expect(c).toBe(true)
         // Question should contains placeholder for answer
         const placeholder = question.includes('_____')
         if (!placeholder) console.log(question)
