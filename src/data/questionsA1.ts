@@ -56,7 +56,7 @@ export default [
   },
   {
     question: 'Je _____ des bandes dessinées.',
-    answers: ['fais', 'dessine', 'fait', 'font'],
+    answers: ['fais', 'dessinent', 'fait', 'font'],
     correct: 'fais',
   },
   {
@@ -73,7 +73,7 @@ export default [
     question:
       'En semaine, Keiko et moi, nous _____ beaucoup parce que nous devons étudier.',
     answers: ['ne sors pas', 'ne sortons pas', 'ne sortent pas', 'sors'],
-    correct: 'ne sors pas',
+    correct: 'ne sortons pas',
   },
   {
     question: 'Le week-end, avec nos amis, nous _____ la fête.',
@@ -188,12 +188,12 @@ export default [
   },
   {
     question: ' _____ téléphonez à votre mère.',
-    answers: ['tu', 'il/elle', 'nous', 'vous'],
-    correct: 'vous',
+    answers: ['Tu', 'Il/Elle', 'Nous', 'Vous'],
+    correct: 'Vous',
   },
   {
     question: 'Les enfants _____ dans le jardin.',
-    answers: ['jouent', 'travaillent', 'parlent', 'étudient'],
+    answers: ['jouent', 'travailles', 'parle', 'étudier'],
     correct: 'jouent',
   },
   {
@@ -238,7 +238,7 @@ export default [
   },
   {
     question: 'Mon amie _____ que je suis contente.',
-    answers: ['croit', 'espère', 'pense', 'sens'],
+    answers: ['croire', 'espère', 'penses', 'sens'],
     correct: 'espère',
   },
   {
@@ -314,15 +314,15 @@ export default [
   {
     question: 'Je  _____ contente et il _____ content aussi!',
     answers: ['suit est', 'suis est', 'est suis', 'es être'],
-    correct: 'suit est',
+    correct: 'suis est',
   },
   {
     question: 'Je suis  _____ fatiguée!',
-    answers: ['un petit peu', 'peut', 'un peu', 'peu'],
+    answers: ['un petit', 'peut', 'un peu', 'peu'],
     correct: 'un peu',
   },
   {
-    question: 'Je _____ en France.',
+    question: "J'_____ en France.",
     answers: ['habite', 'habites', 'habitent', 'habitez'],
     correct: 'habite',
   },
@@ -392,7 +392,7 @@ export default [
     correct: 'français',
   },
   {
-    question: 'Miles est _____ .',
+    question: 'John est _____ .',
     answers: ['anlaise', 'anlais', 'anglaise', 'anglais'],
     correct: 'anglais',
   },
@@ -448,7 +448,7 @@ export default [
   },
   {
     question: 'Ils sont _____.',
-    answers: ['allemands', 'allemand', 'allemans', 'allemandes'],
+    answers: ['allemands', 'allemand', 'allemas', 'allemandes'],
     correct: 'allemands',
   },
   {

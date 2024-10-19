@@ -20,8 +20,8 @@ export default [
     correct: 'mangeons',
   },
   {
-    question: 'Je _____ une voiture.',
-    answers: ['a', 'as', 'ai', 'avais'],
+    question: "J'_____ une voiture.",
+    answers: ['a', 'as', 'ai', 'ais'],
     correct: 'ai',
   },
   {
@@ -67,7 +67,7 @@ export default [
   },
   {
     question: 'Nous _____ à la plage demain.',
-    answers: ['irons', 'allons', 'allions', 'va'],
+    answers: ['sommes allés', 'allons', 'allions', 'va'],
     correct: 'allons',
   },
   {
@@ -151,7 +151,7 @@ export default [
     correct: "de l'",
   },
   {
-    question: 'Nous _____ (aller) au marché demain.',
+    question: 'Nous _____ au marché demain.',
     answers: ['allons', 'allions', 'allez', 'va'],
     correct: 'allons',
   },
@@ -172,7 +172,7 @@ export default [
   },
   {
     question: 'Il parle trop _____.',
-    answers: ['rapide', 'rapidement', 'vite', 'vitesse'],
+    answers: ['rapide', 'doux', 'vite', 'vitesse'],
     correct: 'vite',
   },
   {
