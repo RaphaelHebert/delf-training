@@ -1,7 +1,7 @@
 import '@radix-ui/themes/styles.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 //import { QueryClient, QueryClientProvider } from 'react-query'
 import { Theme } from '@radix-ui/themes'
 import { ModeAndLevelProvider } from '@/contexts/modeAndLevel'
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         mode: 'training',
       }}
     >
-      <BrowserRouter basename='/delf-training'>
+      <HashRouter basename='/'>
         {/* <QueryClientProvider client={queryClient}> */}
         <Theme
           accentColor={COLOR_CORRECT}
@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <App />
         </Theme>
         {/* </QueryClientProvider> */}
-      </BrowserRouter>
+      </HashRouter>
     </ModeAndLevelProvider>
   </React.StrictMode>
 )
