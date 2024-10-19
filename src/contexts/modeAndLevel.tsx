@@ -55,7 +55,7 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
     setModeAndLevel((prev) => ({
       ...prev,
       level: {
-        name: name || prev.level.name,
+        name: name,
         questions: shuffle(allQuestions[name]),
       },
     }))
