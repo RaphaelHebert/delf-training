@@ -63,6 +63,19 @@ const ExerciseCard: React.FC<Props> = ({
     setSelectedOption('')
   }, [isExamMode])
 
+  const fullAnswer = (question: string, answer: string): string => {
+    const splitQuestion = question.split('_____')
+    const splitAnswer = answer.split(' ')
+    if (splitQuestion.length > 2) {
+      return (
+        splitAnswer
+          .map((part, index) => `${splitQuestion[index]} ${part}`)
+          .join(' ') + splitQuestion.at(-1)
+      )
+    }
+    return question.replace('_____', answer)
+  }
+
   const defineColor = (answer: string) => {
     // TODO find types for radix colors
     if (!hasFormBeenSubmitted) {
@@ -122,9 +135,7 @@ const ExerciseCard: React.FC<Props> = ({
               as='div'
               ml='3'
             >
-              {selectedOption
-                ? question.replace('_____', selectedOption)
-                : question}
+              {selectedOption ? fullAnswer(question, selectedOption) : question}
             </Text>
           </Flex>
           <Flex

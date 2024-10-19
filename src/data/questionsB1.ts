@@ -27,17 +27,17 @@ export default [
   {
     question: "C'est un sujet _____ je m'intéresse beaucoup.",
     answers: ['dont', 'que', 'qui', 'lequel'],
-    correct: 'dont',
+    correct: 'qui',
   },
   {
-    question: "J'ai décidé de ne pas aller à la fête _____ je sois fatigué.",
-    answers: ['parce que', 'comme', 'à cause de', 'car'],
+    question: "J'ai décidé de ne pas aller à la fête _____ je suis fatigué.",
+    answers: ['parce que', 'en plus', 'à cause de', 'cependant'],
     correct: 'parce que',
   },
   {
     question: 'Ils se sont disputés _____ un malentendu.',
-    answers: ['à cause de', 'parce que', 'grâce à', 'pour'],
-    correct: 'à cause de',
+    answers: ["à cause d'", 'parce que', 'grâce à', 'pour'],
+    correct: "à cause d'",
   },
   {
     question: 'Si tu _____ demain, on ira au cinéma ensemble.',
@@ -53,11 +53,6 @@ export default [
     question: "Si j'avais su, je _____ plus tôt.",
     answers: ['serais venu', 'viendrais', 'étais venu', 'viendrais venir'],
     correct: 'serais venu',
-  },
-  {
-    question: 'Je partirai dès que tu _____ prêt.',
-    answers: ['seras', 'serait', 'sois', 'serait'],
-    correct: 'seras',
   },
   {
     question: "Je connais quelqu'un _____ peut t'aider.",
@@ -101,14 +96,9 @@ export default [
     correct: 'dont',
   },
   {
-    question: "Si j'avais su, j'aurais _____ plus tôt.",
-    answers: ['venu', 'viendrai', 'viendrais', 'venir'],
-    correct: 'venu',
-  },
-  {
     question: 'Je partirai dès que tu _____ prêt.',
     answers: ['es', 'seras', 'sois', 'serait'],
-    correct: 'es',
+    correct: 'seras',
   },
   {
     question: "Je connais quelqu'un _____ peut t'aider.",
@@ -172,13 +162,13 @@ export default [
     correct: 'où',
   },
   {
-    question: 'Je préfère le café _____ le thé.',
-    answers: ['plutôt que', 'que', 'et', 'avec'],
-    correct: 'que',
+    question: 'Je préfère le café _____ thé.',
+    answers: ['au', 'que', 'et', 'avec'],
+    correct: 'au',
   },
   {
     question: 'Vous _____ une réponse depuis longtemps.',
-    answers: ['attendez', 'attendez-vous', 'attendiez', 'attendez-vous'],
+    answers: ['attendez', 'attendais', 'attendiez', 'attendez-vous'],
     correct: 'attendez',
   },
   {
@@ -193,9 +183,14 @@ export default [
     correct: 'jouaient',
   },
   {
-    question: "Je suis fatigué parce que j'_____ bien.",
-    answers: ["n'ai pas dormi", 'ne dors pas', "n'ai dormi", 'dormir'],
-    correct: "n'ai pas dormi",
+    question: 'Je suis fatigué parce que je _____.',
+    answers: [
+      "n'ai pas bien dormi",
+      'ne dors pas bien',
+      "n'ai dormi bien",
+      'dormir mal',
+    ],
+    correct: "n'ai pas bien dormi",
   },
   {
     question: "Il est essentiel que tu _____ à l'heure demain.",
@@ -229,22 +224,22 @@ export default [
   },
   {
     question: 'Elle a demandé _____ il viendrait à la réunion.',
-    answers: ["s'il", 'si', 'qui', 'que'],
-    correct: "s'il",
+    answers: ["s'", "qu'", 'qui', 'que'],
+    correct: "s'",
   },
   {
-    question: 'Ils ont décidé de partir en voyage même _____ le mauvais temps.',
+    question: 'Ils ont décidé de partir en voyage _____ le mauvais temps.',
     answers: ['avec', 'malgré', 'à cause de', 'sans'],
     correct: 'malgré',
   },
   {
     question: 'Je préfère rester ici _____ aller au cinéma.',
-    answers: ['que', 'plutôt que', 'au lieu de', 'et'],
-    correct: 'plutôt que',
+    answers: ["que d'", "plutôt que d'", "au lieu d'", 'et'],
+    correct: "plutôt que d'",
   },
   {
     question: 'Nous _____ le projet avant la date limite.',
-    answers: ['finissons', 'finirons', 'finissons', 'a terminé'],
+    answers: ['finissons', 'finirons', 'finir', 'a terminé'],
     correct: 'finirons',
   },
   {
@@ -330,9 +325,9 @@ export default [
     correct: 'seras arrivé',
   },
   {
-    question: 'Je _____ ce film la semaine dernière.',
-    answers: ['ai vu', 'voyais', 'ai vu vu', 'verrai'],
-    correct: 'ai vu',
+    question: '_____ ce film la semaine dernière.',
+    answers: ["J'ai vu", 'Je voyais', "J'vais voir", 'Je verrai'],
+    correct: "J'ai vu",
   },
   {
     question: 'Ils ont annulé la réunion _____ la météo.',

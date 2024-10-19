@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             "You've reached the time limit!"
           ) : (
             <>
-              <p>You will have 40 minutes to complete 100 questions.</p>
+              <p>{`You will have ${EXAM_TIME / 60} minutes to complete ${EXAM_QUESTION} questions.`}</p>
               <p> Are you ready?</p>
             </>
           )
@@ -156,13 +156,13 @@ const Home: React.FC = () => {
                         ...level.questions[count],
                         answers: level.questions[count].answers,
                       }}
-                      instructions='Choisissez la bonne reponse:'
+                      instructions='Choisissez la bonne réponse:'
                       sendSummary={handleQuestionSubmission}
                       count={count}
                       isExamMode
                     />
                   ) : (
-                    'no questions available'
+                    `You answer all ${level.questions.length} questions! Retry, try next level or come back later, we constantly add new questions!`
                   )}
                 </Flex>
               </Flex>
