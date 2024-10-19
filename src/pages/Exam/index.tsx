@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             "You've reached the time limit!"
           ) : (
             <>
-              <p>You will have 40 minutes to complete 100 questions.</p>
+              <p>{`You will have ${EXAM_TIME / 60} minutes to complete ${EXAM_QUESTION} questions.`}</p>
               <p> Are you ready?</p>
             </>
           )
