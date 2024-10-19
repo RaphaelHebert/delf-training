@@ -104,13 +104,13 @@ const Training: React.FC = () => {
                   ...level.questions[count],
                   answers: level.questions[count].answers,
                 }}
-                instructions='Choisissez la bonne reponse:'
+                instructions='Choisissez la bonne réponse:'
                 sendSummary={handleQuestionSubmission}
                 count={count}
                 isExamMode={false}
               />
             ) : (
-              'no question available'
+              `You answer all ${level.questions.length} questions! Retry, try next level or come back later, we constantly add new questions!`
             )}
           </Flex>
         </Flex>

@@ -1,5 +1,5 @@
 import { level } from '@/data'
-
+import { EXAM_QUESTION, EXAM_TIME } from '@/constants'
 export const levels: Record<level, string> = {
   A1: 'beginner',
   A2: 'advanced',
@@ -8,6 +8,6 @@ export const levels: Record<level, string> = {
 }
 
 export const modes: Record<string, string> = {
-  exam: '30 minutes, 40 questions: results available once the exam is completed',
+  exam: `${EXAM_TIME / 60} minutes, ${EXAM_QUESTION} questions: results available once the exam is completed`,
   training: 'infinite questions with correction',
 }

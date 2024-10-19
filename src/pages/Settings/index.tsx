@@ -16,7 +16,7 @@ const Settings: React.FC = () => {
 
   const memoizedSettings = useRef<{ mode: mode; level: level }>({
     mode: modeAndLevel.mode,
-    level: modeAndLevel.level,
+    level: { ...modeAndLevel.level },
   })
 
   useEffect(() => {
@@ -24,22 +24,14 @@ const Settings: React.FC = () => {
   }, [])
 
   const confirmSelection = () => {
-    if (modeAndLevel.mode === 'exam') {
-      navigate('/exam')
-      return
-    }
-    navigate('/training')
+    navigate(`/${modeAndLevel.mode}`)
+    return
   }
 
   const cancelSelection = () => {
     setLevel(memoizedSettings.current.level.name as levelName)
     setMode(memoizedSettings.current.mode as mode)
-
-    if (modeAndLevel.mode === 'exam') {
-      navigate('/exam')
-      return
-    }
-    navigate('/training')
+    navigate(`/${memoizedSettings.current.mode}`)
   }
 
   return (
