@@ -9,7 +9,7 @@ type Props = {
   total: number
   numeric: boolean
 }
-const ProgressDemo: React.FC<Props> = ({ progress, total }) => {
+const ProgressDemo: React.FC<Props> = ({ progress, total, numeric }) => {
   const [progessState, setProgressState] = useState(
     Math.trunc((progress / total) * 100) > 100
       ? 100
@@ -30,8 +30,10 @@ const ProgressDemo: React.FC<Props> = ({ progress, total }) => {
 
   return (
     <Flex
+      direction='column'
       justify='center'
       align='center'
+      width='100%'
     >
       <Progress.Root
         className='ProgressRoot'
@@ -44,10 +46,12 @@ const ProgressDemo: React.FC<Props> = ({ progress, total }) => {
           }}
         />
       </Progress.Root>
-      <Text
-        ml='4'
-        as='span'
-      >{`${progress} / ${total}`}</Text>
+      {numeric && (
+        <Text
+          ml='4'
+          as='span'
+        >{`${progress} / ${total}`}</Text>
+      )}
     </Flex>
   )
 }

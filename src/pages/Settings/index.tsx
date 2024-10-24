@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { Button, Flex, Heading, Box, Section } from '@radix-ui/themes'
+import { Button, Flex, Heading, Section } from '@radix-ui/themes'
 import { useNavigate } from 'react-router-dom'
 import { Buttons } from '@/components'
 import {
@@ -34,52 +34,34 @@ const Settings: React.FC = () => {
     navigate(`/${memoizedSettings.current.mode}`)
   }
 
+  const buttonsStyle = {
+    width: '40%',
+    minHeight: '5rem',
+  }
+
   return (
     <Flex
+      flexGrow='1'
       direction='column'
       justify='between'
       align='center'
     >
-      <Flex
-        direction='row'
-        justify='start'
-        align='center'
-        width='100%'
-      >
-        <Box width='15%'>
-          <Heading as='h2'>Levels</Heading>
-        </Box>
-        <Flex
-          justify='center'
-          align='center'
-          direction='row'
-          wrap='wrap'
-          mt='7'
-        >
-          <Buttons
-            choices={levels}
-            onSelect={(lvl) => setLevel(lvl as levelName)}
-          />
-        </Flex>
-      </Flex>
+      <Heading as='h2'>Levels</Heading>
+      <Buttons
+        choices={levels}
+        onSelect={(lvl) => setLevel(lvl as levelName)}
+      />
+
       <Section
         width='100%'
         style={{ borderBottom: '1px dotted gray', padding: 0 }}
       />
-      <Flex
-        width='100%'
-        direction='row'
-        justify='start'
-        align='center'
-      >
-        <Box width='15%'>
-          <Heading as='h2'>Mode</Heading>
-        </Box>
-        <Buttons
-          choices={modes}
-          onSelect={(value) => setMode(value as mode)}
-        />
-      </Flex>
+
+      <Heading as='h2'>Mode</Heading>
+      <Buttons
+        choices={modes}
+        onSelect={(value) => setMode(value as mode)}
+      />
       <Section
         width='100%'
         style={{ borderBottom: '1px dotted gray', padding: 0 }}
@@ -91,16 +73,18 @@ const Settings: React.FC = () => {
         width='100%'
       >
         <Button
-          mb='9'
-          mr='9'
+          mr='4'
           size='4'
+          type='button'
+          style={buttonsStyle}
           onClick={cancelSelection}
         >
           Cancel
         </Button>
         <Button
-          mb='9'
           size='4'
+          type='button'
+          style={buttonsStyle}
           onClick={confirmSelection}
         >
           Confirm

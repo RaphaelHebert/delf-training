@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { ExerciseCard, Results, Dialog, Timer } from '@/components'
-import { Flex, Heading } from '@radix-ui/themes'
+import {
+  ExerciseCard,
+  Results,
+  Dialog,
+  Timer,
+  BodyContainer,
+} from '@/components'
+import { Flex } from '@radix-ui/themes'
 import { ProgressBar } from '@/primitiveComponents'
 import { EXAM_QUESTION, EXAM_TIME } from '@/constants'
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
+import { SideBar } from '@/components'
+
+import '../../components/SideBar/styles.css'
 
 const Home: React.FC = () => {
   const {
@@ -51,134 +60,93 @@ const Home: React.FC = () => {
     setIsTimeOut(true)
   }
 
-  return (
-    <Flex
-      gap='3'
-      flexGrow='1'
-      direction='column'
-      style={{
-        borderLeft: '1px solid lightGrey',
-        borderRight: '1px solid lightGrey',
-      }}
-      className='mukta-regular'
-    >
-      <Dialog
-        isOpen={isDialogOpen || isTimeOut}
-        actionOnConfirm={isTimeOut ? confirmTimeOutModal : startExamMode}
-        showCancel={!isTimeOut}
-        title='Exam mode!'
-        buttonMessage={isTimeOut ? 'ok' : 'Start!'}
-        body={
-          isTimeOut ? (
-            "You've reached the time limit!"
-          ) : (
-            <>
-              <p>{`You will have ${EXAM_TIME / 60} minutes to complete ${EXAM_QUESTION} questions.`}</p>
-              <p> Are you ready?</p>
-            </>
-          )
-        }
-      />
+  const displayResults = !(
+    count !== level.questions.length && count !== EXAM_QUESTION
+  )
+  const displayTimer = !isDialogOpen && count !== EXAM_QUESTION
 
-      <>
-        <Flex
-          justify='start'
-          pr='9'
-          pl='2'
-        >
-          {count !== level.questions.length && count !== EXAM_QUESTION ? (
-            <>
+  return (
+    <>
+      {!displayResults && (
+        <BodyContainer>
+          <SideBar
+            count={count}
+            goodAnswers={countGoodAnswer}
+          >
+            {displayTimer && (
+              <Timer
+                time={EXAM_TIME}
+                actionOnTimeElapsed={timeOut}
+              />
+            )}
+          </SideBar>
+
+          <Flex
+            direction='column'
+            m='auto'
+            justify='center'
+          >
+            {displayTimer && (
               <Flex
-                gap='3'
-                width='25%'
-                justify='start'
-                align='center'
                 direction='column'
-                style={{
-                  borderRight: '1px solid lightGrey',
-                }}
+                justify='center'
+                gap='4'
+                align='center'
               >
-                <Heading
-                  as='h2'
-                  size='6'
-                  mt='6'
-                >
-                  Level: {level.name}
-                </Heading>
-                {!isDialogOpen && count !== EXAM_QUESTION && (
+                <div className='smallScreen'>
                   <Timer
                     time={EXAM_TIME}
                     actionOnTimeElapsed={timeOut}
                   />
-                )}
-              </Flex>
+                </div>
 
-              <Flex
-                justify='center'
-                width='100%'
-                pt='6'
-              >
-                <Flex
-                  direction='column'
-                  width='80%'
-                  justify='start'
-                  flexGrow='1'
-                >
-                  <div style={{ position: 'relative' }}>
-                    <div
-                      style={{
-                        position: 'absolute',
-                        margin: '5% auto',
-                        width: '100% ',
-                      }}
-                    >
-                      {' '}
-                      <ProgressBar
-                        total={EXAM_QUESTION}
-                        progress={count}
-                        numeric={true}
-                      />
-                    </div>
-
-                    <div style={{ visibility: 'hidden' }}>
-                      <Results
-                        percent={Math.trunc(
-                          count === 0 ? 0 : (countGoodAnswer / count) * 100
-                        )}
-                        speed={1}
-                        size={100}
-                      />
-                    </div>
-                  </div>
-                  {level.questions[count] ? (
-                    <ExerciseCard
-                      qcm={{
-                        ...level.questions[count],
-                        answers: level.questions[count].answers,
-                      }}
-                      instructions='Choisissez la bonne réponse:'
-                      sendSummary={handleQuestionSubmission}
-                      count={count}
-                      isExamMode
-                    />
-                  ) : (
-                    `You answer all ${level.questions.length} questions! Retry, try next level or come back later, we constantly add new questions!`
-                  )}
-                </Flex>
+                <ProgressBar
+                  total={EXAM_QUESTION}
+                  progress={count}
+                  numeric={true}
+                />
               </Flex>
-            </>
-          ) : (
-            <>
-              <Results
-                percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
-                goBack={resetCounts}
-                speed={3}
-              />
-            </>
-          )}
-        </Flex>
-      </>
-    </Flex>
+            )}
+
+            <ExerciseCard
+              qcm={{
+                ...level.questions[count],
+                answers: level.questions[count].answers,
+              }}
+              instructions='Choisissez la bonne réponse:'
+              sendSummary={handleQuestionSubmission}
+              count={count}
+              isExamMode
+            />
+          </Flex>
+          <Dialog
+            isOpen={isDialogOpen || isTimeOut}
+            actionOnConfirm={isTimeOut ? confirmTimeOutModal : startExamMode}
+            showCancel={!isTimeOut}
+            title='Exam mode!'
+            buttonMessage={isTimeOut ? 'ok' : 'Start!'}
+            body={
+              isTimeOut ? (
+                "You've reached the time limit!"
+              ) : (
+                <>
+                  <p>{`You will have ${EXAM_TIME / 60} minutes to complete ${EXAM_QUESTION} questions.`}</p>
+                  <p> Are you ready?</p>
+                </>
+              )
+            }
+          />
+        </BodyContainer>
+      )}
+      {displayResults && (
+        <Results
+          percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
+          goBack={resetCounts}
+          speed={3}
+          size={window.innerWidth / 1.2}
+        />
+      )}
+    </>
   )
 }
 
