@@ -8,7 +8,7 @@ import { levels, modes } from '@/constants'
 const Welcome: React.FC = () => {
   const navigate = useNavigate()
   const {
-    modeAndLevel: { mode, level },
+    modeAndLevel: { mode },
     setLevel,
     setMode,
   } = useModeAndLevel()
@@ -62,10 +62,10 @@ const Welcome: React.FC = () => {
         mx='9'
         my='9'
         size='4'
-        style={{ width: '30%' }}
+        style={{ width: '30%', padding: '25px' }}
         autoFocus
       >
-        {`Select ${levelConfirmed ? mode : level.name}`}
+        confirm
       </Button>
     </Flex>
   )
