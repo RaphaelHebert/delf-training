@@ -66,7 +66,6 @@ const Results: React.FC<Props> = ({
       align='stretch'
       width='100%'
       className='setSize'
-      mt='9'
     >
       <div className='resultPercentBackground'>
         <div
@@ -90,7 +89,7 @@ const Results: React.FC<Props> = ({
           mx='auto'
           size='4'
           className='backButton'
-          style={{ width: '30%' }}
+          style={{ width: '80%' }}
         >
           Retry
         </Button>

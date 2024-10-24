@@ -24,42 +24,51 @@ const Buttons: React.FC<Props> = ({ choices, onSelect, isBig = false }) => {
     return level.name === name || mode === name ? false : true
   }
 
-  return Object.entries(choices).map(([name, comment]) => (
-    <Button
-      key={name}
-      my='4'
-      mx='4'
-      size='4'
-      style={{
-        width: isBig ? '50%' : '35%',
-        // maxWidth: '35%',
-        minHeight: '5rem',
-        boxSizing: 'border-box',
-      }}
-      onClick={() => onSelect(name)}
-      type='button'
-      //   variant={defineVariant(level)}
-      color={COLOR_CORRECT}
-      variant={defineVariant(name)}
-      highContrast={defineContrast(name)}
-      disabled={comment === 'not available now'}
+  return (
+    <Flex
+      justify='center'
+      align='center'
+      wrap='wrap'
+      as='div'
     >
-      <Flex
-        justify='center'
-        align='center'
-        direction='column'
-        as='div'
-        m='7'
-      >
-        <Text
+      {Object.entries(choices).map(([name, comment]) => (
+        <Button
+          key={name}
+          my='4'
+          mx='4'
           size='4'
-          as='div'
+          style={{
+            width: isBig ? '50%' : '35%',
+            // maxWidth: '35%',
+            minHeight: '5rem',
+            boxSizing: 'border-box',
+          }}
+          onClick={() => onSelect(name)}
+          type='button'
+          //   variant={defineVariant(level)}
+          color={COLOR_CORRECT}
+          variant={defineVariant(name)}
+          highContrast={defineContrast(name)}
+          disabled={comment === 'not available now'}
         >
-          {name.toUpperCase()}
-        </Text>
-      </Flex>
-    </Button>
-  ))
+          <Flex
+            justify='center'
+            align='center'
+            direction='column'
+            as='div'
+            m='7'
+          >
+            <Text
+              size='4'
+              as='div'
+            >
+              {name.toUpperCase()}
+            </Text>
+          </Flex>
+        </Button>
+      ))}
+    </Flex>
+  )
 }
 
 export default Buttons

@@ -87,7 +87,12 @@ const Home: React.FC = () => {
             justify='center'
           >
             {displayTimer && (
-              <Flex>
+              <Flex
+                direction='column'
+                justify='center'
+                gap='4'
+                align='center'
+              >
                 <div className='smallScreen'>
                   <Timer
                     time={EXAM_TIME}
@@ -138,6 +143,7 @@ const Home: React.FC = () => {
           percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
           goBack={resetCounts}
           speed={3}
+          size={window.innerWidth / 1.2}
         />
       )}
     </>
