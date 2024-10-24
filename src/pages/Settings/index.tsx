@@ -42,6 +42,7 @@ const Settings: React.FC = () => {
     >
       <Flex
         direction='row'
+        wrap='wrap'
         justify='start'
         align='center'
         width='100%'
@@ -71,6 +72,7 @@ const Settings: React.FC = () => {
         direction='row'
         justify='start'
         align='center'
+        wrap='wrap'
       >
         <Box width='15%'>
           <Heading as='h2'>Mode</Heading>

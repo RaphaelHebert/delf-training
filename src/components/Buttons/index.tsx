@@ -55,13 +55,7 @@ const Buttons: React.FC<Props> = ({ choices, onSelect, isBig = false }) => {
           size='4'
           as='div'
         >
-          {name}
-        </Text>
-        <Text
-          size='1'
-          as='div'
-        >
-          {comment}
+          {name.toUpperCase()}
         </Text>
       </Flex>
     </Button>

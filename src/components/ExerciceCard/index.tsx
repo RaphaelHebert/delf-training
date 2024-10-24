@@ -97,6 +97,9 @@ const ExerciseCard: React.FC<Props> = ({
       direction='column'
       justify='center'
       align='center'
+      width='90%'
+      m='auto'
+      mt='6'
     >
       <CardContainer>
         <Card>

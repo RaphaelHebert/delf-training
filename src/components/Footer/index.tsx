@@ -2,7 +2,7 @@ import { Flex, Text } from '@radix-ui/themes'
 import { slate } from '@radix-ui/colors'
 import { YouTube } from '@/assets'
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer>
       <Flex
