@@ -1,0 +1,11 @@
+/* Hide the component by default */
+.largeScreen {
+  display: none;
+}
+
+/* Show the component for screens larger than 768px (tablet and larger) */
+@media (min-width: 768px) {
+  .largeScreen {
+    display: block;
+  }
+}
