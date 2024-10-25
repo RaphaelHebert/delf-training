@@ -99,7 +99,6 @@ const ExerciseCard: React.FC<Props> = ({
       align='center'
       width='90%'
       m='auto'
-      mt='6'
     >
       <CardContainer>
         <Card>

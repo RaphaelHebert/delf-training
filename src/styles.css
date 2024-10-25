@@ -1,3 +1,9 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* Prevent overflow */
+}
 .mukta-extralight {
   font-family: 'Mukta', sans-serif;
   font-weight: 200;
