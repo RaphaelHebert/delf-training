@@ -571,4 +571,384 @@ export default [
     answers: ['parle', 'parlez', 'parles', 'parlons'],
     correct: 'parle',
   },
+  {
+    question: 'Je _____ un frère.',
+    answers: ['as', 'ai', 'suis', 'a'],
+    correct: 'ai',
+  },
+  {
+    question: 'Tu _____ où?',
+    answers: ['habite', 'habites', 'habitent', 'habitons'],
+    correct: 'habites',
+  },
+  {
+    question: 'Nous _____ en France.',
+    answers: ['habitent', 'habitons', 'habitez', 'habites'],
+    correct: 'habitons',
+  },
+  {
+    question: 'Elle _____ une voiture.',
+    answers: ['as', 'a', 'es', 'ai'],
+    correct: 'a',
+  },
+  {
+    question: 'Vous _____ français?',
+    answers: ['sont', 'est', 'êtes', 'es'],
+    correct: 'êtes',
+  },
+  {
+    question: 'Ils _____ au cinéma.',
+    answers: ['va', 'vont', 'allez', 'allons'],
+    correct: 'vont',
+  },
+  {
+    question: 'Marie et Paul _____ dans un restaurant.',
+    answers: ['mange', 'manges', 'mangent', 'mangez'],
+    correct: 'mangent',
+  },
+  {
+    question: 'Je _____ un livre.',
+    answers: ['lire', 'lis', 'lit', 'lisez'],
+    correct: 'lis',
+  },
+  {
+    question: 'Nous _____ du pain.',
+    answers: ['prenons', 'prend', 'prenez', 'prendre'],
+    correct: 'prenons',
+  },
+  {
+    question: 'Il _____ une maison.',
+    answers: ['a', 'es', 'est', 'ont'],
+    correct: 'a',
+  },
+  {
+    question: 'Je _____ au parc tous les jours.',
+    answers: ['va', 'vais', 'allez', 'vont'],
+    correct: 'vais',
+  },
+  {
+    question: 'Comment _____ -tu?',
+    answers: ["t'appelle", "t'appelles", "t'appel", "t'appell"],
+    correct: "t'appelles",
+  },
+  {
+    question: 'Il _____ beaucoup de livres dans la bibliothèque.',
+    answers: ['as', 'a', 'est', 'ont'],
+    correct: 'a',
+  },
+  {
+    question: 'Nous _____ au cinéma ce soir.',
+    answers: ['allons', 'allez', 'va', 'vais'],
+    correct: 'allons',
+  },
+  {
+    question: 'Ils _____ leur déjeuner à midi.',
+    answers: ['mangent', 'mange', 'manges', 'mangez'],
+    correct: 'mangent',
+  },
+  {
+    question: 'La maison _____ grande et jolie.',
+    answers: ['es', 'est', 'sont', 'être'],
+    correct: 'est',
+  },
+  {
+    question: 'Je ne _____ pas la porte.',
+    answers: ['ferme', 'fermes', 'fermons', 'fermez'],
+    correct: 'ferme',
+  },
+  {
+    question: 'La voiture est _____.',
+    answers: ['bleu', 'bleues', 'bleue', 'bleus'],
+    correct: 'bleue',
+  },
+  {
+    question: '_____ enfant joue dans le jardin.',
+    answers: ['Le', 'La', 'Les', "L'"],
+    correct: "L'",
+  },
+  {
+    question: 'Ils habitent dans _____ petit village.',
+    answers: ['un', 'une', 'des', 'le'],
+    correct: 'un',
+  },
+  {
+    question: 'Il y a _____ pommes sur la table.',
+    answers: ['des', 'de', 'du', 'la'],
+    correct: 'des',
+  },
+  {
+    question: "_____ est la date aujourd'hui?",
+    answers: ['Quel', 'Quelle', 'Quelles', 'Quels'],
+    correct: 'Quelle',
+  },
+  {
+    question: 'Je _____ à Paris demain.',
+    answers: ['part', 'pars', 'partez', 'partons'],
+    correct: 'pars',
+  },
+  {
+    question: "Tu _____ une nouvelle robe aujourd'hui.",
+    answers: ['port', 'portes', 'porte', 'portons'],
+    correct: 'portes',
+  },
+  {
+    question: '_____ amis vont à la plage.',
+    answers: ['Mes', 'Ma', 'Mon', 'Le'],
+    correct: 'Mes',
+  },
+  {
+    question: "Il _____ beaucoup de travail aujourd'hui.",
+    answers: ['fait', 'est', 'a', 'suis'],
+    correct: 'a',
+  },
+  {
+    question: 'Le chat _____ sur le canapé.',
+    answers: ['sont', 'est', 'es', 'être'],
+    correct: 'est',
+  },
+  {
+    question: 'Ils ne _____ pas encore prêts.',
+    answers: ['suis', 'es', 'sont', 'êtes'],
+    correct: 'sont',
+  },
+  {
+    question: 'Marie _____ une lettre à son ami.',
+    answers: ['écris', 'écrivent', 'écrit', 'écrire'],
+    correct: 'écrit',
+  },
+  {
+    question: 'Pierre et Luc _____ du vélo le dimanche.',
+    answers: ['fait', 'font', 'faisons', 'faites'],
+    correct: 'font',
+  },
+  {
+    question: "Nous _____ un gâteau pour l'anniversaire de Paul.",
+    answers: ['faisons', 'fait', 'font', 'faites'],
+    correct: 'faisons',
+  },
+  {
+    question: 'Je voudrais acheter _____ pommes.',
+    answers: ['des', 'de la', 'du', 'les'],
+    correct: 'des',
+  },
+  {
+    question: '_____ est ton prénom?',
+    answers: ['Quel', 'Quelle', 'Quels', 'Quelles'],
+    correct: 'Quel',
+  },
+  {
+    question: 'Elle _____ avec ses amis cet après-midi.',
+    answers: ['jouer', 'joues', 'joue', 'jouons'],
+    correct: 'joue',
+  },
+  {
+    question: 'Nous aimons _____ films.',
+    answers: ['les', 'le', "l'", 'des'],
+    correct: 'les',
+  },
+  {
+    question: 'Ils ne _____ jamais de café.',
+    answers: ['boivent', 'boit', 'bois', 'buvez'],
+    correct: 'boivent',
+  },
+  {
+    question: "Je _____ toujours mes devoirs après l'école.",
+    answers: ['fait', 'fais', 'font', 'faisons'],
+    correct: 'fais',
+  },
+  {
+    question: '_____ voiture est rouge?',
+    answers: ['Quelle', 'Quel', 'Quels', 'Quelles'],
+    correct: 'Quelle',
+  },
+  {
+    question: "Tu veux _____ verre d'eau?",
+    answers: ['un', 'une', 'le', 'du'],
+    correct: 'un',
+  },
+  {
+    question: "_____ _____ _____ _____, c'est Paris.",
+    answers: [
+      "J'habite maintenant ville grande dans",
+      "Maintenant grande dans ville j'habite",
+      "J'habite dans une grande ville",
+      "Ville dans j'habite grande une",
+    ],
+    correct: "J'habite dans une grande ville",
+  },
+  {
+    question: '_____ _____ _____ _____ ?',
+    answers: ['Habite où tu', 'Où habite tu', 'Où tu habites', 'Tu habites où'],
+    correct: 'Tu habites où',
+  },
+  {
+    question: '_____ _____ _____ ce soir.',
+    answers: [
+      'Cinéma le allons au',
+      'Allons cinéma au le',
+      'Nous allons au cinéma',
+      'Cinéma nous allons au',
+    ],
+    correct: 'Nous allons au cinéma',
+  },
+  {
+    question: "_____ _____ _____ _____ aujourd'hui.",
+    answers: [
+      'Ne fais pas je rien',
+      'Je ne fais rien pas',
+      'Je ne fais rien',
+      'Pas ne fais rien je',
+    ],
+    correct: 'Je ne fais rien',
+  },
+  {
+    question: '_____ _____ _____ _____ ?',
+    answers: [
+      'Toi tu es libre',
+      'Es toi libre tu',
+      'Tu es libre demain',
+      'Es demain libre toi',
+    ],
+    correct: 'Tu es libre demain',
+  },
+  {
+    question: '_____ _____ _____ _____ ?',
+    answers: [
+      'Aime tu le',
+      'Tu le chocolat aimes',
+      'Le tu aimes chocolat',
+      'Tu aimes le chocolat',
+    ],
+    correct: 'Tu aimes le chocolat',
+  },
+  {
+    question: '_____ _____ _____ _____ à la fête.',
+    answers: [
+      'Vient il ne pas',
+      'Il ne vient pas',
+      'Pas il vient ne',
+      'Ne il vient pas',
+    ],
+    correct: 'Il ne vient pas',
+  },
+  {
+    question: '_____ _____ _____ _____ .',
+    answers: [
+      "Ai j'ai une grande",
+      "J'ai une grande famille",
+      "Grande famille j'ai une",
+      "Une famille j'ai grande",
+    ],
+    correct: "J'ai une grande famille",
+  },
+  {
+    question: "_____ _____ _____ _____ s'il te plaît.",
+    answers: [
+      'Je veux un café',
+      'Un café veux je',
+      'Veut je café un',
+      'Café un veux je',
+    ],
+    correct: 'Je veux un café',
+  },
+  {
+    question: '_____ _____ _____ , _____ _____?',
+    answers: [
+      "M'appelle Je Paul toi et",
+      "Je m'appelle Paul et toi",
+      "Paul m'appelle toi et je",
+      "Je m'appelle Paul toi et",
+    ],
+    correct: "Je m'appelle Paul et toi",
+  },
+  {
+    question: '_____ _____ _____ _____ de la ville.',
+    answers: [
+      'Nous habitons centre au',
+      'Habitons nous centre ville au',
+      'Nous habitons au centre',
+      'Centre nous habitons de au',
+    ],
+    correct: 'Nous habitons au centre',
+  },
+  {
+    question: '_____ _____ _____ _____ soir?',
+    answers: [
+      'Tu fais quoi ce',
+      'Fais tu quoi ce',
+      'Quoi fais tu soir ce',
+      'Tu quoi fais ce soir',
+    ],
+    correct: 'Tu fais quoi ce',
+  },
+  {
+    question: '_____ _____ _____ _____ demain.',
+    answers: [
+      'Je pars pour Paris',
+      'Paris pour je pars',
+      'Je pour Paris pars',
+      'Pars je Paris pour',
+    ],
+    correct: 'Je pars pour Paris',
+  },
+  {
+    question: '_____ _____ _____ _____ fruits.',
+    answers: [
+      'Je veux acheter des',
+      'Acheter je des veux',
+      'Des acheter veux je',
+      'Je des veux acheter',
+    ],
+    correct: 'Je veux acheter des',
+  },
+  {
+    question: '_____ _____ _____ _____ toi.',
+    answers: [
+      'Je veux parler avec',
+      'Toi veux je avec parler',
+      'Je veux parler avec toi',
+      'Veux toi avec je parler',
+    ],
+    correct: 'Je veux parler avec',
+  },
+  {
+    question: '_____ _____ _____ _____ fleurs.',
+    answers: [
+      'Elle aime beaucoup les',
+      'Beaucoup elle des aime',
+      'Elle aime beaucoup des',
+      'Fleurs elle beaucoup aime',
+    ],
+    correct: 'Elle aime beaucoup les',
+  },
+  {
+    question: '_____ _____ _____ _____ à vélo.',
+    answers: [
+      'Ils vont au travail',
+      'Ils travail vont au',
+      'Vont ils travail au',
+      'Travail ils vont au',
+    ],
+    correct: 'Ils vont au travail',
+  },
+  {
+    question: '_____ _____ _____ _____ week-end.',
+    answers: [
+      'Nous allons partir ce',
+      'Partir nous allons ce',
+      'Nous à partir allons ce',
+      'Allons nous partir ce',
+    ],
+    correct: 'Nous allons partir ce',
+  },
+  {
+    question: '_____ _____ _____ _____ français?',
+    answers: [
+      'Parlez vous bien le',
+      'Vous le bien parlez français',
+      'Bien vous parlez français le',
+      'Parlez vous bien du',
+    ],
+    correct: 'Parlez vous bien le',
+  },
 ]

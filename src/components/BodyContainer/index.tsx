@@ -13,7 +13,12 @@ const BodyContainer: React.FC<PropsWithChildren> = ({ children }) => {
       }}
       className='mukta-regular'
     >
-      <Flex justify='start'>{children}</Flex>
+      <Flex
+        justify='start'
+        mt='3'
+      >
+        {children}
+      </Flex>
     </Flex>
   )
 }
