@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://raphaelhebert.github.io/delf-training/",
+  "homepage": "https://atofrench.com",
   "engines": {
     "node": "^20",
     "npm": "^10.7.0"
