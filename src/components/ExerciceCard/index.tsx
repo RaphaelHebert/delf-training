@@ -168,7 +168,7 @@ const ExerciseCard: React.FC<Props> = ({
           direction='column'
           align='stretch'
           width='100%'
-          py='6'
+          pt='3'
         >
           <Button
             type='button'
@@ -176,7 +176,7 @@ const ExerciseCard: React.FC<Props> = ({
             autoFocus
             size='4'
             mx='7'
-            mt='5'
+            mt='2'
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>

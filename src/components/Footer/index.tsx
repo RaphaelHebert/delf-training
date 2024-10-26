@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         style={{
           backgroundColor: slate.slate1, // Light background
           color: slate.slate12, // Darker text color
-          padding: '1.5rem',
+          padding: '1rem',
           width: '100%',
           boxSizing: 'border-box',
           borderTop: `1px solid ${slate.slate6}`, // Subtle border

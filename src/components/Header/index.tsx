@@ -35,6 +35,7 @@ const Header: React.FC = () => {
         onClick={() => navigate('/')}
         title='Acceuil'
         ml='5'
+        mt='2'
         mb='2'
       >
         <img

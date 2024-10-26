@@ -8,12 +8,6 @@ import './styles.css'
 ReactGA.initialize('G-05SL1S3Q77')
 
 function App() {
-  const iubendaConsent = document.getElementsByClassName('iubenda-tp-btn')
-  if (iubendaConsent[0] as HTMLDivElement) {
-    iubendaConsent[0].classList.remove('iubenda-tp-btn')
-    iubendaConsent[0].classList.remove('iubenda-cs-preferences-link')
-  }
-
   return (
     <Flex
       gap='3'
