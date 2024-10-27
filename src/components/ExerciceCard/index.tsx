@@ -1,4 +1,4 @@
-import { Button, Flex, Text, Heading, Card } from '@radix-ui/themes'
+import { Button, Flex, Text, Card } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
 import { CardContainer } from '@/primitiveComponents'
@@ -22,7 +22,6 @@ type Variant =
   | undefined
 
 type Props = {
-  instructions: string
   qcm: {
     question: string
     answers: string[]
@@ -34,7 +33,6 @@ type Props = {
 }
 
 const ExerciseCard: React.FC<Props> = ({
-  instructions,
   qcm,
   sendSummary = () => {},
   count = 1,
@@ -101,16 +99,7 @@ const ExerciseCard: React.FC<Props> = ({
       m='auto'
     >
       <CardContainer>
-        <Card variant='ghost'>
-          <Heading
-            as='h4'
-            size='3'
-            mb='5'
-            mx='6'
-            align='center'
-          >
-            {instructions}
-          </Heading>{' '}
+        <Card>
           <Flex
             mb='6'
             justify='center'
