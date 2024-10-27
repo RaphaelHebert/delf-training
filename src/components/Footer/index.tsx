@@ -2,6 +2,8 @@ import { Flex, Text } from '@radix-ui/themes'
 import { slate } from '@radix-ui/colors'
 import { YouTube } from '@/assets'
 
+import './styles.css'
+
 const Footer: React.FC = () => {
   return (
     <footer>
@@ -12,18 +14,30 @@ const Footer: React.FC = () => {
         style={{
           backgroundColor: slate.slate1, // Light background
           color: slate.slate12, // Darker text color
-          padding: '1rem',
+          padding: '.5rem',
           width: '100%',
           boxSizing: 'border-box',
           borderTop: `1px solid ${slate.slate6}`, // Subtle border
         }}
       >
-        <Text
-          as='p'
-          style={{ margin: 0 }}
+        <Flex
+          direction='column'
+          justify='center'
+          flexGrow='1'
         >
-          © 2024 Your Company
-        </Text>
+          <Text
+            as='p'
+            style={{ margin: 0 }}
+          >
+            © 2024 atofrench
+          </Text>
+          <Text
+            as='p'
+            style={{ margin: 0 }}
+          >
+            Contact us at info@atofrench.com
+          </Text>
+        </Flex>
 
         <Flex
           as='div'
@@ -53,6 +67,7 @@ const Footer: React.FC = () => {
             style={{ color: 'inherit', textDecoration: 'none' }}
           >
             LinkedIn
+
           </a> */}
         </Flex>
       </Flex>
