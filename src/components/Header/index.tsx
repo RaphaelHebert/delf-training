@@ -12,6 +12,8 @@ const Header: React.FC = () => {
   const navigate = useNavigate()
   const [isHovered, setIsHovered] = useState(false)
 
+  const isMobileScreen = window.innerWidth <= 640
+
   const openSettings = () => {
     navigate('/settings')
   }
@@ -21,30 +23,31 @@ const Header: React.FC = () => {
       px='6'
       justify='between'
       align='center'
+      minHeight='60px'
       style={{
         backgroundColor: slate.slate1, // Light background
         color: slate.slate12, // Darker text color
-        padding: '1.5rem',
+        padding: isMobileScreen ? '0.75 rem' : '1.5rem',
         width: '100%',
         boxSizing: 'border-box',
         borderBottom: `1px solid ${slate.slate6}`, // Subtle border
       }}
-      height='5rem'
+      height={isMobileScreen ? '3rem' : '5rem'}
     >
       <IconButton
         onClick={() => navigate('/')}
         title='Acceuil'
-        ml='5'
-        mt='2'
+        ml='3'
         mb='2'
+        mt='2'
         style={{ background: 'transparent' }}
       >
         <img
           className='logo'
           src={logoWithName}
           alt='app logo'
-          width='75px'
-          height='75px'
+          width={isMobileScreen ? '50px' : '100px'}
+          height={isMobileScreen ? '50px' : '100px'}
         />
       </IconButton>
       <Box

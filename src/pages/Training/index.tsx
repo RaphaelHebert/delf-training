@@ -60,7 +60,6 @@ const Training: React.FC = () => {
                 ...level.questions[count],
                 answers: level.questions[count].answers,
               }}
-              instructions='Choisissez la bonne réponse:'
               sendSummary={handleQuestionSubmission}
               count={count}
               isExamMode={false}

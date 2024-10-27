@@ -4,7 +4,6 @@ import ExerciseCard from '../../ExerciceCard'
 
 // Test Props
 const mockProps = {
-  instructions: 'Test Instructions',
   qcm: {
     question: 'What is the capital of France?',
     answers: ['Paris', 'Berlin', 'Madrid', 'Rome'],
@@ -17,7 +16,6 @@ describe('ExerciseCard Component', () => {
   it('renders the component with provided props', () => {
     render(<ExerciseCard {...mockProps} />)
 
-    expect(screen.getByText('Test Instructions')).toBeInTheDocument()
     expect(
       screen.getByText('What is the capital of France?')
     ).toBeInTheDocument()
