@@ -6,7 +6,7 @@ import { Gear } from '@/components'
 import { slate } from '@radix-ui/colors'
 
 import './styles.css'
-import { appLogo } from '@/assets'
+import { logoWithName } from '@/assets'
 
 const Header: React.FC = () => {
   const navigate = useNavigate()
@@ -35,11 +35,13 @@ const Header: React.FC = () => {
         onClick={() => navigate('/')}
         title='Acceuil'
         ml='5'
+        mt='2'
         mb='2'
+        style={{ background: 'transparent' }}
       >
         <img
           className='logo'
-          src={appLogo}
+          src={logoWithName}
           alt='app logo'
           width='75px'
           height='75px'

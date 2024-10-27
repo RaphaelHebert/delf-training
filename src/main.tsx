@@ -11,8 +11,6 @@ import { COLOR_CORRECT } from '@/constants'
 import App from './App.tsx'
 import { allQuestions } from './data'
 
-// const queryClient = new QueryClient()
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ModeAndLevelProvider

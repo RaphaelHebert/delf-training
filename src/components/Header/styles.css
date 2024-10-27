@@ -1,6 +1,5 @@
 .logo {
-  border: 1px solid black;
-  border-radius: 4px;
+ /* Optional: Rounded corners */
   &:hover {
     cursor: pointer;
     background: gray;

@@ -22,7 +22,6 @@ const CustomSwitch: React.FC<Props> = ({
       {textLeft && (
         <Text
           as='span'
-          title='unlimited questions and answer'
           color={isSelected ? 'gray' : 'mint'}
           style={isSelected ? { cursor: 'pointer' } : { fontWeight: 700 }}
         >
