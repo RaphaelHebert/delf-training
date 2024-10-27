@@ -35,12 +35,11 @@ const Header: React.FC = () => {
       height={isMobileScreen ? '3rem' : '5rem'}
     >
       <IconButton
-        mt='3'
         onClick={() => navigate('/')}
         title='Acceuil'
         ml='5'
-        mt='2'
         mb='2'
+        mt='3'
         style={{ background: 'transparent' }}
       >
         <img
