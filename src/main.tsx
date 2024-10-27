@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         mode: 'training',
       }}
     >
-      <BrowserRouter basename='delf-training/'>
+      <BrowserRouter basename='/'>
         {/* <QueryClientProvider client={queryClient}> */}
         <Theme
           accentColor={COLOR_CORRECT}
