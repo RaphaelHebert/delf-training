@@ -99,7 +99,7 @@ const ExerciseCard: React.FC<Props> = ({
       m='auto'
     >
       <CardContainer>
-        <Card>
+        <Card variant='ghost'>
           <Flex
             mb='6'
             justify='center'
@@ -163,7 +163,8 @@ const ExerciseCard: React.FC<Props> = ({
             autoFocus
             size='4'
             mx='7'
-            mt='2'
+            mt='1'
+            mb='1'
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>

@@ -37,9 +37,9 @@ const Header: React.FC = () => {
       <IconButton
         onClick={() => navigate('/')}
         title='Acceuil'
-        ml='5'
+        ml='3'
         mb='2'
-        mt='3'
+        mt='2'
         style={{ background: 'transparent' }}
       >
         <img

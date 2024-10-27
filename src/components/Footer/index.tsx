@@ -33,13 +33,14 @@ const Footer: React.FC = () => {
             as='p'
             style={{ margin: 0 }}
           >
-            Contact us at info@atofrench.com
+            info@atofrench.com
           </Text>
         </Flex>
 
         <Flex
           as='div'
           gap='1rem'
+          pr='9'
         >
           <a
             href='https://www.youtube.com/@Chiasekinhnghiem-je5ys'
@@ -50,8 +51,8 @@ const Footer: React.FC = () => {
             <img
               src={YouTube}
               alt='YouTubeLogo'
-              width='100px'
-              height='33px'
+              width='80px'
+              height='25px'
             />
           </a>
           {/* <a
