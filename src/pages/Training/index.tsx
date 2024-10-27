@@ -44,15 +44,15 @@ const Training: React.FC = () => {
         </div>
       </SideBar>
       <Flex
-        justify='center'
-        width='100%'
-        pt='6'
+        direction='column'
+        width='80%'
+        justify='end'
+        flexGrow='1'
       >
         <Flex
-          direction='column'
-          width='80%'
-          justify='start'
-          flexGrow='1'
+          justify='center'
+          width='100%'
+          pt='0'
         >
           {level.questions[count] ? (
             <ExerciseCard
