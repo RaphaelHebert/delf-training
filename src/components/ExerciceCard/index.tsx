@@ -101,7 +101,7 @@ const ExerciseCard: React.FC<Props> = ({
       m='auto'
     >
       <CardContainer>
-        <Card>
+        <Card variant='ghost'>
           <Heading
             as='h4'
             size='3'
