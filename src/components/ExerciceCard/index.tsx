@@ -97,7 +97,7 @@ const ExerciseCard: React.FC<Props> = ({
       direction='column'
       justify='center'
       align='center'
-      width='90%'
+      width='100%'
       m='auto'
     >
       <CardContainer>
@@ -142,7 +142,6 @@ const ExerciseCard: React.FC<Props> = ({
           </Flex>
           <Flex
             width='100%'
-            justify='start'
             align='stretch'
             direction='column'
           >
@@ -150,14 +149,13 @@ const ExerciseCard: React.FC<Props> = ({
               <Button
                 key={answer}
                 my='2'
-                mx='8'
+                mx='auto'
                 size='3'
-                //className={answerClass()}
                 onClick={() => setSelectedOption(answer)}
                 type='button'
                 variant={defineVariant(answer)}
                 color={defineColor(answer)}
-                className={hasFormBeenSubmitted ? 'noHover' : 'simple'}
+                className={`flexibleButton ${hasFormBeenSubmitted ? 'noHover' : 'simple'}`}
               >
                 {answer}
               </Button>
