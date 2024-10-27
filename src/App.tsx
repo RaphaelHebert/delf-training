@@ -22,6 +22,7 @@ function App() {
         borderLeft: '1px solid lightGrey',
         borderRight: '1px solid lightGrey',
         overflow: 'hidden',
+        zIndex: 2147483647 + 1, // workaround to avoid having iudenda logo on display
       }}
       height='100dvh'
       className='mukta-regular'

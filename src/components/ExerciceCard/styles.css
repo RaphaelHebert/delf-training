@@ -5,3 +5,13 @@
 .simple:hover {
   cursor: pointer;
 }
+
+.flexibleButton {
+  min-width: 60%;
+  width: auto; /* Width adjusts with text */
+  height: auto;
+  padding: 0.5rem 1rem; /* Padding can be adjusted */
+  text-overflow: ellipsis; /* Adds ellipsis if the text is too long */
+  overflow: hidden; /* Hides overflow text */
+  display: inline-block; /* Helps in controlling button’s auto-sizing */
+}

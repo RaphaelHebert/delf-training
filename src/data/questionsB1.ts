@@ -354,4 +354,526 @@ export default [
     answers: ['plutôt', 'que', 'de', 'à'],
     correct: 'plutôt',
   },
+  {
+    question: "Si j'_____ assez d'argent, je ferais le tour du monde.",
+    answers: ['avais', 'ai', 'avais eu', 'aurais'],
+    correct: 'avais',
+  },
+  {
+    question: "Elle _____ toujours à l'heure au travail.",
+    answers: ['arrive', 'arriverait', 'arrivait', 'arriva'],
+    correct: 'arrive',
+  },
+  {
+    question: 'Nous _____ contents de partir en vacances la semaine prochaine.',
+    answers: ['serons', 'sommes', 'étions', 'étions été'],
+    correct: 'serons',
+  },
+  {
+    question: 'Il a refusé de venir _____ il était fatigué.',
+    answers: ['parce que', 'donc', 'alors', 'cependant'],
+    correct: 'parce que',
+  },
+  {
+    question: "Ils _____ de déménager l'année dernière.",
+    answers: ['ont décidé', 'décidaient', 'décident', 'décideraient'],
+    correct: 'ont décidé',
+  },
+  {
+    question: '_____ souvent vos amis le week-end ?',
+    answers: ['Voyez-vous', 'Vois-tu', 'Voient-ils', 'Voyons-nous'],
+    correct: 'Voyez-vous',
+  },
+  {
+    question: 'Il faut que tu _____ la vérité à tes parents.',
+    answers: ['dises', 'dis', 'disais', 'diras'],
+    correct: 'dises',
+  },
+  {
+    question: 'Lorsque nous _____ enfants, nous aimions jouer dans le jardin.',
+    answers: ['étions', 'sommes', 'serions', 'avons été'],
+    correct: 'étions',
+  },
+  {
+    question:
+      'Elle _____ toujours un café le matin avant de commencer sa journée.',
+    answers: ['prend', 'prendrait', 'prit', 'a pris'],
+    correct: 'prend',
+  },
+  {
+    question: 'Ils _____ en Espagne pour leurs vacances chaque année.',
+    answers: ['partent', 'partaient', 'partiront', 'partiraient'],
+    correct: 'partent',
+  },
+  {
+    question: 'Nous _____ une promenade tous les dimanches matin.',
+    answers: ['faisons', 'faisaient', 'ferons', 'faisions'],
+    correct: 'faisons',
+  },
+  {
+    question: "Ils espèrent _____ leur diplôme à la fin de l'année.",
+    answers: ['obtenir', 'obtiennent', 'obtiendrons', 'obtins'],
+    correct: 'obtenir',
+  },
+  {
+    question: 'Je suis heureux que tu _____ réussir cet examen.',
+    answers: ['puisses', 'peux', 'pouvez', 'pourras'],
+    correct: 'puisses',
+  },
+  {
+    question: 'Si tu avais le temps, tu _____ plus souvent avec nous.',
+    answers: ['sortirais', 'sortais', 'sors', 'es sorti'],
+    correct: 'sortirais',
+  },
+  {
+    question: 'Ils _____ bien, malgré la fatigue de la journée.',
+    answers: ['dormaient', 'dormiront', 'dormirent', 'dormiriez'],
+    correct: 'dormaient',
+  },
+  {
+    question: "_____ la porte, s'il te plaît.",
+    answers: ['Ferme', 'Fermez', 'Fermons', 'Fermer'],
+    correct: 'Ferme',
+  },
+  {
+    question: "Elle ne vient jamais ici _____ elle n'aime pas cet endroit.",
+    answers: ["parce qu'", 'à moins que', 'donc', 'lorsque'],
+    correct: "parce qu'",
+  },
+  {
+    question: 'Ils _____ en train de préparer le dîner quand je suis arrivé.',
+    answers: ['étaient', 'sont', 'seraient', 'sont été'],
+    correct: 'étaient',
+  },
+  {
+    question: 'Avant de partir, ils _____ fermer toutes les fenêtres.',
+    answers: ['doivent', 'devaient', 'devront', 'ont dû'],
+    correct: 'doivent',
+  },
+  {
+    question: "Nous _____ l'année prochaine pour voir la famille.",
+    answers: ['partirons', 'partions', 'partiront', 'partirions'],
+    correct: 'partirons',
+  },
+  {
+    question: 'Je vais acheter des fruits _____ préparer une tarte.',
+    answers: ['pour', 'pendant', 'alors', 'tandis que'],
+    correct: 'pour',
+  },
+  {
+    question: 'Ils _____ en France depuis trois ans.',
+    answers: ['habitent', 'habitaient', 'habiteront', 'habiteraient'],
+    correct: 'habitent',
+  },
+  {
+    question: 'Elle a insisté pour que nous _____ avec elle ce soir.',
+    answers: ['dînions', 'dînons', 'dînerez', 'dîneriez'],
+    correct: 'dînions',
+  },
+  {
+    question: "Si tu _____ plus d'attention, tu aurais compris la leçon.",
+    answers: ['avais prêté', 'prêtais', 'prêteras', 'prêtes'],
+    correct: 'avais prêté',
+  },
+  {
+    question: 'Nous _____ la réunion à 15 heures précises.',
+    answers: ['commencerons', 'commençons', 'commencions', 'commencerez'],
+    correct: 'commencerons',
+  },
+  {
+    question: "Elle _____ visiter Paris l'été prochain.",
+    answers: ['veut', 'voulait', 'voudrait', 'a voulu'],
+    correct: 'veut',
+  },
+  {
+    question: "Ils sont arrivés à l'aéroport _____ leur vol a été annulé.",
+    answers: ['mais', 'puisque', 'donc', 'ou'],
+    correct: 'mais',
+  },
+  {
+    question: 'Si nous avions le temps, nous _____ au musée cet après-midi.',
+    answers: ['irions', 'allons', 'irons', 'allions'],
+    correct: 'irions',
+  },
+  {
+    question: 'Elle _____ en vacances dans le sud de la France tous les étés.',
+    answers: ['part', 'partait', 'partira', 'est partie'],
+    correct: 'part',
+  },
+  {
+    question: 'Il est important que vous _____ la vérité à vos amis.',
+    answers: ['disiez', 'dites', 'direz', 'diriez'],
+    correct: 'disiez',
+  },
+  {
+    question: 'Elle préfère _____ du thé le matin.',
+    answers: ['boire', 'bu', 'boit', 'boirait'],
+    correct: 'boire',
+  },
+  {
+    question: 'Quand ils _____, appelle-moi pour que je vienne les chercher.',
+    answers: ['arriveront', 'arrivent', 'arrivaient', 'sont arrivés'],
+    correct: 'arrivent',
+  },
+  {
+    question: 'Il a fait beau toute la semaine, _____ aujourd’hui il pleut.',
+    answers: ['mais', 'donc', 'car', 'sinon'],
+    correct: 'mais',
+  },
+  {
+    question:
+      'Je pense que tu _____ réussi ton examen avec toutes tes révisions.',
+    answers: ['as', 'es', 'as été', 'es eu'],
+    correct: 'as',
+  },
+  {
+    question:
+      'Nous _____ contents de retrouver nos amis après une longue absence.',
+    answers: ['sommes', 'serons', 'étions', 'avons été'],
+    correct: 'sommes',
+  },
+  {
+    question: 'Avant de partir, il est nécessaire que vous _____ la salle.',
+    answers: ['rangiez', 'rangez', 'ranger', 'rangerez'],
+    correct: 'rangiez',
+  },
+  {
+    question:
+      'Nous _____ un restaurant ouvert tard pour dîner après le concert.',
+    answers: ['cherchons', 'cherchions', 'chercherions', 'chercherons'],
+    correct: 'cherchons',
+  },
+  {
+    question: "Elle a téléphoné à ses parents dès qu'elle _____ arrivée.",
+    answers: ['est', 'avait', 'a été', 'ai'],
+    correct: 'est',
+  },
+  {
+    question: "Si j'avais su qu'il venait, je _____ préparé un dessert.",
+    answers: ['aurais', 'ai', 'serai', 'suis'],
+    correct: 'aurais',
+  },
+  {
+    question: 'Ils se demandent quand nous _____ prêts à partir.',
+    answers: ['serons', 'sommes', 'serions', 'seraient'],
+    correct: 'serons',
+  },
+  {
+    question: 'Il faut que nous _____ la réunion avant 18 heures.',
+    answers: ['finissions', 'finissons', 'finirons', 'terminer'],
+    correct: 'finissions',
+  },
+  {
+    question: 'Je ne comprends pas pourquoi il _____ encore tard hier soir.',
+    answers: ['est rentré', 'a rentré', 'rentrait', 'rentrera'],
+    correct: 'est rentré',
+  },
+  {
+    question: "Ils partiront en voyage dès qu'ils _____ assez d'argent.",
+    answers: ['auront', 'ont', 'avaient', 'auraient'],
+    correct: 'auront',
+  },
+  {
+    question: "_____ -tu m'aider à transporter ces cartons, s'il te plaît ?",
+    answers: ['Peux', 'Pourrais', 'Peut', 'Pouvais'],
+    correct: 'Peux',
+  },
+  {
+    question: "Elle est allée chez le médecin parce qu'elle _____ malade.",
+    answers: ['se sentait', 'sentait', 'se sentira', 'a senti'],
+    correct: 'se sentait',
+  },
+  {
+    question: 'Ils _____ à Paris depuis plusieurs années.',
+    answers: ['habitent', 'habitaies', 'habiteront', 'habite'],
+    correct: 'habitent',
+  },
+  {
+    question: 'Si tu _____ plus de temps, tu pourrais finir ce projet.',
+    answers: ['avais', 'auras', 'aies', 'avais eu'],
+    correct: 'avais',
+  },
+  {
+    question: 'Nous _____ voir ce film ce week-end.',
+    answers: ['allons', 'irons', 'serons allés', 'allions'],
+    correct: 'allons',
+  },
+  {
+    question: 'Elle _____ probablement en retard à cause des embouteillages.',
+    answers: ['sera', 'serait', 'serait été', 'sera été'],
+    correct: 'sera',
+  },
+  {
+    question:
+      'Tu devrais téléphoner à Marie pour lui dire que tu _____ demain.',
+    answers: ['viens', 'viens de venir', 'viendrais', 'vient'],
+    correct: 'viens',
+  },
+  {
+    question: "Quand je voyage, j'aime _____ de nouveaux endroits.",
+    answers: ['découvrir', 'découvrais', 'découvre', 'découvert'],
+    correct: 'découvrir',
+  },
+  {
+    question: "Nous _____ à l'aéroport deux heures avant le départ.",
+    answers: ['sommes arrivés', 'arrivons', 'arriverons', 'arrivions'],
+    correct: 'arrivons',
+  },
+  {
+    question: "Si tu vas à Paris, n'oublie pas de visiter _____ Tour Eiffel.",
+    answers: ['la', 'le', 'les', 'un'],
+    correct: 'la',
+  },
+  {
+    question: 'Ils ont décidé de partir en voiture _____ le train.',
+    answers: ['plutôt que', 'au lieu de', 'sauf', 'et'],
+    correct: 'plutôt que',
+  },
+  {
+    question: 'Avant de partir, il est important de _____ un plan de voyage.',
+    answers: ['préparer', 'préparais', 'prépares', 'préparez'],
+    correct: 'préparer',
+  },
+  {
+    question: "Lors de mes vacances, j'aime _____ à la plage.",
+    answers: ['aller', 'allais', 'allé', 'allerais'],
+    correct: 'aller',
+  },
+  {
+    question: 'Si nous avions le temps, nous _____ visiter plusieurs musées.',
+    answers: ['pourrions', 'pourrions avoir', 'pourrions être', 'pourrez'],
+    correct: 'pourrions',
+  },
+  {
+    question: 'Quand je suis en voyage, je prends toujours beaucoup de _____.',
+    answers: ['photos', 'photographie', 'photographes', 'photo'],
+    correct: 'photos',
+  },
+  {
+    question: 'Ils ont réservé un hôtel _____ se reposer après les visites.',
+    answers: ['pour', 'avec', 'sans', 'en'],
+    correct: 'pour',
+  },
+  {
+    question: "À l'aéroport, il faut _____ son passeport et son billet.",
+    answers: ['présenter', 'présentais', 'présentera', 'présentes'],
+    correct: 'présenter',
+  },
+  {
+    question: "Dans ma maison, j'ai une grande _____ où je peux travailler.",
+    answers: ['chambre', 'salon', 'cuisine', 'bibliothèque'],
+    correct: 'bibliothèque',
+  },
+  {
+    question: 'Pour _____ la vaisselle, je préfère utiliser un lave-vaisselle.',
+    answers: ['faire', 'faisais', 'fais', 'ferez'],
+    correct: 'faire',
+  },
+  {
+    question: 'Il est important de _____ régulièrement la maison.',
+    answers: ['nettoyer', 'nettoyais', 'nettoyez', 'nettoyant'],
+    correct: 'nettoyer',
+  },
+  {
+    question: "La salle de bains est équipée d'une _____ et d'une douche.",
+    answers: ['baignoire', 'toilette', 'lavabo', 'miroir'],
+    correct: 'baignoire',
+  },
+  {
+    question: "J'aime passer du temps dans mon _____ le soir pour lire.",
+    answers: ['jardin', 'salon', 'garage', 'cuisine'],
+    correct: 'salon',
+  },
+  {
+    question: 'Nous devons _____ des travaux dans la maison cet été.',
+    answers: ['faire', 'faisons', 'faisais', 'ferons'],
+    correct: 'faire',
+  },
+  {
+    question: "Si tu as besoin d'aide, n'hésite pas à _____ à ma porte.",
+    answers: ['frapper', 'frappe', 'frappes', 'frappais'],
+    correct: 'frapper',
+  },
+  {
+    question: 'Elle a décoré sa chambre avec _____ couleurs vives.',
+    answers: ['des', 'de', 'un', 'le'],
+    correct: 'des',
+  },
+  {
+    question:
+      'Dans la cuisine, je range toujours les _____ dans le réfrigérateur.',
+    answers: ['aliments', 'aliments frais', 'nourriture', 'produits'],
+    correct: 'aliments',
+  },
+  {
+    question:
+      'Il est essentiel de _____ les fenêtres avant de partir en vacances.',
+    answers: ['fermer', 'fermons', 'fermais', 'fermeras'],
+    correct: 'fermer',
+  },
+  {
+    question: "À l'école, il est important d'écouter _____ professeurs.",
+    answers: ['les', 'des', 'un', 'le'],
+    correct: 'les',
+  },
+  {
+    question: 'Pour réussir, il faut _____ régulièrement ses devoirs.',
+    answers: ['faire', 'faisais', 'fais', 'faites'],
+    correct: 'faire',
+  },
+  {
+    question: 'Les élèves _____ en classe pour participer aux discussions.',
+    answers: [
+      'doivent lever la main',
+      'devraient lever la main',
+      'doivent lever la mains',
+      'doivent lever main',
+    ],
+    correct: 'doivent lever la main',
+  },
+  {
+    question: 'Le cahier de textes sert à noter _____ devoirs à faire.',
+    answers: ['les', 'des', 'un', 'le'],
+    correct: 'les',
+  },
+  {
+    question:
+      'Nous avons un contrôle _____ mathématiques la semaine prochaine.',
+    answers: ['en', 'de', 'à', 'pour'],
+    correct: 'en',
+  },
+  {
+    question: 'Il est conseillé de _____ des pauses pendant les études.',
+    answers: ['prendre', 'prends', 'prend', 'prenez'],
+    correct: 'prendre',
+  },
+  {
+    question:
+      'Les professeurs organisent souvent des sorties _____ les élèves.',
+    answers: ['pour', 'avec', 'par', 'dans'],
+    correct: 'pour',
+  },
+  {
+    question: 'Avant de parler, il faut _____ la main.',
+    answers: ['lever', 'lève', 'levons', 'levez'],
+    correct: 'lever',
+  },
+  {
+    question: "Le principal de l'école _____ les élèves et les enseignants.",
+    answers: ['gère', 'géra', 'gérant', 'gérer'],
+    correct: 'gère',
+  },
+  {
+    question:
+      "Il est important d'avoir _____ bonne relation avec ses camarades.",
+    answers: ['une', 'des', 'le', 'les'],
+    correct: 'une',
+  },
+  {
+    question:
+      'Pour le petit-déjeuner, je préfère _____ du pain avec du beurre.',
+    answers: ['manger', 'mange', 'manges', 'mangeons'],
+    correct: 'manger',
+  },
+  {
+    question: "Il est important de _____ suffisamment d'eau chaque jour.",
+    answers: ['boire', 'boit', 'bu', 'buvons'],
+    correct: 'boire',
+  },
+  {
+    question: 'Nous avons préparé une _____ de légumes pour le dîner.',
+    answers: ['soupe', 'salade', 'plat', 'dessert'],
+    correct: 'salade',
+  },
+  {
+    question: 'Les Français aiment souvent _____ du fromage après le repas.',
+    answers: ['prendre', 'prends', 'prennent', 'prend'],
+    correct: 'prendre',
+  },
+  {
+    question: 'Pour le dessert, je voudrais _____ un gâteau au chocolat.',
+    answers: ['manger', 'mange', 'mangerais', 'mangerons'],
+    correct: 'manger',
+  },
+  {
+    question:
+      'Il faut _____ des fruits et des légumes pour rester en bonne santé.',
+    answers: ['manger', 'manges', 'mangerait', 'mangera'],
+    correct: 'manger',
+  },
+  {
+    question: 'À la cantine, nous avons le choix entre _____ plats.',
+    answers: ['deux', 'deuxs', 'deuxième', 'deuxième plats'],
+    correct: 'deux',
+  },
+  {
+    question:
+      "J'aime _____ des recettes nouvelles pour impressionner mes amis.",
+    answers: ['essayer', 'essaye', 'essayes', 'essaies'],
+    correct: 'essayer',
+  },
+  {
+    question: 'Pour cuisiner un bon repas, il faut _____ les ingrédients.',
+    answers: ['préparer', 'prépares', 'prépare', 'préparait'],
+    correct: 'préparer',
+  },
+  {
+    question: 'Il est conseillé de _____ des aliments équilibrés.',
+    answers: ['choisir', 'choisit', 'choisissons', 'choisissez'],
+    correct: 'choisir',
+  },
+  {
+    question: 'Dans mon travail, je dois _____ des rapports chaque semaine.',
+    answers: ['écrire', 'écrivant', 'écris', 'écrivez'],
+    correct: 'écrire',
+  },
+  {
+    question: 'Il est important de _____ bien avec ses collègues.',
+    answers: ["s'entendre", 'entendre', 'entends', "s'entendre bien"],
+    correct: "s'entendre",
+  },
+  {
+    question: 'Pour réussir dans sa carrière, il faut _____ des compétences.',
+    answers: ['acquérir', 'acquiers', 'acquiers des', 'acquérir des'],
+    correct: 'acquérir',
+  },
+  {
+    question:
+      "Mon patron m'a demandé de _____ une réunion la semaine prochaine.",
+    answers: ['organiser', 'organise', 'organisais', 'organisera'],
+    correct: 'organiser',
+  },
+  {
+    question:
+      'Dans cette entreprise, les employés _____ des formations régulièrement.',
+    answers: ['reçoivent', 'reçus', 'recevaient', 'reçoivent des'],
+    correct: 'reçoivent',
+  },
+  {
+    question:
+      'Si tu veux changer de travail, il est préférable de _____ un CV.',
+    answers: ['préparer', 'prépares', 'prépare', 'préparons'],
+    correct: 'préparer',
+  },
+  {
+    question: "J'ai obtenu un poste grâce à mes _____ professionnelles.",
+    answers: ['expériences', 'expériencent', 'expérience', 'expériment'],
+    correct: 'expériences',
+  },
+  {
+    question: "Les réunions d'équipe sont importantes pour _____ les projets.",
+    answers: ['suivre', 'suivons', 'suis', 'suivez'],
+    correct: 'suivre',
+  },
+  {
+    question: 'Il est essentiel de _____ des objectifs clairs au travail.',
+    answers: ['avoir', 'a', 'ont', 'auront'],
+    correct: 'avoir',
+  },
+  {
+    question:
+      'Après plusieurs années de travail, elle a enfin _____ sa promotion.',
+    answers: ['obtenu', 'obtenait', 'obtient', 'obtiendra'],
+    correct: 'obtenu',
+  },
 ]

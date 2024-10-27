@@ -1,3 +1,5 @@
 export { default as gear } from './svg/gear.svg'
 export { default as YouTube } from './png/YouTube_2024.png'
-export { default as appLogo } from './png/appLogo.png'
+export { default as appLogo } from './svg/logo.svg'
+export { default as logoWithName } from './svg/logoWithName.svg'
+export { default as name } from './svg/name.svg'

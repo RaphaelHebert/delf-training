@@ -262,7 +262,7 @@ export default [
     correct: 'toi',
   },
   {
-    question: ' _____ _____ _____ , _____ _____?',
+    question: '_____ _____ _____ , _____ _____?',
     answers: [
       "m'appelle Je Mathilde toi et",
       "Je m'appelle Mathilde et toi",
@@ -767,7 +767,7 @@ export default [
     correct: 'un',
   },
   {
-    question: "_____ _____ _____ _____, c'est Paris.",
+    question: "_____ _____ _____ _____ _____, c'est Paris.",
     answers: [
       "J'habite maintenant ville grande dans",
       "Maintenant grande dans ville j'habite",
@@ -777,12 +777,12 @@ export default [
     correct: "J'habite dans une grande ville",
   },
   {
-    question: '_____ _____ _____ _____ ?',
+    question: '_____ _____ _____ ?',
     answers: ['Habite où tu', 'Où habite tu', 'Où tu habites', 'Tu habites où'],
     correct: 'Tu habites où',
   },
   {
-    question: '_____ _____ _____ ce soir.',
+    question: '_____ _____ _____ _____ ce soir.',
     answers: [
       'Cinéma le allons au',
       'Allons cinéma au le',
