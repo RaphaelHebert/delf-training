@@ -102,6 +102,7 @@ const ExerciseCard: React.FC<Props> = ({
       width='94%'
       minWidth='350px'
       m='auto'
+      mt={isLongAnswer ? '0' : '8'}
     >
       <CardContainer>
         <Card variant='ghost'>
@@ -171,6 +172,7 @@ const ExerciseCard: React.FC<Props> = ({
             mx='7'
             mt={isLongAnswer && isMobileScreen ? '1' : '3'}
             mb={isLongAnswer && isMobileScreen ? '1' : '5'}
+
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>
