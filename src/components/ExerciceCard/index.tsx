@@ -90,6 +90,8 @@ const ExerciseCard: React.FC<Props> = ({
     return 'soft'
   }
 
+  const isLongAnswer = answers.some((answer) => answer.length > 37)
+
   return (
     <Flex
       direction='column'
@@ -97,6 +99,7 @@ const ExerciseCard: React.FC<Props> = ({
       align='center'
       width='100%'
       m='auto'
+      mt={isLongAnswer ? '0' : '8'}
     >
       <CardContainer>
         <Card variant='ghost'>
