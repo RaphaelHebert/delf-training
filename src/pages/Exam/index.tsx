@@ -13,6 +13,7 @@ import { useModeAndLevel } from '@/contexts/modeAndLevel'
 import { SideBar } from '@/components'
 
 import '../../components/SideBar/styles.css'
+import shuffle from '@/utils/shuffle-array'
 
 const Home: React.FC = () => {
   const {
@@ -22,10 +23,13 @@ const Home: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [countGoodAnswer, setCountGoodAnswer] = useState(0)
   const [isTimeOut, setIsTimeOut] = useState(false)
+  const [questions, setQuestions] = useState(shuffle(level.questions))
 
+  const newQuestions = () => setQuestions(shuffle(level.questions))
   const resetCounts = () => {
     setCount(0)
     setCountGoodAnswer(0)
+    newQuestions()
   }
 
   useEffect(() => {
@@ -40,7 +44,7 @@ const Home: React.FC = () => {
       setCountGoodAnswer((prev) => prev + 1)
     }
     if (done) {
-      setCount(level.questions.length)
+      setCount(questions.length)
     } else {
       setCount((prev) => prev + 1)
     }
@@ -61,10 +65,13 @@ const Home: React.FC = () => {
   }
 
   const displayResults = !(
-    count !== level.questions.length && count !== EXAM_QUESTION
+    count !== questions.length && count !== EXAM_QUESTION
   )
   const displayTimer = !isDialogOpen && count !== EXAM_QUESTION
 
+  const isLongAnswer = questions[count].answers.some(
+    (answer) => answer.length > 37
+  )
   return (
     <>
       {!displayResults && (
@@ -74,10 +81,12 @@ const Home: React.FC = () => {
             goodAnswers={countGoodAnswer}
           >
             {displayTimer && (
-              <Timer
-                time={EXAM_TIME}
-                actionOnTimeElapsed={timeOut}
-              />
+              <Flex justify='center'>
+                <Timer
+                  time={EXAM_TIME}
+                  actionOnTimeElapsed={timeOut}
+                />
+              </Flex>
             )}
           </SideBar>
 
@@ -88,7 +97,7 @@ const Home: React.FC = () => {
           >
             {displayTimer && (
               <Flex
-                direction='column'
+                direction={!isLongAnswer ? 'column' : 'row'}
                 justify='center'
                 gap='4'
                 align='center'
@@ -110,8 +119,8 @@ const Home: React.FC = () => {
 
             <ExerciseCard
               qcm={{
-                ...level.questions[count],
-                answers: level.questions[count].answers,
+                ...questions[count],
+                answers: questions[count].answers,
               }}
               sendSummary={handleQuestionSubmission}
               count={count}
