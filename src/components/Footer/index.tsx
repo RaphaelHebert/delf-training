@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
         <Flex
           as='div'
           gap='1rem'
-          pr='9'
+          pr='2'
         >
           <a
             href='https://www.youtube.com/@Chiasekinhnghiem-je5ys'

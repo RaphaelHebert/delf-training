@@ -43,6 +43,8 @@ const ExerciseCard: React.FC<Props> = ({
   const [selectedOption, setSelectedOption] = useState('')
   const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
 
+  const isMobileScreen = window.innerWidth <= 768
+
   const handleSubmit = () => {
     if (hasFormBeenSubmitted || isExamMode) {
       setHasFormBeenSubmitted(false)
@@ -97,9 +99,9 @@ const ExerciseCard: React.FC<Props> = ({
       direction='column'
       justify='center'
       align='center'
-      width='100%'
+      width='94%'
+      minWidth='350px'
       m='auto'
-      mt={isLongAnswer ? '0' : '8'}
     >
       <CardContainer>
         <Card variant='ghost'>
@@ -128,6 +130,7 @@ const ExerciseCard: React.FC<Props> = ({
             <Text
               as='div'
               ml='3'
+              align='center'
             >
               {selectedOption ? fullAnswer(question, selectedOption) : question}
             </Text>
@@ -140,7 +143,7 @@ const ExerciseCard: React.FC<Props> = ({
             {answers.map((answer) => (
               <Button
                 key={answer}
-                my='2'
+                my={isLongAnswer && isMobileScreen ? '1' : '2'}
                 mx='auto'
                 size='3'
                 onClick={() => setSelectedOption(answer)}
@@ -166,8 +169,8 @@ const ExerciseCard: React.FC<Props> = ({
             autoFocus
             size='4'
             mx='7'
-            mt='1'
-            mb='1'
+            mt={isLongAnswer && isMobileScreen ? '1' : '3'}
+            mb={isLongAnswer && isMobileScreen ? '1' : '5'}
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>

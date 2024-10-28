@@ -12,7 +12,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate()
   const [isHovered, setIsHovered] = useState(false)
 
-  const isMobileScreen = window.innerWidth <= 640
+  const isMobileScreen = window.innerWidth <= 768
 
   const openSettings = () => {
     navigate('/settings')
