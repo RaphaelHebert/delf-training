@@ -91,12 +91,15 @@ const Home: React.FC = () => {
           </SideBar>
 
           <Flex
+            flexGrow='1'
             direction='column'
             m='auto'
-            justify='center'
+            justify='between'
+            align='center'
           >
             {displayTimer && (
               <Flex
+                width='100%'
                 direction={!isLongAnswer ? 'column' : 'row'}
                 justify='center'
                 gap='4'

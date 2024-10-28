@@ -45,29 +45,25 @@ const Training: React.FC = () => {
       </SideBar>
       <Flex
         direction='column'
-        width='80%'
-        justify='end'
+        width='100%'
+        justify='center'
+        align='center'
         flexGrow='1'
+        m='auto'
       >
-        <Flex
-          justify='center'
-          width='100%'
-          pt='0'
-        >
-          {level.questions[count] ? (
-            <ExerciseCard
-              qcm={{
-                ...level.questions[count],
-                answers: level.questions[count].answers,
-              }}
-              sendSummary={handleQuestionSubmission}
-              count={count}
-              isExamMode={false}
-            />
-          ) : (
-            `You answer all ${level.questions.length} questions! Retry, try next level or come back later, we constantly add new questions!`
-          )}
-        </Flex>
+        {level.questions[count] ? (
+          <ExerciseCard
+            qcm={{
+              ...level.questions[count],
+              answers: level.questions[count].answers,
+            }}
+            sendSummary={handleQuestionSubmission}
+            count={count}
+            isExamMode={false}
+          />
+        ) : (
+          `You answer all ${level.questions.length} questions! Retry, try next level or come back later, we constantly add new questions!`
+        )}
       </Flex>
     </BodyContainer>
   )
