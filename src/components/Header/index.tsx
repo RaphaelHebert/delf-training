@@ -46,8 +46,8 @@ const Header: React.FC = () => {
           className='logo'
           src={logoWithName}
           alt='app logo'
-          width={isMobileScreen ? '50px' : '70px'
-        />
+          width={isMobileScreen ? '50px' : '70px'}
+          height={isMobileScreen ? '50px' : '70px'}        />
       </IconButton>
       <Box
         onClick={openSettings}
