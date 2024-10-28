@@ -30,6 +30,7 @@ const SideBar: React.FC<Props> = ({ count, children }) => {
         as='h3'
         size='6'
         mt='6'
+        align='center'
       >
         Level: {level.name}
       </Heading>
@@ -37,6 +38,7 @@ const SideBar: React.FC<Props> = ({ count, children }) => {
         as='h4'
         size='4'
         mt='6'
+        align='center'
       >
         {`${count} question${count > 1 ? 's' : ''} done`}
       </Heading>
@@ -44,14 +46,9 @@ const SideBar: React.FC<Props> = ({ count, children }) => {
       <Heading
         as='h2'
         size='4'
-        mt='6'
-      >
-        {`Level ${level.name}`}
-      </Heading>
-      <Heading
-        as='h2'
-        size='4'
         mt='2'
+        mb='6'
+        align='center'
       >
         {`Mode ${mode}`}
       </Heading>

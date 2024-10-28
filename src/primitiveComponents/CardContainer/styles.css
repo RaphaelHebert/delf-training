@@ -10,6 +10,18 @@
   border-width: ''
 }
 
+dialog {
+  width: 100%; /* Default width for larger screens */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) { /* Adjust the max-width as needed */
+  dialog {
+    width: 70%; /* Full or almost full width for mobile */
+    max-width: 90%;
+  }
+}
+
 /* Tablet and above */
 @media (min-width: 640px) {
   .responsive-container {
