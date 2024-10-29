@@ -172,7 +172,6 @@ const ExerciseCard: React.FC<Props> = ({
             mx='7'
             mt={isLongAnswer && isMobileScreen ? '1' : '3'}
             mb={isLongAnswer && isMobileScreen ? '1' : '5'}
-
           >
             {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
           </Button>
