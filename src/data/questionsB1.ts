@@ -101,47 +101,6 @@ export default [
     correct: 'seras',
   },
   {
-    question: "Je connais quelqu'un _____ peut t'aider.",
-    answers: ['qui', 'que', 'dont', 'lequel'],
-    correct: 'qui',
-  },
-  {
-    question: "C'est une situation _____ on doit réagir rapidement.",
-    answers: ['à laquelle', 'pour laquelle', 'sur laquelle', 'avec laquelle'],
-    correct: 'à laquelle',
-  },
-  {
-    question: 'Il est important que vous _____ les règles avant de commencer.',
-    answers: ['compreniez', 'comprenez', 'comprendriez', 'comprendrez'],
-    correct: 'compreniez',
-  },
-  {
-    question: "Ils partiront en vacances après qu'ils _____ leurs examens.",
-    answers: ['auront terminé', 'termineront', 'avaient terminé', 'terminent'],
-    correct: 'auront terminé',
-  },
-  {
-    question: 'Je suis allé au magasin _____ acheter du pain.',
-    answers: ['pour', 'de', 'à', 'par'],
-    correct: 'pour',
-  },
-  {
-    question:
-      "Nous _____ ici depuis plus d'une heure quand il est enfin arrivé.",
-    answers: ['attendions', 'attendrons', 'avons attendu', 'attendons'],
-    correct: 'attendions',
-  },
-  {
-    question: 'Je ne sais pas _____ livre choisir.',
-    answers: ['quel', 'lequel', 'qui', 'que'],
-    correct: 'quel',
-  },
-  {
-    question: "C'est le film _____ je t'ai parlé hier.",
-    answers: ['dont', 'que', 'duquel', 'qui'],
-    correct: 'dont',
-  },
-  {
     question: 'Si tu _____ la vérité, tu ne serais pas en colère.',
     answers: ['savais', 'saurais', 'saches', 'sauras'],
     correct: 'savais',

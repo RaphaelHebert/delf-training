@@ -176,24 +176,6 @@ export default [
   },
   {
     question:
-      '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____.',
-    answers: [
-      'Ils auraient fini plus tôt s’ils avaient mieux organisé leur travail',
-      'Ils mieux s’ils organisé auraient leur fini avaient travail',
-      'Ils s’ils fini auraient mieux leur avaient organisé travail',
-      'Ils fini mieux auraient s’ils leur avaient organisé travail',
-      'Ils leur s’ils mieux organisé fini auraient avaient travail',
-    ],
-    correct:
-      'Ils auraient fini plus tôt s’ils avaient mieux organisé leur travail',
-  },
-  {
-    question: 'Bien qu’elle _____ fatiguée, elle est venue travailler.',
-    answers: ['soit', 'était', 'ait été', 'sois'],
-    correct: 'soit',
-  },
-  {
-    question:
       '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____.',
     answers: [
       "Je regrette que nous n'ayons pas eu le temps de visiter le musée",
@@ -249,12 +231,7 @@ export default [
     correct: 'vous investissiez',
   },
   {
-    question: 'Il est indispensable que tu _____ à la réunion demain.',
-    answers: ['assistes', 'assiste', 'assisteras', 'assistes-tu'],
-    correct: 'assistes',
-  },
-  {
-    question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
+    question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____.',
     answers: [
       'Ils auraient fini plus tôt s’ils avaient mieux organisé leur travail',
       'Ils mieux s’ils organisé auraient leur fini avaient travail',
@@ -282,29 +259,6 @@ export default [
     correct: "Je regrette que nous n'ayons pas eu le temps de visiter le musée",
   },
   {
-    question:
-      'Ils souhaitent que tu _____ au moins une réponse avant la fin de la journée.',
-    answers: ['donnes', 'donne', 'donnais', 'donneras'],
-    correct: 'donnes',
-  },
-  {
-    question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
-    answers: [
-      'Nous avons décidé de rester en France malgré la météo',
-      'Nous de avons décidé météo rester en malgré France la',
-      'Décidé de en malgré nous la rester météo avons France',
-      'Rester malgré en décidé de France avons la météo nous',
-      'Nous avons de la rester décidé météo en France malgré',
-    ],
-    correct: 'Nous avons décidé de rester en France malgré la météo',
-  },
-  {
-    question:
-      'Elle est partie en vacances bien qu’elle _____ beaucoup de travail.',
-    answers: ['ait', 'avait', 'aurait', 'a'],
-    correct: 'ait',
-  },
-  {
     question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
     answers: [
       "Il est évident qu'il a beaucoup travaillé pour réussir",
@@ -314,16 +268,6 @@ export default [
       "Beaucoup est il évident travaillé qu'il pour réussir a",
     ],
     correct: "Il est évident qu'il a beaucoup travaillé pour réussir",
-  },
-  {
-    question: 'Il est important que vous _____ bien à votre formation.',
-    answers: [
-      'vous investissiez',
-      'investissiez',
-      'investissez',
-      'investissions',
-    ],
-    correct: 'vous investissiez',
   },
   {
     question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
@@ -340,11 +284,6 @@ export default [
     question: "Je viendrai te voir dès que j'_____ terminé mon travail.",
     answers: ['aurai', 'ai', 'avais', 'aurais'],
     correct: 'aurai',
-  },
-  {
-    question: 'Il est indispensable que tu _____ à la réunion demain.',
-    answers: ['assistes', 'assiste', 'assisteras', 'assistes-tu'],
-    correct: 'assistes',
   },
   {
     question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
