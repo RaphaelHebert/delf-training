@@ -227,7 +227,7 @@ export default [
   },
   {
     question: 'Nous _____ très contents de vous voir.',
-    answers: ['sommes', 'serons', 'soyez', 'es'],
+    answers: ['sommes', 'avons', 'soyez', 'es'],
     correct: 'sommes',
   },
   {
@@ -301,16 +301,6 @@ export default [
     correct: 'magasin',
   },
   {
-    question: 'Mon père est _____ dans une entreprise de construction.',
-    answers: ['ingénieur', 'professeur', 'médecin', 'cuisinier'],
-    correct: 'ingénieur',
-  },
-  {
-    question: 'Pour trouver un emploi, il faut _____ un CV.',
-    answers: ['faire', 'faire un', 'préparer', 'préparer un'],
-    correct: 'préparer',
-  },
-  {
     question: "À l'école, j'ai appris à _____ des projets.",
     answers: ['présenter', 'présentes', 'présentais', 'présentent'],
     correct: 'présenter',
@@ -331,12 +321,12 @@ export default [
     correct: 'relation',
   },
   {
-    question: 'À mon travail, je _____ des emails tous les jours.',
+    question: "À mon travail, j'_____ des emails tous les jours.",
     answers: ['écris', 'écrire', 'écrivais', 'écrivent'],
     correct: 'écris',
   },
   {
-    question: "Mon rêve est d' _____ mon propre restaurant.",
+    question: "Mon rêve est d'_____ mon propre restaurant.",
     answers: ['ouvrir', 'ouvert', 'ouvrais', 'commencer'],
     correct: 'ouvrir',
   },
@@ -357,9 +347,9 @@ export default [
     correct: 'magasin',
   },
   {
-    question: 'Elle a un _____ à plein temps dans une école.',
+    question: 'Elle _____ à plein temps dans une école.',
     answers: ['emploi', 'travail', 'poste', 'job'],
-    correct: 'emploi',
+    correct: 'travail',
   },
   {
     question: 'Le patron donne des _____ aux employés chaque mois.',
@@ -382,12 +372,7 @@ export default [
     correct: 'réunions',
   },
   {
-    question: "Pour mon travail, j'utilise beaucoup _____ ordinateur.",
-    answers: ['d’un', 'de', 'des', 'du'],
-    correct: 'de',
-  },
-  {
-    question: 'Mon oncle est _____ et il construit des maisons.',
+    question: 'Mon oncle est _____ , il construit des maisons.',
     answers: ['maçon', 'mécanicien', 'infirmier', 'professeur'],
     correct: 'maçon',
   },
@@ -397,14 +382,9 @@ export default [
     correct: 'avoir',
   },
   {
-    question: 'Pour acheter un café, il faut _____ euros.',
-    answers: ['cinq', 'cinquante', 'cinquante-cinq', 'cinq cents'],
-    correct: 'cinq',
-  },
-  {
     question: 'Je mets mon argent dans un _____ pour le garder en sécurité.',
     answers: ['coffre', 'sac', 'compte', 'portefeuille'],
-    correct: 'compte',
+    correct: 'coffre',
   },
   {
     question: 'Le prix de ce livre est _____ euros.',
@@ -435,7 +415,7 @@ export default [
   },
   {
     question: "Mon père travaille à la banque et il parle beaucoup d'_____ .",
-    answers: ['économie', 'économies', 'argent', 'finances'],
+    answers: ['billets', 'économies', 'argent', 'finances'],
     correct: 'argent',
   },
   {
@@ -443,7 +423,7 @@ export default [
     answers: [
       'les cartes de crédit',
       'carte de crédit',
-      'carte des crédits',
+      'les carte des crédits',
       'crédit',
     ],
     correct: 'les cartes de crédit',
@@ -455,7 +435,7 @@ export default [
     correct: 'économiser',
   },
   {
-    question: "Je m'appelle Marie et je _____ à Paris.",
+    question: "Je m'appelle Marie et j'_____ à Paris.",
     answers: ['habite', 'habites', 'habitez', 'habiter'],
     correct: 'habite',
   },
@@ -480,17 +460,12 @@ export default [
     correct: 'ville',
   },
   {
-    question: 'Je vais _____ mes loisirs et mes passions.',
+    question: 'Je vais _____ de mes loisirs et mes passions.',
     answers: ['parler', 'parles', 'parlez', 'parlons'],
     correct: 'parler',
   },
   {
-    question: 'Dès que je finis ma présentation, je _____ vos questions.',
-    answers: ['répondrai', 'réponds', 'répondez', 'répondent'],
-    correct: 'répondrai',
-  },
-  {
-    question: "Il est important de _____ à l'audience pendant la présentation.",
+    question: "Il est important de _____ l'audience pendant la présentation.",
     answers: ['regarder', 'regarde', 'regardez', 'regardons'],
     correct: 'regarder',
   },
@@ -500,7 +475,7 @@ export default [
     correct: 'dire',
   },
   {
-    question: 'Mon hobby est _____ des photos pendant mes voyages.',
+    question: 'Mon hobby est de _____ des photos pendant mes voyages.',
     answers: ['prendre', 'prend', 'prenez', 'prises'],
     correct: 'prendre',
   },
@@ -526,7 +501,7 @@ export default [
   },
   {
     question: 'Les _____ sont délicieuses, surtout avec du fromage.',
-    answers: ['pâtes', 'paste', 'pâté', 'pâte'],
+    answers: ['pâtes', 'pattes', 'pâté', 'pâte'],
     correct: 'pâtes',
   },
   {
@@ -565,7 +540,7 @@ export default [
     correct: 'vais',
   },
   {
-    question: 'Le professeur _____ nous aide avec nos devoirs.',
+    question: "C'est le professeur _____ nous aide avec nos devoirs.",
     answers: ['que', 'qui', 'où', 'mais'],
     correct: 'qui',
   },
@@ -595,9 +570,9 @@ export default [
     correct: 'différentes',
   },
   {
-    question: "Mon amie étudie _____ l'anglais à l'université.",
-    answers: ['le', 'du', 'des', 'la'],
-    correct: 'le',
+    question: "Mon amie étudie _____ anglais à l'université.",
+    answers: ["l'", 'du', 'le', 'la'],
+    correct: "l'",
   },
   {
     question: 'Nous avons _____ devoirs à rendre demain.',
@@ -648,7 +623,7 @@ export default [
   },
   {
     question: "Mon père m'a offert _____ vélo pour mon anniversaire.",
-    answers: ['un', 'une', 'des', 'le'],
+    answers: ['un', 'une', 'des', 'la'],
     correct: 'un',
   },
   {
@@ -662,8 +637,8 @@ export default [
     correct: 'acheté',
   },
   {
-    question: 'À ma fête, il y aura _____ de la musique et des jeux.',
-    answers: ['beaucoup', 'trop', 'peu', 'moins'],
+    question: 'À ma fête, il y aura _____ de musique et de jeux.',
+    answers: ['beaucoup', 'souvent', 'grand', 'moins'],
     correct: 'beaucoup',
   },
   {
@@ -693,7 +668,7 @@ export default [
     correct: 'regarde',
   },
   {
-    question: 'Il y a une grande _____ de chaussures dans ce magasin.',
+    question: 'Il y a un grand _____ de chaussures dans ce magasin.',
     answers: ['choix', 'choixs', 'choisir', 'chois'],
     correct: 'choix',
   },
@@ -714,9 +689,9 @@ export default [
     correct: 'avec',
   },
   {
-    question: 'Les soldes commencent _____ le 1er juillet.',
+    question: 'Les soldes commencent _____ juillet.',
     answers: ['à', 'en', 'dans', 'sur'],
-    correct: 'à',
+    correct: 'en',
   },
   {
     question: "J'aime essayer _____ vêtements avant de les acheter.",
@@ -755,7 +730,7 @@ export default [
     correct: 'sommes allés',
   },
   {
-    question: 'Je préfère prendre des vacances _____ à la mer.',
+    question: 'Je préfère _____ prendre des vacances à la mer.',
     answers: ['plutôt', 'plus', 'moins', 'et'],
     correct: 'plutôt',
   },
@@ -781,9 +756,9 @@ export default [
     correct: 'en',
   },
   {
-    question: 'Je fais toujours ma valise _____ le dernier moment.',
-    answers: ['à', 'en', 'dans', 'sur'],
-    correct: 'à',
+    question: 'Je fais toujours ma valise _____ dernier moment.',
+    answers: ['au', 'en', 'dans', 'sur'],
+    correct: 'au',
   },
   {
     question: 'Nous allons _____ un safari pendant nos vacances en Afrique.',
@@ -840,7 +815,7 @@ export default [
   },
   {
     question: "Nous devons arriver à l'aéroport _____ 10 heures.",
-    answers: ['avant', 'après', 'dans', 'sur'],
+    answers: ['avant', 'pendant', 'dans', 'sur'],
     correct: 'avant',
   },
   {
@@ -872,7 +847,7 @@ export default [
   },
   {
     question: 'Lorsque je suis amoureux, je _____ très heureux.',
-    answers: ['me sens', 'suis', 'ressens', 'fais'],
+    answers: ['me sens', 'ai', 'ressens', 'fais'],
     correct: 'me sens',
   },
   {
@@ -902,19 +877,14 @@ export default [
     correct: "Quelle est ta chanson d'amour préférée",
   },
   {
-    question: "Ils se sont rencontrés _____ vacances d'été.",
-    answers: ['pendant', 'avant', 'après', 'dans'],
+    question: "Ils se sont rencontrés _____ les vacances d'été.",
+    answers: ['pendant', 'sur', 'cependant', 'dans'],
     correct: 'pendant',
   },
   {
     question: 'Je vais _____ une surprise pour mon partenaire.',
     answers: ['préparer', 'prépare', 'préparons', 'préparait'],
     correct: 'préparer',
-  },
-  {
-    question: 'Quand je pense à elle, je _____ un grand sourire.',
-    answers: ['fais', 'ferai', 'fait', 'faisons'],
-    correct: 'fais',
   },
   {
     question: 'Il est important que vous _____ votre famille.',
@@ -934,12 +904,12 @@ export default [
   },
   {
     question: 'Mon père _____ très gentil.',
-    answers: ['est', 'sont', 'estent', 'es'],
+    answers: ['est', 'sont', 'ai', 'es'],
     correct: 'est',
   },
   {
     question: 'Nous allons rendre visite à _____ ce week-end.',
-    answers: ['ma tante', 'ma tantee', 'tante ma', 'ma tantes'],
+    answers: ['ma tante', 'ma tente', 'tante ma', 'ma tantes'],
     correct: 'ma tante',
   },
   {
@@ -959,9 +929,9 @@ export default [
     correct: 'Quelle est ta fête de famille préférée',
   },
   {
-    question: 'Ma sœur _____ aime beaucoup les animaux.',
-    answers: ['a', 'ont', 'es', 'sont'],
-    correct: 'a',
+    question: 'Ma sœur _____ beaucoup les animaux.',
+    answers: ['aime', 'ont', 'es', 'a'],
+    correct: 'aime',
   },
   {
     question: 'Je vais _____ à ma cousine pour son anniversaire.',
@@ -969,13 +939,13 @@ export default [
     correct: 'rendre visite',
   },
   {
-    question: 'Mon oncle travaille _____ la ville.',
+    question: 'Mon oncle travaille _____ le centre ville.',
     answers: ['dans', 'de', 'à', 'sur'],
     correct: 'dans',
   },
   {
     question: 'Nous avons pris une photo de _____ famille.',
-    answers: ['notre', 'votre', 'leur', 'son'],
+    answers: ['notre', 'mon', 'leurs', 'notres'],
     correct: 'notre',
   },
 ]
