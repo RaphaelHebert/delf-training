@@ -372,7 +372,7 @@ export default [
       'aurais dû finir',
       'aurais dû finis',
       'aurais dû finirai',
-      'a dû finir',
+      'a dû finis',
     ],
     correct: 'aurais dû finir',
   },
@@ -538,7 +538,7 @@ export default [
     correct: 'écoutes',
   },
   {
-    question: "Ils n'auraient pas réussi sans que nous les _____ aider.",
+    question: "Ils n'auraient pas réussi sans que nous _____ les aider.",
     answers: ['ayons pu', 'avons pu', 'aurions pu', 'a pu'],
     correct: 'ayons pu',
   },
@@ -594,62 +594,5 @@ export default [
     answers: ['était allée', 'allait', 'est allée', 'ira'],
     correct: 'était allée',
   },
-  {
-    question: 'Pour acheter un café, il faut _____ euros.',
-    answers: ['cinq', 'cinquante', 'cinquante-cinq', 'cinq cents'],
-    correct: 'cinq',
-  },
-  {
-    question: 'Je mets mon argent dans un _____ pour le garder en sécurité.',
-    answers: ['coffre', 'sac', 'compte', 'portefeuille'],
-    correct: 'compte',
-  },
-  {
-    question: 'Le prix de ce livre est _____ euros.',
-    answers: ['dix', 'dixième', 'dixième de', 'dix-cent'],
-    correct: 'dix',
-  },
-  {
-    question:
-      "Pour faire des économies, il faut _____ de l'argent chaque mois.",
-    answers: ['épargner', 'dépense', 'dépenser', 'dépenserai'],
-    correct: 'épargner',
-  },
-  {
-    question: 'Il est important de _____ un budget pour ne pas dépenser trop.',
-    answers: ['faire', 'faites', 'fais', 'faisons'],
-    correct: 'faire',
-  },
-  {
-    question:
-      "Quand je vais au marché, j'apporte toujours _____ pour acheter des fruits.",
-    answers: ["de l'argent", 'un argent', 'les argent', 'un monnaie'],
-    correct: "de l'argent",
-  },
-  {
-    question: 'Je préfère payer _____ plutôt que par carte.',
-    answers: ['en espèces', 'espèces', 'en piece', 'de monnaie'],
-    correct: 'en espèces',
-  },
-  {
-    question: "Mon père travaille à la banque et il parle beaucoup d'_____ .",
-    answers: ['économie', 'économies', 'argent', 'finances'],
-    correct: 'argent',
-  },
-  {
-    question: 'Les magasins acceptent souvent _____ pour les achats.',
-    answers: [
-      'les cartes de crédit',
-      'carte de crédit',
-      'carte des crédits',
-      'crédit',
-    ],
-    correct: 'les cartes de crédit',
-  },
-  {
-    question:
-      "Si tu veux acheter quelque chose de cher, il faut _____ d'abord.",
-    answers: ['économiser', 'économise', 'économises', 'économisant'],
-    correct: 'économiser',
-  },
+  // last verified
 ]
