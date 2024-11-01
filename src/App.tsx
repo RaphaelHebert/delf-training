@@ -1,14 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ReactGA from 'react-ga4'
-import './styles.css'
 import Routes from '@/Routes'
 import { Flex } from '@radix-ui/themes'
-import { Header, Footer } from '@/components'
+import { Header, Footer, SettingsDrawer } from '@/components'
 
 import './styles.css'
 ReactGA.initialize('G-05SL1S3Q77')
 
 function App() {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+
   useEffect(() => {
     const removeElement = () => {
       const iubendaConsent = document.getElementsByClassName('iubenda-tp-btn')
@@ -42,8 +43,12 @@ function App() {
       height='100dvh'
       className='mukta-regular'
     >
-      <Header />
+      <Header onOpenChange={setIsSettingsOpen} />
       <Routes />
+      <SettingsDrawer
+        isOpen={isSettingsOpen}
+        onOpenChange={setIsSettingsOpen}
+      />
       <Footer />
     </Flex>
   )
