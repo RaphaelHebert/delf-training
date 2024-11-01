@@ -176,24 +176,6 @@ export default [
   },
   {
     question:
-      '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____.',
-    answers: [
-      'Ils auraient fini plus tôt s’ils avaient mieux organisé leur travail',
-      'Ils mieux s’ils organisé auraient leur fini avaient travail',
-      'Ils s’ils fini auraient mieux leur avaient organisé travail',
-      'Ils fini mieux auraient s’ils leur avaient organisé travail',
-      'Ils leur s’ils mieux organisé fini auraient avaient travail',
-    ],
-    correct:
-      'Ils auraient fini plus tôt s’ils avaient mieux organisé leur travail',
-  },
-  {
-    question: 'Bien qu’elle _____ fatiguée, elle est venue travailler.',
-    answers: ['soit', 'était', 'ait été', 'sois'],
-    correct: 'soit',
-  },
-  {
-    question:
       '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____.',
     answers: [
       "Je regrette que nous n'ayons pas eu le temps de visiter le musée",
@@ -249,12 +231,7 @@ export default [
     correct: 'vous investissiez',
   },
   {
-    question: 'Il est indispensable que tu _____ à la réunion demain.',
-    answers: ['assistes', 'assiste', 'assisteras', 'assistes-tu'],
-    correct: 'assistes',
-  },
-  {
-    question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
+    question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____.',
     answers: [
       'Ils auraient fini plus tôt s’ils avaient mieux organisé leur travail',
       'Ils mieux s’ils organisé auraient leur fini avaient travail',
@@ -282,29 +259,6 @@ export default [
     correct: "Je regrette que nous n'ayons pas eu le temps de visiter le musée",
   },
   {
-    question:
-      'Ils souhaitent que tu _____ au moins une réponse avant la fin de la journée.',
-    answers: ['donnes', 'donne', 'donnais', 'donneras'],
-    correct: 'donnes',
-  },
-  {
-    question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
-    answers: [
-      'Nous avons décidé de rester en France malgré la météo',
-      'Nous de avons décidé météo rester en malgré France la',
-      'Décidé de en malgré nous la rester météo avons France',
-      'Rester malgré en décidé de France avons la météo nous',
-      'Nous avons de la rester décidé météo en France malgré',
-    ],
-    correct: 'Nous avons décidé de rester en France malgré la météo',
-  },
-  {
-    question:
-      'Elle est partie en vacances bien qu’elle _____ beaucoup de travail.',
-    answers: ['ait', 'avait', 'aurait', 'a'],
-    correct: 'ait',
-  },
-  {
     question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
     answers: [
       "Il est évident qu'il a beaucoup travaillé pour réussir",
@@ -314,16 +268,6 @@ export default [
       "Beaucoup est il évident travaillé qu'il pour réussir a",
     ],
     correct: "Il est évident qu'il a beaucoup travaillé pour réussir",
-  },
-  {
-    question: 'Il est important que vous _____ bien à votre formation.',
-    answers: [
-      'vous investissiez',
-      'investissiez',
-      'investissez',
-      'investissions',
-    ],
-    correct: 'vous investissiez',
   },
   {
     question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
@@ -340,11 +284,6 @@ export default [
     question: "Je viendrai te voir dès que j'_____ terminé mon travail.",
     answers: ['aurai', 'ai', 'avais', 'aurais'],
     correct: 'aurai',
-  },
-  {
-    question: 'Il est indispensable que tu _____ à la réunion demain.',
-    answers: ['assistes', 'assiste', 'assisteras', 'assistes-tu'],
-    correct: 'assistes',
   },
   {
     question: '_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ .',
@@ -433,7 +372,7 @@ export default [
       'aurais dû finir',
       'aurais dû finis',
       'aurais dû finirai',
-      'a dû finir',
+      'a dû finis',
     ],
     correct: 'aurais dû finir',
   },
@@ -599,7 +538,7 @@ export default [
     correct: 'écoutes',
   },
   {
-    question: "Ils n'auraient pas réussi sans que nous les _____ aider.",
+    question: "Ils n'auraient pas réussi sans que nous _____ les aider.",
     answers: ['ayons pu', 'avons pu', 'aurions pu', 'a pu'],
     correct: 'ayons pu',
   },
@@ -655,62 +594,5 @@ export default [
     answers: ['était allée', 'allait', 'est allée', 'ira'],
     correct: 'était allée',
   },
-  {
-    question: 'Pour acheter un café, il faut _____ euros.',
-    answers: ['cinq', 'cinquante', 'cinquante-cinq', 'cinq cents'],
-    correct: 'cinq',
-  },
-  {
-    question: 'Je mets mon argent dans un _____ pour le garder en sécurité.',
-    answers: ['coffre', 'sac', 'compte', 'portefeuille'],
-    correct: 'compte',
-  },
-  {
-    question: 'Le prix de ce livre est _____ euros.',
-    answers: ['dix', 'dixième', 'dixième de', 'dix-cent'],
-    correct: 'dix',
-  },
-  {
-    question:
-      "Pour faire des économies, il faut _____ de l'argent chaque mois.",
-    answers: ['épargner', 'dépense', 'dépenser', 'dépenserai'],
-    correct: 'épargner',
-  },
-  {
-    question: 'Il est important de _____ un budget pour ne pas dépenser trop.',
-    answers: ['faire', 'faites', 'fais', 'faisons'],
-    correct: 'faire',
-  },
-  {
-    question:
-      "Quand je vais au marché, j'apporte toujours _____ pour acheter des fruits.",
-    answers: ["de l'argent", 'un argent', 'les argent', 'un monnaie'],
-    correct: "de l'argent",
-  },
-  {
-    question: 'Je préfère payer _____ plutôt que par carte.',
-    answers: ['en espèces', 'espèces', 'en piece', 'de monnaie'],
-    correct: 'en espèces',
-  },
-  {
-    question: "Mon père travaille à la banque et il parle beaucoup d'_____ .",
-    answers: ['économie', 'économies', 'argent', 'finances'],
-    correct: 'argent',
-  },
-  {
-    question: 'Les magasins acceptent souvent _____ pour les achats.',
-    answers: [
-      'les cartes de crédit',
-      'carte de crédit',
-      'carte des crédits',
-      'crédit',
-    ],
-    correct: 'les cartes de crédit',
-  },
-  {
-    question:
-      "Si tu veux acheter quelque chose de cher, il faut _____ d'abord.",
-    answers: ['économiser', 'économise', 'économises', 'économisant'],
-    correct: 'économiser',
-  },
+  // last verified
 ]

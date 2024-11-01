@@ -1,7 +1,7 @@
 import { question } from '@/data'
 import React, { useContext, createContext, useState, useEffect } from 'react'
 import { allQuestions } from '@/data'
-import shuffle from '@/utils/shuffle-array'
+import { shuffle, shuffleAnswers } from '@/utils/shuffle-array'
 
 export type levelName = 'A1' | 'A2' | 'B1' | 'B2'
 export type mode = 'exam' | 'training'
@@ -56,14 +56,17 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
       ...prev,
       level: {
         name: name,
-        questions: shuffle(allQuestions[name]),
+        questions: shuffle(shuffleAnswers(allQuestions[name])),
       },
     }))
   }
 
   const setMode = (mode: mode) => {
-    setModeAndLevel((prev) => ({
-      ...prev,
+    setModeAndLevel(({ level: { name, questions } }) => ({
+      level: {
+        name,
+        questions: shuffle(shuffleAnswers(questions)),
+      },
       mode,
     }))
   }
@@ -73,7 +76,7 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
     setModeAndLevel((prev) => ({
       level: {
         name: value.level.name || prev.level.name,
-        questions: shuffle(allQuestions[value.level.name]),
+        questions: shuffle(shuffleAnswers(allQuestions[value.level.name])),
       },
       mode: value.mode || prev.mode,
     }))

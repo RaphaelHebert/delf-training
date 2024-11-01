@@ -1,4 +1,6 @@
-const shuffle = <T>(array: T[]): T[] => {
+import { question } from '@/data/types'
+
+export const shuffle = <T>(array: T[]): T[] => {
   let currentIndex = array.length
 
   // While there remain elements to shuffle...
@@ -16,4 +18,8 @@ const shuffle = <T>(array: T[]): T[] => {
   return array
 }
 
-export default shuffle
+export const shuffleAnswers = (questions: question[]): question[] =>
+  questions.map((question) => ({
+    ...question,
+    answers: shuffle(question.answers),
+  }))

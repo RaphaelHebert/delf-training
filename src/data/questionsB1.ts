@@ -25,7 +25,7 @@ export default [
     correct: 'travaillaient',
   },
   {
-    question: "C'est un sujet _____ je m'intéresse beaucoup.",
+    question: "C'est un sujet _____ m'intéresse beaucoup.",
     answers: ['dont', 'que', 'qui', 'lequel'],
     correct: 'qui',
   },
@@ -35,7 +35,7 @@ export default [
     correct: 'parce que',
   },
   {
-    question: 'Ils se sont disputés _____ un malentendu.',
+    question: 'Ils se sont disputés _____un malentendu.',
     answers: ["à cause d'", 'parce que', 'grâce à', 'pour'],
     correct: "à cause d'",
   },
@@ -101,47 +101,6 @@ export default [
     correct: 'seras',
   },
   {
-    question: "Je connais quelqu'un _____ peut t'aider.",
-    answers: ['qui', 'que', 'dont', 'lequel'],
-    correct: 'qui',
-  },
-  {
-    question: "C'est une situation _____ on doit réagir rapidement.",
-    answers: ['à laquelle', 'pour laquelle', 'sur laquelle', 'avec laquelle'],
-    correct: 'à laquelle',
-  },
-  {
-    question: 'Il est important que vous _____ les règles avant de commencer.',
-    answers: ['compreniez', 'comprenez', 'comprendriez', 'comprendrez'],
-    correct: 'compreniez',
-  },
-  {
-    question: "Ils partiront en vacances après qu'ils _____ leurs examens.",
-    answers: ['auront terminé', 'termineront', 'avaient terminé', 'terminent'],
-    correct: 'auront terminé',
-  },
-  {
-    question: 'Je suis allé au magasin _____ acheter du pain.',
-    answers: ['pour', 'de', 'à', 'par'],
-    correct: 'pour',
-  },
-  {
-    question:
-      "Nous _____ ici depuis plus d'une heure quand il est enfin arrivé.",
-    answers: ['attendions', 'attendrons', 'avons attendu', 'attendons'],
-    correct: 'attendions',
-  },
-  {
-    question: 'Je ne sais pas _____ livre choisir.',
-    answers: ['quel', 'lequel', 'qui', 'que'],
-    correct: 'quel',
-  },
-  {
-    question: "C'est le film _____ je t'ai parlé hier.",
-    answers: ['dont', 'que', 'duquel', 'qui'],
-    correct: 'dont',
-  },
-  {
     question: 'Si tu _____ la vérité, tu ne serais pas en colère.',
     answers: ['savais', 'saurais', 'saches', 'sauras'],
     correct: 'savais',
@@ -152,7 +111,7 @@ export default [
     correct: 'fera',
   },
   {
-    question: 'Elle a choisi une robe _____ couleur est magnifique.',
+    question: 'Elle a choisi une robe _____ la couleur est magnifique.',
     answers: ['dont', 'qui', 'que', 'où'],
     correct: 'dont',
   },
@@ -371,8 +330,8 @@ export default [
   },
   {
     question: 'Il a refusé de venir _____ il était fatigué.',
-    answers: ['parce que', 'donc', 'alors', 'cependant'],
-    correct: 'parce que',
+    answers: ["parce qu'", 'donc', 'alors', 'cependant'],
+    correct: "parce qu'",
   },
   {
     question: "Ils _____ de déménager l'année dernière.",
@@ -549,7 +508,7 @@ export default [
     correct: 'est',
   },
   {
-    question: "Si j'avais su qu'il venait, je _____ préparé un dessert.",
+    question: "Si j'avais su qu'il venait, j' _____ préparé un dessert.",
     answers: ['aurais', 'ai', 'serai', 'suis'],
     correct: 'aurais',
   },
@@ -574,7 +533,7 @@ export default [
     correct: 'auront',
   },
   {
-    question: "_____ -tu m'aider à transporter ces cartons, s'il te plaît ?",
+    question: "_____-tu m'aider à transporter ces cartons, s'il te plaît ?",
     answers: ['Peux', 'Pourrais', 'Peut', 'Pouvais'],
     correct: 'Peux',
   },
@@ -625,9 +584,9 @@ export default [
     correct: 'la',
   },
   {
-    question: 'Ils ont décidé de partir en voiture _____ le train.',
-    answers: ['plutôt que', 'au lieu de', 'sauf', 'et'],
-    correct: 'plutôt que',
+    question: 'Ils ont décidé de partir en voiture _____ train.',
+    answers: ["plutôt qu'en", 'au lieu de', 'sauf', 'et'],
+    correct: "plutôt qu'en",
   },
   {
     question: 'Avant de partir, il est important de _____ un plan de voyage.',
@@ -739,7 +698,7 @@ export default [
   {
     question:
       'Nous avons un contrôle _____ mathématiques la semaine prochaine.',
-    answers: ['en', 'de', 'à', 'pour'],
+    answers: ['en', 'des', 'à', 'pour'],
     correct: 'en',
   },
   {
@@ -750,7 +709,7 @@ export default [
   {
     question:
       'Les professeurs organisent souvent des sorties _____ les élèves.',
-    answers: ['pour', 'avec', 'par', 'dans'],
+    answers: ['pour', 'contre', 'par', 'dans'],
     correct: 'pour',
   },
   {
@@ -782,7 +741,7 @@ export default [
   },
   {
     question: 'Nous avons préparé une _____ de légumes pour le dîner.',
-    answers: ['soupe', 'salade', 'plat', 'dessert'],
+    answers: ['miette', 'salade', 'plat', 'dessert'],
     correct: 'salade',
   },
   {
@@ -839,7 +798,7 @@ export default [
   },
   {
     question:
-      "Mon patron m'a demandé de _____ une réunion la semaine prochaine.",
+      "Mon patron m'a demandé d'_____ une réunion la semaine prochaine.",
     answers: ['organiser', 'organise', 'organisais', 'organisera'],
     correct: 'organiser',
   },
@@ -866,7 +825,7 @@ export default [
     correct: 'suivre',
   },
   {
-    question: 'Il est essentiel de _____ des objectifs clairs au travail.',
+    question: "Il est essentiel d' _____ des objectifs clairs au travail.",
     answers: ['avoir', 'a', 'ont', 'auront'],
     correct: 'avoir',
   },
@@ -876,4 +835,5 @@ export default [
     answers: ['obtenu', 'obtenait', 'obtient', 'obtiendra'],
     correct: 'obtenu',
   },
+  // manually verified
 ]

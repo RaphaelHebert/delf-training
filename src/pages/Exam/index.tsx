@@ -13,7 +13,7 @@ import { useModeAndLevel } from '@/contexts/modeAndLevel'
 import { SideBar } from '@/components'
 
 import '../../components/SideBar/styles.css'
-import shuffle from '@/utils/shuffle-array'
+import { shuffle } from '@/utils/shuffle-array'
 
 const Home: React.FC = () => {
   const {
