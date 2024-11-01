@@ -130,8 +130,8 @@ const ExerciseCard: React.FC<Props> = ({
             )}
             <Text
               as='div'
-              ml='3'
               align='center'
+              mt={isLongAnswer ? '1' : '6'}
             >
               {selectedOption ? fullAnswer(question, selectedOption) : question}
             </Text>
