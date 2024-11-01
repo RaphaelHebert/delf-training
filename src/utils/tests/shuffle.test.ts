@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import shuffle from '../shuffle-array' // Update with the actual path to your shuffle function
+import { shuffle } from '../shuffle-array' // Update with the actual path to your shuffle function
 
 describe('shuffle', () => {
   it('should shuffle the array but keep all elements', () => {

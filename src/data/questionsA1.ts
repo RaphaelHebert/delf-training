@@ -96,7 +96,7 @@ export default [
     correct: 'regardent',
   },
   {
-    question: "Voilà Pierre, c' _____ mon frère.",
+    question: "Voilà Pierre, c'_____ mon frère.",
     answers: ['est', 'a', 'être', 'as'],
     correct: 'est',
   },
@@ -272,37 +272,37 @@ export default [
     correct: "Je m'appelle Mathilde et toi",
   },
   {
-    question: ' Rachid dit  _____!',
+    question: ' Rachid dit _____!',
     answers: ['enchantée', 'enchanter', 'enchanté', 'ensanté'],
     correct: 'enchanté',
   },
   {
-    question: ' Je  _____ content!',
+    question: ' Je _____ content!',
     answers: ['est', 'sui', 'ai', 'suis'],
     correct: 'suis',
   },
   {
-    question: 'Pierre est  _____ !',
+    question: 'Pierre est _____ !',
     answers: ['content', 'contente', 'contant', 'contante'],
     correct: 'content',
   },
   {
-    question: 'Je  _____ fatigué!',
+    question: 'Je _____ fatigué!',
     answers: ['sui', 'suis', 'ai', 'ais'],
     correct: 'suis',
   },
   {
-    question: 'Elle est  _____!',
+    question: 'Elle est _____!',
     answers: ['fatiguer', 'fatigué', 'fatiguée', 'fatigé'],
     correct: 'fatiguée',
   },
   {
-    question: 'Il  _____ impatient!',
+    question: 'Il _____ impatient!',
     answers: ['es', 'a', 'est', 'ais'],
     correct: 'est',
   },
   {
-    question: 'Elle est  _____!',
+    question: 'Elle est _____!',
     answers: ['impasiente', 'impaciente', 'impatient', 'impatiente'],
     correct: 'impatiente',
   },
@@ -312,12 +312,12 @@ export default [
     correct: 'suis',
   },
   {
-    question: 'Je  _____ contente et il _____ content aussi!',
+    question: 'Je _____ contente et il _____ content aussi!',
     answers: ['suit est', 'suis est', 'est suis', 'es être'],
     correct: 'suis est',
   },
   {
-    question: 'Je suis  _____ fatiguée!',
+    question: 'Je suis _____ fatiguée!',
     answers: ['un petit', 'peut', 'un peu', 'peu'],
     correct: 'un peu',
   },
@@ -372,12 +372,12 @@ export default [
     correct: 'est',
   },
   {
-    question: 'Tu es de  _____ nationalité?',
+    question: 'Tu es de _____ nationalité?',
     answers: ['où', 'quoi', 'quel', 'quelle'],
     correct: 'quelle',
   },
   {
-    question: 'Mathilde  _____ française.',
+    question: 'Mathilde _____ française.',
     answers: ['est', 'es', 'suis', 'ête'],
     correct: 'est',
   },
@@ -572,7 +572,7 @@ export default [
     correct: 'parle',
   },
   {
-    question: 'Je _____ un frère.',
+    question: "J'_____ un frère.",
     answers: ['as', 'ai', 'suis', 'a'],
     correct: 'ai',
   },
@@ -627,7 +627,7 @@ export default [
     correct: 'vais',
   },
   {
-    question: 'Comment _____ -tu?',
+    question: 'Comment _____-tu?',
     answers: ["t'appelle", "t'appelles", "t'appel", "t'appell"],
     correct: "t'appelles",
   },
@@ -951,4 +951,5 @@ export default [
     ],
     correct: 'Parlez vous bien le',
   },
+  // last verified
 ]
