@@ -1,0 +1,60 @@
+/* Drawer.css */
+.DialogOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: overlayShow 200ms ease-in;
+}
+
+.DialogContent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 320px; /* Adjust width as needed */
+  background-color: white;
+  padding: 20px;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: contentShow 300ms ease-out;
+}
+
+.IconButton {
+  all: unset;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Close button */
+.CloseButton {
+  padding: 5px 5px 0 5px;
+  border: 1px dotted gray;
+  border-radius: 20px;
+}
+
+.Separator {
+  border-bottom: '1px dotted gray';
+  padding: 0;
+}

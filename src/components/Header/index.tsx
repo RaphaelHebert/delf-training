@@ -8,14 +8,20 @@ import { slate } from '@radix-ui/colors'
 import './styles.css'
 import { logoWithName } from '@/assets'
 
-const Header: React.FC = () => {
+interface Props {
+  onOpenChange: (open: boolean) => void
+}
+
+const Header: React.FC<Props> = ({ onOpenChange }) => {
   const navigate = useNavigate()
   const [isHovered, setIsHovered] = useState(false)
 
   const isMobileScreen = window.innerWidth <= 768
 
   const openSettings = () => {
-    navigate('/settings')
+    console.log('yo')
+    onOpenChange(true)
+    // navigate('/settings')
   }
 
   return (
@@ -40,12 +46,12 @@ const Header: React.FC = () => {
         ml='3'
         mb='2'
         mt='2'
-        style={{ background: 'transparent' }}
       >
         <img
           className='logo'
           src={logoWithName}
           alt='app logo'
+          style={{ background: slate.slate2 }}
           width={isMobileScreen ? '50px' : '70px'}
           height={isMobileScreen ? '50px' : '70px'}
         />

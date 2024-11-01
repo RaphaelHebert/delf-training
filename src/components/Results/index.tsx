@@ -27,7 +27,7 @@ const Results: React.FC<Props> = ({
   percent,
   goBack,
   speed = 3000,
-  size = 400,
+  size = 300,
 }) => {
   const [classNameAnimation, setClassNameAnimation] = useState('resultPercent')
   const [percentAnimation, setPercentAnimation] = useState(0)
@@ -89,7 +89,7 @@ const Results: React.FC<Props> = ({
           mx='auto'
           size='4'
           className='backButton'
-          style={{ width: '80%' }}
+          style={{ width: `${size * 1.2}px` }}
         >
           Retry
         </Button>

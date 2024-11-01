@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom'
 //import { QueryClient, QueryClientProvider } from 'react-query'
 import { Theme } from '@radix-ui/themes'
 import { ModeAndLevelProvider } from '@/contexts/modeAndLevel'
-import '@radix-ui/themes/styles.css'
 import { COLOR_CORRECT } from '@/constants'
 
 import App from './App.tsx'

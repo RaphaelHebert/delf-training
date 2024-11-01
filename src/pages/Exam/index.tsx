@@ -25,6 +25,8 @@ const Home: React.FC = () => {
   const [isTimeOut, setIsTimeOut] = useState(false)
   const [questions, setQuestions] = useState(shuffle(level.questions))
 
+  const isMobileScreen = window.innerWidth <= 768
+
   const newQuestions = () => setQuestions(shuffle(level.questions))
   const resetCounts = () => {
     setCount(0)
@@ -154,7 +156,7 @@ const Home: React.FC = () => {
           percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
           goBack={resetCounts}
           speed={3}
-          size={window.innerWidth / 1.2}
+          size={window.innerWidth / (isMobileScreen ? 1.2 : 3)}
         />
       )}
     </>

@@ -1,55 +1,52 @@
 import React from 'react'
 import { Button, Flex, Text } from '@radix-ui/themes'
-import { useModeAndLevel } from '@/contexts/modeAndLevel'
 import { COLOR_CORRECT } from '@/constants'
-// import { gray } from '@radix-ui/colors'
 
 type Props = {
   choices: Record<string, string>
   onSelect: <T>(value: T) => void
+  choice?: string
   isBig?: boolean
 }
 
-const Buttons: React.FC<Props> = ({ choices, onSelect, isBig = false }) => {
-  const {
-    modeAndLevel: { level, mode },
-  } = useModeAndLevel()
-
+const Buttons: React.FC<Props> = ({ choices, onSelect, choice = '' }) => {
   const defineVariant = (name: string) => {
     // TODO find types for radix colors
-    return level.name === name || mode === name ? 'solid' : 'surface'
+    return choice === name ? 'solid' : 'surface'
   }
+
   const defineContrast = (name: string) => {
     // TODO find types for radix colors
-    return level.name === name || mode === name ? false : true
+    return choice === name ? false : true
   }
 
   return (
     <Flex
-      justify='center'
+      width='100%'
+      direction='column'
+      justify='start'
       align='center'
-      wrap='wrap'
+      wrap='nowrap'
       as='div'
+      mt='20px'
+      mb='40px'
+      mx='auto'
     >
-      {Object.entries(choices).map(([name, comment]) => (
+      {Object.entries(choices).map(([name]) => (
         <Button
           key={name}
-          my='4'
-          mx='4'
+          mt='10px'
           size='4'
           style={{
-            width: isBig ? '50%' : '35%',
-            // maxWidth: '35%',
-            minHeight: '5rem',
+            width: '90%',
+            minHeight: '3rem',
             boxSizing: 'border-box',
           }}
           onClick={() => onSelect(name)}
           type='button'
-          //   variant={defineVariant(level)}
           color={COLOR_CORRECT}
           variant={defineVariant(name)}
           highContrast={defineContrast(name)}
-          disabled={comment === 'not available now'}
         >
           <Flex
             justify='center'
