@@ -5,8 +5,13 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
 import { Buttons } from '@/components'
 import { COLOR_CORRECT } from '@/constants'
-import { useModeAndLevel, mode, levelName } from '@/contexts/modeAndLevel'
-import { levels, modes } from '@/constants'
+import { allQuestions } from '@/data'
+import {
+  useModeAndLevel,
+  modes,
+  type levelName,
+  type mode,
+} from '@/contexts/modeAndLevel'
 import './styles.css' // This file will contain the custom CSS for animations
 
 interface Props {
@@ -80,7 +85,7 @@ const SettingsDrawer: React.FC<Props> = ({ isOpen, onOpenChange }) => {
               <Separator />
 
               <Buttons
-                choices={levels}
+                choices={Object.keys(allQuestions)}
                 onSelect={(lvl) => setLevelLocal(lvl as levelName)}
                 choice={levelLocal}
               />

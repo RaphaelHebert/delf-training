@@ -111,6 +111,7 @@ const ExerciseCard: React.FC<Props> = ({
             justify='center'
             wrap={'nowrap'}
             align='center'
+            mt={isLongAnswer ? '1' : '6'}
           >
             {hasFormBeenSubmitted && selectedOption !== correct && (
               <Cross2Icon
@@ -131,7 +132,6 @@ const ExerciseCard: React.FC<Props> = ({
             <Text
               as='div'
               align='center'
-              mt={isLongAnswer ? '1' : '6'}
             >
               {selectedOption ? fullAnswer(question, selectedOption) : question}
             </Text>
