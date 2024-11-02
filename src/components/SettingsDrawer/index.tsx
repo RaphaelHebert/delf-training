@@ -3,6 +3,7 @@ import { Button, Flex, Section } from '@radix-ui/themes'
 import { useNavigate } from 'react-router-dom'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
+
 import { Buttons } from '@/components'
 import { COLOR_CORRECT } from '@/constants'
 import { allQuestions } from '@/data'
@@ -12,6 +13,7 @@ import {
   type levelName,
   type mode,
 } from '@/contexts/modeAndLevel'
+        
 import './styles.css' // This file will contain the custom CSS for animations
 
 interface Props {
