@@ -3,8 +3,10 @@ import React, { useContext, createContext, useState, useEffect } from 'react'
 import { allQuestions } from '@/data'
 import { shuffle, shuffleAnswers } from '@/utils/shuffle-array'
 
-export type levelName = 'A1' | 'A2' | 'B1' | 'B2'
+export type levelName = keyof typeof allQuestions
 export type mode = 'exam' | 'training'
+
+export const modes: mode[] = ['exam', 'training']
 
 export type level = {
   name: levelName
@@ -48,7 +50,7 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
 }) => {
   const [modeAndLevel, setModeAndLevel] = useState<ModeAndLevelValue>({
     level: { name: 'A1', questions: allQuestions.A1 },
-    mode: 'exam',
+    mode: 'training',
   })
 
   const setLevel = (name: levelName) => {

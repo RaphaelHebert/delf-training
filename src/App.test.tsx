@@ -1,11 +1,12 @@
 import { render, screen, cleanup } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-
+import { ModeAndLevelProvider } from './contexts/modeAndLevel'
+import { allQuestions } from './data'
 import App from './App'
 
-vi.mock('@/pages/Welcome', () => ({
+vi.mock('@/pages/Training', () => ({
   default: () => {
-    return <div>Welcome</div>
+    return <div>Training</div>
   },
 }))
 
@@ -16,12 +17,19 @@ describe('Renders main page correctly', () => {
 
   it('Should render the page correctly', async () => {
     await render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ModeAndLevelProvider
+        value={{
+          level: { name: 'A1', questions: allQuestions.A1 },
+          mode: 'training',
+        }}
+      >
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ModeAndLevelProvider>
     )
 
-    const home = await screen.queryByText('Welcome')
+    const home = await screen.queryByText('Training')
 
     expect(home).toBeInTheDocument()
   })
