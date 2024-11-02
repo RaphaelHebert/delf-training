@@ -3,7 +3,7 @@ import { Button, Flex, Text } from '@radix-ui/themes'
 import { COLOR_CORRECT } from '@/constants'
 
 type Props = {
-  choices: Record<string, string>
+  choices: string[]
   onSelect: <T>(value: T) => void
   choice?: string
   isBig?: boolean
@@ -32,7 +32,7 @@ const Buttons: React.FC<Props> = ({ choices, onSelect, choice = '' }) => {
       mb='40px'
       mx='auto'
     >
-      {Object.entries(choices).map(([name]) => (
+      {Object.values(choices).map((name) => (
         <Button
           key={name}
           mt='10px'

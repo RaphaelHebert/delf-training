@@ -19,7 +19,11 @@ const Dialog: React.FC<Props> = ({
     document.querySelector('#favDialog')
 
   if (dialogElement) {
-    isOpen ? dialogElement.showModal() : dialogElement.close()
+    if (isOpen) {
+      dialogElement.showModal()
+    } else {
+      dialogElement.close()
+    }
   }
 
   return (
