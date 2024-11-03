@@ -13,7 +13,6 @@ import {
   type levelName,
   type mode,
 } from '@/contexts/modeAndLevel'
-        
 import './styles.css' // This file will contain the custom CSS for animations
 
 interface Props {
