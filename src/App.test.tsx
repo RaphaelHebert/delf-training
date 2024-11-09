@@ -17,16 +17,16 @@ describe('Renders main page correctly', () => {
 
   it('Should render the page correctly', async () => {
     await render(
-      <ModeAndLevelProvider
-        value={{
-          level: { name: 'A1', questions: allQuestions.A1 },
-          mode: 'training',
-        }}
-      >
-        <BrowserRouter>
+      <BrowserRouter>
+        <ModeAndLevelProvider
+          value={{
+            level: { name: 'A1', questions: allQuestions.A1 },
+            mode: 'general-questions',
+          }}
+        >
           <App />
-        </BrowserRouter>
-      </ModeAndLevelProvider>
+        </ModeAndLevelProvider>
+      </BrowserRouter>
     )
 
     const home = await screen.queryByText('Training')

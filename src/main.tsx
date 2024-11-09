@@ -12,13 +12,13 @@ import { allQuestions } from './data'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ModeAndLevelProvider
-      value={{
-        level: { name: 'A1', questions: allQuestions.A1 },
-        mode: 'training',
-      }}
-    >
-      <BrowserRouter basename='/'>
+    <BrowserRouter basename='/'>
+      <ModeAndLevelProvider
+        value={{
+          level: { name: 'A1', questions: allQuestions.A1 },
+          mode: 'general-questions',
+        }}
+      >
         {/* <QueryClientProvider client={queryClient}> */}
         <Theme
           accentColor={COLOR_CORRECT}
@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <App />
         </Theme>
         {/* </QueryClientProvider> */}
-      </BrowserRouter>
-    </ModeAndLevelProvider>
+      </ModeAndLevelProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )

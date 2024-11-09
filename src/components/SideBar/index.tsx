@@ -1,8 +1,10 @@
 import React from 'react'
 import { Flex, Heading } from '@radix-ui/themes'
+
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
-import { slate } from '@radix-ui/colors'
+import { capitalizeFirstLetter } from '@/utils'
 import './styles.css'
+
 type Props = {
   count: number
   goodAnswers: number
@@ -21,10 +23,6 @@ const SideBar: React.FC<Props> = ({ count, children }) => {
       align='center'
       direction='column'
       className='largeScreen'
-      style={{
-        backgroundColor: slate.slate1,
-        borderRight: '1px solid lightGrey',
-      }}
     >
       <Heading
         as='h2'
@@ -32,7 +30,7 @@ const SideBar: React.FC<Props> = ({ count, children }) => {
         mt='2'
         align='center'
       >
-        {`Mode ${mode}`}
+        {`Mode: ${capitalizeFirstLetter(mode).replace('-', ' ')}`}
       </Heading>
       <Heading
         as='h3'
