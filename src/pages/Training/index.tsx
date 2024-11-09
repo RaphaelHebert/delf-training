@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
-import { Results } from '@/components'
-import { ExerciseCard, SideBar, BodyContainer } from '@/components'
-import { Flex } from '@radix-ui/themes'
+import { Text } from '@radix-ui/themes'
+
+import {
+  ExerciseCard,
+  SideBar,
+  BodyContainer,
+  Results,
+  FinishScreen,
+  ResponsiveCard,
+} from '@/components'
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
 
 const Training: React.FC = () => {
@@ -19,7 +26,7 @@ const Training: React.FC = () => {
       setCountGoodAnswer((prev) => prev + 1)
     }
     if (done) {
-      setCount(level.questions.length)
+      setCount(level.questions.qcm.length)
     } else {
       setCount((prev) => prev + 1)
     }
@@ -43,28 +50,31 @@ const Training: React.FC = () => {
           </div>
         </div>
       </SideBar>
-      <Flex
-        direction='column'
-        width='100%'
-        justify='center'
-        align='center'
-        flexGrow='1'
-        m='auto'
-      >
-        {level.questions[count] ? (
+      <ResponsiveCard>
+        {level.questions.qcm[count] ? (
           <ExerciseCard
             qcm={{
-              ...level.questions[count],
-              answers: level.questions[count].answers,
+              ...level.questions.qcm[count],
+              answers: level.questions.qcm[count].answers,
             }}
             sendSummary={handleQuestionSubmission}
             count={count}
             isExamMode={false}
           />
         ) : (
-          `You answer all ${level.questions.length} questions! Retry, try next level or come back later, we constantly add new questions!`
+          <FinishScreen>
+            <Text
+              mx='6'
+              wrap='pretty'
+              align='center'
+            >
+              You answered all {level.questions.qcm.length} questions! Retry,
+              try next level or come back later, we constantly add new
+              questions!
+            </Text>
+          </FinishScreen>
         )}
-      </Flex>
+      </ResponsiveCard>
     </BodyContainer>
   )
 }

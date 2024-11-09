@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Flex, Text } from '@radix-ui/themes'
+import { Text } from '@radix-ui/themes'
 
 import './styles.css'
 
@@ -7,7 +7,6 @@ type Props = {
   percent: number
   speed?: number // animation time in seconds
   size?: number //the size in px
-  goBack?: () => void
 }
 
 const updatePercentDisplay = (percent: number): void => {
@@ -23,12 +22,7 @@ const updateSize = (size: number): void => {
   document.documentElement.style.setProperty('--size', `${size}px`)
 }
 
-const Results: React.FC<Props> = ({
-  percent,
-  goBack,
-  speed = 3000,
-  size = 300,
-}) => {
+const Results: React.FC<Props> = ({ percent, speed = 3000, size = 300 }) => {
   const [classNameAnimation, setClassNameAnimation] = useState('resultPercent')
   const [percentAnimation, setPercentAnimation] = useState(0)
 
@@ -60,41 +54,21 @@ const Results: React.FC<Props> = ({
   }, [percentAnimation, percent])
 
   return (
-    <Flex
-      direction='column'
-      justify='center'
-      align='stretch'
-      width='100%'
-      className='setSize'
-    >
-      <div className='resultPercentBackground'>
-        <div
-          className={classNameAnimation}
-          data-testid='animated-result'
-        >
-          <div className='resultPercentCenter'>
-            <Text
-              className='resultPercentText'
-              align='center'
-            >
-              {percentAnimation} %
-            </Text>
-          </div>
+    <div className='resultPercentBackground'>
+      <div
+        className={classNameAnimation}
+        data-testid='animated-result'
+      >
+        <div className='resultPercentCenter'>
+          <Text
+            className='resultPercentText'
+            align='center'
+          >
+            {percentAnimation} %
+          </Text>
         </div>
       </div>
-      {goBack && (
-        <Button
-          type='button'
-          onClick={goBack}
-          mx='auto'
-          size='4'
-          className='backButton'
-          style={{ width: `${size * 1.2}px` }}
-        >
-          Retry
-        </Button>
-      )}
-    </Flex>
+    </div>
   )
 }
 

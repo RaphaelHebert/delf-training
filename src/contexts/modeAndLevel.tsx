@@ -1,16 +1,16 @@
-import { question } from '@/data'
+import { useLocation } from 'react-router-dom'
 import React, { useContext, createContext, useState, useEffect } from 'react'
-import { allQuestions } from '@/data'
-import { shuffle, shuffleAnswers } from '@/utils/shuffle-array'
+import { allQuestions, allQuestionsType, levelName } from '@/data'
 
-export type levelName = keyof typeof allQuestions
-export type mode = 'exam' | 'training'
+import { shuffle, shuffleAnswers, shuffleTextQuestions } from '@/utils'
 
-export const modes: mode[] = ['exam', 'training']
+export type mode = 'exam' | 'general-questions' | 'text-comprehension'
+
+export const modes: mode[] = ['exam', 'general-questions', 'text-comprehension']
 
 export type level = {
   name: levelName
-  questions: question[]
+  questions: allQuestionsType
 }
 
 type ModeAndLevelValue = {
@@ -22,6 +22,7 @@ type ContextProps = {
   modeAndLevel: ModeAndLevelValue
   setMode: (mode: mode) => void
   setLevel: (level: levelName) => void
+  retry: () => void
 }
 
 type ProviderProps = {
@@ -48,9 +49,12 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
   children,
   value,
 }) => {
+  const { pathname } = useLocation()
+  const path = decodeURI(pathname.slice(1)).toLocaleLowerCase().trim() as mode
+  const URImode = modes.includes(path) ? path : 'general-questions'
   const [modeAndLevel, setModeAndLevel] = useState<ModeAndLevelValue>({
     level: { name: 'A1', questions: allQuestions.A1 },
-    mode: 'training',
+    mode: URImode,
   })
 
   const setLevel = (name: levelName) => {
@@ -58,18 +62,38 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
       ...prev,
       level: {
         name: name,
-        questions: shuffle(shuffleAnswers(allQuestions[name])),
+        questions: {
+          qcm: shuffle(shuffleAnswers(allQuestions[name].qcm)),
+          text: shuffleTextQuestions(allQuestions[name].text),
+        },
       },
     }))
   }
 
-  const setMode = (mode: mode) => {
+  const setMode = (newMode: mode) => {
     setModeAndLevel(({ level: { name, questions } }) => ({
       level: {
         name,
-        questions: shuffle(shuffleAnswers(questions)),
+        questions: {
+          qcm: shuffle(shuffleAnswers(questions.qcm)),
+          text: shuffleTextQuestions(questions.text),
+        },
       },
-      mode,
+      mode: newMode,
+    }))
+  }
+
+  // reshuffle arrays and rerender elements
+  const retry = () => {
+    setModeAndLevel((prev) => ({
+      ...prev,
+      level: {
+        ...prev.level,
+        questions: {
+          qcm: shuffle(shuffleAnswers([...prev.level.questions.qcm])),
+          text: shuffleTextQuestions([...prev.level.questions.text]),
+        },
+      },
     }))
   }
 
@@ -78,14 +102,19 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
     setModeAndLevel((prev) => ({
       level: {
         name: value.level.name || prev.level.name,
-        questions: shuffle(shuffleAnswers(allQuestions[value.level.name])),
+        questions: {
+          qcm: shuffle(shuffleAnswers(allQuestions[value.level.name].qcm)),
+          text: shuffleTextQuestions(allQuestions[value.level.name].text),
+        },
       },
       mode: value.mode || prev.mode,
     }))
   }, [value])
 
   return (
-    <ModeAndLevelContext.Provider value={{ modeAndLevel, setMode, setLevel }}>
+    <ModeAndLevelContext.Provider
+      value={{ modeAndLevel, setMode, setLevel, retry }}
+    >
       {children}
     </ModeAndLevelContext.Provider>
   )

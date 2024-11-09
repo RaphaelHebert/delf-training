@@ -1,7 +1,7 @@
-import { Button, Flex, Text, Card } from '@radix-ui/themes'
+import { Button, Flex, Text } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
-import { CardContainer } from '@/primitiveComponents'
+
 import {
   EXAM_QUESTION,
   COLOR_CORRECT,
@@ -97,87 +97,79 @@ const ExerciseCard: React.FC<Props> = ({
   return (
     <Flex
       direction='column'
-      justify='center'
-      align='center'
-      width='94%'
-      minWidth='350px'
-      m='auto'
-      mt={isLongAnswer ? '0' : '8'}
+      justify='between'
+      flexGrow='1'
+      width='100%'
     >
-      <CardContainer>
-        <Card variant='ghost'>
-          <Flex
-            mb='6'
-            justify='center'
-            wrap={'nowrap'}
-            align='center'
-            mt={isLongAnswer ? '1' : '6'}
-          >
-            {hasFormBeenSubmitted && selectedOption !== correct && (
-              <Cross2Icon
-                color={COLOR_ERROR}
-                width='30'
-                height='30'
-                data-testid='cross-icon'
-              />
-            )}
-            {hasFormBeenSubmitted && selectedOption === correct && (
-              <CheckIcon
-                color={COLOR_CORRECT}
-                width='30'
-                height='30'
-                data-testid='check-icon'
-              />
-            )}
-            <Text
-              as='div'
-              align='center'
-              mt={isLongAnswer ? '1' : '6'}
-            >
-              {selectedOption ? fullAnswer(question, selectedOption) : question}
-            </Text>
-          </Flex>
-          <Flex
-            width='100%'
-            align='stretch'
-            direction='column'
-          >
-            {answers.map((answer) => (
-              <Button
-                key={answer}
-                my={isLongAnswer && isMobileScreen ? '1' : '2'}
-                mx='auto'
-                size='3'
-                onClick={() => setSelectedOption(answer)}
-                type='button'
-                variant={defineVariant(answer)}
-                color={defineColor(answer)}
-                className={`flexibleButton ${hasFormBeenSubmitted ? 'noHover' : 'simple'}`}
-              >
-                {answer}
-              </Button>
-            ))}
-          </Flex>
-        </Card>
+      <Flex
+        direction='column'
+        justify='center'
+        flexGrow='1'
+      >
         <Flex
-          direction='column'
-          align='stretch'
-          width='100%'
-          pt='3'
+          align='center'
+          justify='center'
         >
-          <Button
-            type='button'
-            onClick={handleSubmit}
-            autoFocus
-            size='4'
-            mx='7'
-            mt={isLongAnswer && isMobileScreen ? '1' : '3'}
-            mb={isLongAnswer && isMobileScreen ? '1' : '5'}
+          {hasFormBeenSubmitted && selectedOption !== correct && (
+            <Cross2Icon
+              color={COLOR_ERROR}
+              width='30'
+              height='30'
+              data-testid='cross-icon'
+            />
+          )}
+          {hasFormBeenSubmitted && selectedOption === correct && (
+            <CheckIcon
+              color={COLOR_CORRECT}
+              width='30'
+              height='30'
+              data-testid='check-icon'
+            />
+          )}
+          <Text
+            as='div'
+            align='center'
+            wrap='pretty'
           >
-            {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
-          </Button>
+            {selectedOption ? fullAnswer(question, selectedOption) : question}
+          </Text>
         </Flex>
-      </CardContainer>
+      </Flex>
+      {/* </Flex> */}
+      <Flex
+        width='100%'
+        align='stretch'
+        direction='column'
+        flexGrow='1'
+        justify='center'
+      >
+        {answers.map((answer) => (
+          <Button
+            key={answer}
+            my={isLongAnswer && isMobileScreen ? '1' : '2'}
+            size='3'
+            mx='4'
+            onClick={() => setSelectedOption(answer)}
+            type='button'
+            variant={defineVariant(answer)}
+            color={defineColor(answer)}
+            className={`flexibleButton ${hasFormBeenSubmitted ? 'noHover' : 'simple'}`}
+          >
+            {answer}
+          </Button>
+        ))}
+      </Flex>
+      <Button
+        type='button'
+        onClick={handleSubmit}
+        autoFocus
+        size='4'
+        mx='7'
+        mb='5'
+        mt='5'
+      >
+        {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
+      </Button>
     </Flex>
   )
 }

@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import { Flex } from '@radix-ui/themes'
+
 import {
   ExerciseCard,
   Results,
   Dialog,
   Timer,
   BodyContainer,
+  SideBar,
+  FinishScreen,
+  ResponsiveCard,
 } from '@/components'
-import { Flex } from '@radix-ui/themes'
 import { ProgressBar } from '@/primitiveComponents'
 import { EXAM_QUESTION, EXAM_TIME } from '@/constants'
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
-import { SideBar } from '@/components'
 
 import '../../components/SideBar/styles.css'
-import { shuffle } from '@/utils/shuffle-array'
 
 const Home: React.FC = () => {
   const {
@@ -23,15 +25,13 @@ const Home: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [countGoodAnswer, setCountGoodAnswer] = useState(0)
   const [isTimeOut, setIsTimeOut] = useState(false)
-  const [questions, setQuestions] = useState(shuffle(level.questions))
+  const questions = level.questions.qcm
 
   const isMobileScreen = window.innerWidth <= 768
 
-  const newQuestions = () => setQuestions(shuffle(level.questions))
   const resetCounts = () => {
     setCount(0)
     setCountGoodAnswer(0)
-    newQuestions()
   }
 
   useEffect(() => {
@@ -91,7 +91,6 @@ const Home: React.FC = () => {
               </Flex>
             )}
           </SideBar>
-
           <Flex
             flexGrow='1'
             direction='column'
@@ -121,16 +120,17 @@ const Home: React.FC = () => {
                 />
               </Flex>
             )}
-
-            <ExerciseCard
-              qcm={{
-                ...questions[count],
-                answers: questions[count].answers,
-              }}
-              sendSummary={handleQuestionSubmission}
-              count={count}
-              isExamMode
-            />
+            <ResponsiveCard>
+              <ExerciseCard
+                qcm={{
+                  ...questions[count],
+                  answers: questions[count].answers,
+                }}
+                sendSummary={handleQuestionSubmission}
+                count={count}
+                isExamMode
+              />
+            </ResponsiveCard>
           </Flex>
           <Dialog
             isOpen={isDialogOpen || isTimeOut}
@@ -152,12 +152,13 @@ const Home: React.FC = () => {
         </BodyContainer>
       )}
       {displayResults && (
-        <Results
-          percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
-          goBack={resetCounts}
-          speed={3}
-          size={window.innerWidth / (isMobileScreen ? 1.2 : 3)}
-        />
+        <FinishScreen actionOnRetry={resetCounts}>
+          <Results
+            percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
+            speed={3}
+            size={window.innerWidth / (isMobileScreen ? 1.2 : 3)}
+          />
+        </FinishScreen>
       )}
     </>
   )

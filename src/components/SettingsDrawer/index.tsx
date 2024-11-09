@@ -7,12 +7,9 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 import { Buttons } from '@/components'
 import { COLOR_CORRECT } from '@/constants'
 import { allQuestions } from '@/data'
-import {
-  useModeAndLevel,
-  modes,
-  type levelName,
-  type mode,
-} from '@/contexts/modeAndLevel'
+import { capitalizeFirstLetter } from '@/utils'
+import { type levelName } from '@/data'
+import { useModeAndLevel, modes, type mode } from '@/contexts/modeAndLevel'
 import './styles.css' // This file will contain the custom CSS for animations
 
 interface Props {
@@ -28,15 +25,23 @@ const SettingsDrawer: React.FC<Props> = ({ isOpen, onOpenChange }) => {
     setMode,
   } = useModeAndLevel()
 
-  const [modeLocal, setModeLocal] = useState(mode)
+  const [modeLocal, setModeLocal] = useState(
+    capitalizeFirstLetter(mode).replace('-', ' ')
+  )
   const [levelLocal, setLevelLocal] = useState(level.name)
 
+  const newMode = modeLocal.replace(' ', '-').toLowerCase().trim()
+
   const confirmSelection = () => {
+    navigate(`/${newMode}`)
     setLevel(levelLocal)
-    setMode(modeLocal)
+    setMode(newMode as mode)
     onOpenChange(false)
-    navigate(`/${modeLocal}`)
   }
+
+  const modesToChooseFrom = [...modes].map((mode) =>
+    capitalizeFirstLetter(mode).replace('-', ' ')
+  )
 
   return (
     <Dialog.Root
@@ -92,7 +97,7 @@ const SettingsDrawer: React.FC<Props> = ({ isOpen, onOpenChange }) => {
               />
               <Separator />
               <Buttons
-                choices={modes}
+                choices={modesToChooseFrom}
                 onSelect={(value) => setModeLocal(value as mode)}
                 choice={modeLocal}
               />
