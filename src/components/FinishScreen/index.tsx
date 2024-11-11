@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import { Flex, Button, Text } from '@radix-ui/themes'
 
+import { ResponsiveCard } from '@/components'
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
 
 interface Props {
@@ -19,32 +20,29 @@ const FinishScreen: React.FC<PropsWithChildren<Props>> = ({
   }
 
   return (
-    <Flex
-      direction='column'
-      justify='center'
-      align='center'
-      minHeight={'60dvh'}
-    >
-      <Flex
-        flexGrow='1'
-        align='center'
-      >
+    <ResponsiveCard>
+      <Flex flexGrow='1'>
         {children ? (
           children
         ) : (
-          <Text>You reached the end of the questions!</Text>
+          <Text
+            m='auto'
+            align='center'
+          >
+            You reached the end of the questions!
+          </Text>
         )}
       </Flex>
       <Button
         onClick={retryPage}
+        m='auto'
         mb='6'
-        mt='4'
         size='4'
-        style={{ minWidth: '45%' }}
+        style={{ width: '55%' }}
       >
         Retry
       </Button>
-    </Flex>
+    </ResponsiveCard>
   )
 }
 
