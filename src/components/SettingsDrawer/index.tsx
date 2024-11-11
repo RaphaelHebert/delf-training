@@ -10,7 +10,7 @@ import { allQuestions } from '@/data'
 import { capitalizeFirstLetter } from '@/utils'
 import { type levelName } from '@/data'
 import { useModeAndLevel, modes, type mode } from '@/contexts/modeAndLevel'
-        
+
 import './styles.css' // This file will contain the custom CSS for animations
 
 interface Props {
@@ -80,6 +80,7 @@ const SettingsDrawer: React.FC<Props> = ({ isOpen, onOpenChange }) => {
                   </button>
                 </Dialog.Close>
                 <Dialog.Title
+                  className='DialogTitle'
                   style={{
                     textAlign: 'center',
                     width: '100%',

@@ -28,8 +28,8 @@ const Buttons: React.FC<Props> = ({ choices, onSelect, choice = '' }) => {
       align='center'
       wrap='nowrap'
       as='div'
-      mt='20px'
-      mb='40px'
+      mt='10px'
+      mb='20px'
       mx='auto'
     >
       {Object.values(choices).map((name) => (

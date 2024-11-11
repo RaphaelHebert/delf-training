@@ -6,6 +6,10 @@
   animation: overlayShow 200ms ease-in;
 }
 
+.DialogTitle {
+  margin: 10px;
+}
+
 .DialogContent {
   position: fixed;
   top: 0;
