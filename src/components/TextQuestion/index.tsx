@@ -19,9 +19,6 @@ type Props = {
 }
 
 const TextQuestion: React.FC<Props> = ({ exercice, nextQuestion }) => {
-  // eslint-disable-next-line
-  const [score, setScore] = useState(0)
-  console.log(score)
   // show text or questions
   const [text, setText] = useState(true)
 
@@ -41,7 +38,6 @@ const TextQuestion: React.FC<Props> = ({ exercice, nextQuestion }) => {
       <RenderBody
         text={text}
         exercice={exercice}
-        setScore={setScore}
         setText={setText}
         nextQuestion={nextQuestion}
       />
@@ -129,14 +125,12 @@ const Header: React.FC<HeaderProps> = ({ text, setText }) => {
 type RenderBodyProps = {
   text: boolean
   exercice: text
-  setScore: React.Dispatch<React.SetStateAction<number>>
   setText: React.Dispatch<React.SetStateAction<boolean>>
   nextQuestion: () => void
 }
 
 const RenderBody: React.FC<RenderBodyProps> = ({
   text,
-  setScore,
   exercice,
   nextQuestion,
 }) => {
@@ -145,15 +139,12 @@ const RenderBody: React.FC<RenderBodyProps> = ({
   useEffect(() => {
     setQuestionNumber(0)
   }, [exercice])
-  // eslint-disable-next-line
-  const sendSummary = (isCorrect?: boolean) => {
+
+  const sendSummary = () => {
     if (exercice.questions.length - 1 === questionNumber) {
       nextQuestion()
     } else {
       setQuestionNumber((prev) => prev + 1)
-      if (isCorrect) {
-        setScore((prev) => prev + 1)
-      }
     }
   }
 
