@@ -5,13 +5,12 @@ import {
   QuestionMarkIcon,
   TextAlignJustifyIcon,
 } from '@radix-ui/react-icons'
-import { slate } from '@radix-ui/colors'
 import { Flex, Text } from '@radix-ui/themes'
 
 import { text } from '@/data/types'
 import { ExerciseCard, ResponsiveCard } from '@/components'
 
-import '../../pages/Training/styles.css'
+import './styles.css'
 
 type Props = {
   exercice: text
@@ -50,12 +49,6 @@ type HeaderProps = {
   setText: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const buttonStyle = {
-  border: '1px dotted green',
-  borderRadius: '18px',
-  background: slate.slate2,
-} as React.CSSProperties
-
 const Header: React.FC<HeaderProps> = ({ text, setText }) => {
   return (
     <>
@@ -66,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ text, setText }) => {
         >
           <Flex
             align='center'
-            style={buttonStyle}
+            className='buttonStyle'
             onClick={() => {
               setText(true)
             }}
@@ -82,10 +75,7 @@ const Header: React.FC<HeaderProps> = ({ text, setText }) => {
               width='25'
               height='25'
               data-testid='check-icon'
-              style={{
-                position: 'relative',
-                right: '10px',
-              }}
+              className='rightButton'
             />
           </Flex>
         </Flex>
@@ -96,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ text, setText }) => {
         >
           <Flex
             align='center'
-            style={buttonStyle}
+            className='buttonStyle'
             onClick={() => setText(false)}
           >
             <QuestionMarkIcon
@@ -104,10 +94,7 @@ const Header: React.FC<HeaderProps> = ({ text, setText }) => {
               width='25'
               height='25'
               data-testid='check-icon'
-              style={{
-                position: 'relative',
-                left: '10px',
-              }}
+              className='leftButton'
             />
             <ChevronRightIcon
               color={'var(--green-9)'}

@@ -146,7 +146,7 @@ const Home: React.FC = () => {
         actionOnConfirm={isTimeOut ? confirmTimeOutModal : startExamMode}
         showCancel={!isTimeOut}
         title='Exam mode!'
-        buttonMessage={isTimeOut ? 'ok' : 'Start!'}
+        buttonMessage={isTimeOut ? 'OK' : 'Start!'}
         body={
           isTimeOut ? (
             "You've reached the time limit!"
