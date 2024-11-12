@@ -45,7 +45,7 @@ const Training: React.FC = () => {
                 count === 0 ? 0 : (countGoodAnswer / count) * 100
               )}
               speed={1}
-              size={100}
+              size={'100px'}
             />
           </div>
         </div>
