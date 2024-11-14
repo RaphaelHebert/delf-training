@@ -826,6 +826,7 @@ const textB1: text[] = [
       },
     ],
   },
+  // manually verified until here
 ]
 
 export default textB1

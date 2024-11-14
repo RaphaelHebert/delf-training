@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TextQuestion, FinishScreen } from '@/components'
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
 
@@ -9,16 +9,19 @@ const TextQuestions: React.FC = () => {
     modeAndLevel: { level },
   } = useModeAndLevel()
 
-  const allQuestion = questionNumber < level.questions.text.length
-  const nextQuestion = () => {
-    setQuestionNumber((prev) => prev + 1)
-  }
-
   const playAgain = () => {
     setQuestionNumber(0)
   }
 
-  return allQuestion ? (
+  useEffect(() => {
+    playAgain()
+  }, [level])
+
+  const nextQuestion = () => {
+    setQuestionNumber((prev) => prev + 1)
+  }
+
+  return questionNumber < level.questions.text.length ? (
     <TextQuestion
       exercise={level.questions.text[questionNumber]}
       nextQuestion={nextQuestion}

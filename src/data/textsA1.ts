@@ -757,6 +757,7 @@ const textA1: text[] = [
       },
     ],
   },
+  // manually verified until here
 ]
 
 export default textA1
