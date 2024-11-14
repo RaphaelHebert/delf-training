@@ -1,30 +1,23 @@
 import { useEffect, useState } from 'react'
-import {
-  ChevronRightIcon,
-  ChevronLeftIcon,
-  QuestionMarkIcon,
-  TextAlignJustifyIcon,
-} from '@radix-ui/react-icons'
-import { slate } from '@radix-ui/colors'
-import { Flex, Text } from '@radix-ui/themes'
 
 import { text } from '@/data/types'
-import { ExerciseCard, ResponsiveCard } from '@/components'
+import { ResponsiveCard } from '@/components'
 
-import '../../pages/Training/styles.css'
+import Header from './Header'
+import Body from './Body'
 
 type Props = {
-  exercice: text
+  exercise: text
   nextQuestion: () => void
 }
 
-const TextQuestion: React.FC<Props> = ({ exercice, nextQuestion }) => {
+const TextQuestion: React.FC<Props> = ({ exercise, nextQuestion }) => {
   // show text or questions
   const [text, setText] = useState(true)
 
   useEffect(() => {
     setText(true)
-  }, [exercice])
+  }, [exercise])
 
   return (
     <ResponsiveCard
@@ -35,9 +28,9 @@ const TextQuestion: React.FC<Props> = ({ exercice, nextQuestion }) => {
         />
       }
     >
-      <RenderBody
+      <Body
         text={text}
-        exercice={exercice}
+        exercise={exercise}
         setText={setText}
         nextQuestion={nextQuestion}
       />

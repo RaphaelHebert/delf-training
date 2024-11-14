@@ -1,22 +1,20 @@
-import React from 'react'
 import { Button, Flex, Text } from '@radix-ui/themes'
+
+import { ButtonVariantType } from '@/types'
 import { COLOR_CORRECT } from '@/constants'
 
 type Props = {
   choices: string[]
   onSelect: <T>(value: T) => void
   choice?: string
-  isBig?: boolean
 }
 
 const Buttons: React.FC<Props> = ({ choices, onSelect, choice = '' }) => {
-  const defineVariant = (name: string) => {
-    // TODO find types for radix colors
+  const defineVariant = (name: string): ButtonVariantType => {
     return choice === name ? 'solid' : 'surface'
   }
 
-  const defineContrast = (name: string) => {
-    // TODO find types for radix colors
+  const defineContrast = (name: string): boolean => {
     return choice === name ? false : true
   }
 
@@ -27,7 +25,6 @@ const Buttons: React.FC<Props> = ({ choices, onSelect, choice = '' }) => {
       justify='start'
       align='center'
       wrap='nowrap'
-      as='div'
       mt='10px'
       mb='20px'
       mx='auto'
@@ -48,20 +45,14 @@ const Buttons: React.FC<Props> = ({ choices, onSelect, choice = '' }) => {
           variant={defineVariant(name)}
           highContrast={defineContrast(name)}
         >
-          <Flex
-            justify='center'
-            align='center'
-            direction='column'
-            as='div'
+          <Text
             m='7'
+            align='center'
+            size='4'
+            as='div'
           >
-            <Text
-              size='4'
-              as='div'
-            >
-              {name}
-            </Text>
-          </Flex>
+            {name}
+          </Text>
         </Button>
       ))}
     </Flex>

@@ -75,92 +75,90 @@ const Home: React.FC = () => {
     (answer) => answer.length > 37
   )
   return (
-    <>
-      {!displayResults && (
-        <BodyContainer>
-          <SideBar
-            count={count}
-            goodAnswers={countGoodAnswer}
-          >
-            {displayTimer && (
-              <Flex justify='center'>
-                <Timer
-                  time={EXAM_TIME}
-                  actionOnTimeElapsed={timeOut}
-                />
-              </Flex>
-            )}
-          </SideBar>
+    <BodyContainer>
+      <SideBar
+        count={count}
+        goodAnswers={countGoodAnswer}
+      >
+        {displayTimer && (
+          <Flex justify='center'>
+            <Timer
+              time={EXAM_TIME}
+              actionOnTimeElapsed={timeOut}
+            />
+          </Flex>
+        )}
+      </SideBar>
+      <Flex
+        flexGrow='1'
+        direction='column'
+        m='auto'
+        justify='between'
+        align='center'
+      >
+        {displayTimer && (
           <Flex
-            flexGrow='1'
-            direction='column'
-            m='auto'
-            justify='between'
+            width='100%'
+            direction={!isLongAnswer ? 'column' : 'row'}
+            justify='center'
+            gap='4'
             align='center'
           >
-            {displayTimer && (
-              <Flex
-                width='100%'
-                direction={!isLongAnswer ? 'column' : 'row'}
-                justify='center'
-                gap='4'
-                align='center'
-              >
-                <div className='smallScreen'>
-                  <Timer
-                    time={EXAM_TIME}
-                    actionOnTimeElapsed={timeOut}
-                  />
-                </div>
-
-                <ProgressBar
-                  total={EXAM_QUESTION}
-                  progress={count}
-                  numeric={true}
-                />
-              </Flex>
-            )}
-            <ResponsiveCard>
-              <ExerciseCard
-                qcm={{
-                  ...questions[count],
-                  answers: questions[count].answers,
-                }}
-                sendSummary={handleQuestionSubmission}
-                count={count}
-                isExamMode
+            <div className='smallScreen'>
+              <Timer
+                time={EXAM_TIME}
+                actionOnTimeElapsed={timeOut}
               />
-            </ResponsiveCard>
+            </div>
+
+            <ProgressBar
+              total={EXAM_QUESTION}
+              progress={count}
+              numeric={true}
+            />
           </Flex>
-          <Dialog
-            isOpen={isDialogOpen || isTimeOut}
-            actionOnConfirm={isTimeOut ? confirmTimeOutModal : startExamMode}
-            showCancel={!isTimeOut}
-            title='Exam mode!'
-            buttonMessage={isTimeOut ? 'ok' : 'Start!'}
-            body={
-              isTimeOut ? (
-                "You've reached the time limit!"
-              ) : (
-                <>
-                  <p>{`You will have ${EXAM_TIME / 60} minutes to complete ${EXAM_QUESTION} questions.`}</p>
-                  <p> Are you ready?</p>
-                </>
-              )
-            }
-          />
-        </BodyContainer>
-      )}
-      {displayResults && (
-        <FinishScreen actionOnRetry={resetCounts}>
-          <Results
-            percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
-            speed={3}
-            size={window.innerWidth / (isMobileScreen ? 1.2 : 3)}
-          />
-        </FinishScreen>
-      )}
-    </>
+        )}
+
+        <ResponsiveCard>
+          {!displayResults ? (
+            <ExerciseCard
+              qcm={{
+                ...questions[count],
+                answers: questions[count].answers,
+              }}
+              sendSummary={handleQuestionSubmission}
+              count={count}
+              isExamMode
+            />
+          ) : (
+            <FinishScreen actionOnRetry={resetCounts}>
+              <Results
+                percent={Math.trunc((countGoodAnswer / EXAM_QUESTION) * 100)}
+                speed={3}
+                size={`calc(100vw / ${isMobileScreen ? '2' : '4'}`}
+              />
+            </FinishScreen>
+          )}
+        </ResponsiveCard>
+      </Flex>
+      <Dialog
+        isOpen={isDialogOpen || isTimeOut}
+        actionOnConfirm={isTimeOut ? confirmTimeOutModal : startExamMode}
+        showCancel={!isTimeOut}
+        title='Exam mode!'
+        buttonMessage={isTimeOut ? 'OK' : 'Start!'}
+        body={
+          isTimeOut ? (
+            "You've reached the time limit!"
+          ) : (
+            <>
+              <p>{`You will have ${EXAM_TIME / 60} minutes to complete ${EXAM_QUESTION} questions.`}</p>
+              <p> Are you ready?</p>
+            </>
+          )
+        }
+      />
+    </BodyContainer>
   )
 }
 

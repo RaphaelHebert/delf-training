@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
-import ExerciseCard from '../../ExerciceCard'
+import ExerciseCard from '../../ExerciseCard'
 
 // Test Props
 const mockProps = {

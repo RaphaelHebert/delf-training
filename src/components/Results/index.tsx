@@ -6,7 +6,7 @@ import './styles.css'
 type Props = {
   percent: number
   speed?: number // animation time in seconds
-  size?: number //the size in px
+  size?: string //the size in CSS string
 }
 
 const updatePercentDisplay = (percent: number): void => {
@@ -18,11 +18,11 @@ const updateAnimationSpeed = (speed: number): void => {
   document.documentElement.style.setProperty('--speed', `${speed}s`)
 }
 
-const updateSize = (size: number): void => {
-  document.documentElement.style.setProperty('--size', `${size}px`)
+const updateSize = (size: string): void => {
+  document.documentElement.style.setProperty('--size', `${size}`)
 }
 
-const Results: React.FC<Props> = ({ percent, speed = 3000, size = 300 }) => {
+const Results: React.FC<Props> = ({ percent, speed = 3000, size = '30px' }) => {
   const [classNameAnimation, setClassNameAnimation] = useState('resultPercent')
   const [percentAnimation, setPercentAnimation] = useState(0)
 

@@ -1,23 +1,24 @@
 import { Flex, Button, Text, Section } from '@radix-ui/themes'
+
 import './styles.css'
 
 type Props = {
   isOpen: boolean
-  body: string | React.ReactNode
-  showCancel?: boolean
+  body: React.ReactNode
   actionOnConfirm: () => void
   actionOnCancel?: () => void
   buttonMessage?: string
   title?: string
+  showCancel?: boolean
 }
 
 const Dialog: React.FC<Props> = ({
   isOpen,
   actionOnConfirm,
   actionOnCancel,
-  showCancel = true,
   body,
   buttonMessage = 'Confirm',
+  showCancel = true,
   title = '',
 }) => {
   const dialogElement: HTMLDialogElement | null =
@@ -34,10 +35,7 @@ const Dialog: React.FC<Props> = ({
   return (
     <dialog id='favDialog'>
       {title && (
-        <Section
-          width='100%'
-          className='title'
-        >
+        <Section className='title'>
           <Text as='p'>{title}</Text>
         </Section>
       )}
@@ -47,7 +45,6 @@ const Dialog: React.FC<Props> = ({
         direction='column'
       >
         {body}
-
         <Flex
           width='100%'
           justify='end'
@@ -56,6 +53,7 @@ const Dialog: React.FC<Props> = ({
           {showCancel && actionOnCancel && (
             <Button
               type='button'
+              id='cancelBtn'
               value='cancel'
               formMethod='dialog'
               variant='surface'
@@ -68,10 +66,10 @@ const Dialog: React.FC<Props> = ({
             type='button'
             id='confirmBtn'
             value='default'
-            onClick={actionOnConfirm}
-            autoFocus
             size='3'
             mt='5'
+            onClick={actionOnConfirm}
+            autoFocus
           >
             {buttonMessage}
           </Button>
