@@ -1,0 +1,19 @@
+@import '@radix-ui/colors/slate.css';
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: var(--slate-1);
+  color: var(--slate-12);
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid var(--slate-6);
+}

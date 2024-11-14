@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
-import { Button, Flex, Section } from '@radix-ui/themes'
 import { useNavigate } from 'react-router-dom'
+import { Button, Flex, Section } from '@radix-ui/themes'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
 
 import { Buttons } from '@/components'
 import { COLOR_CORRECT } from '@/constants'
-import { allQuestions } from '@/data'
+import { allQuestions, type levelName } from '@/data'
 import { capitalizeFirstLetter } from '@/utils'
-import { type levelName } from '@/data'
 import { useModeAndLevel, modes, type mode } from '@/contexts/modeAndLevel'
 
-import './styles.css' // This file will contain the custom CSS for animations
+import './styles.css'
 
 interface Props {
   isOpen: boolean

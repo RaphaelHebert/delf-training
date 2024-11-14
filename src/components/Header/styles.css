@@ -1,15 +1,28 @@
 @import '@radix-ui/colors/black-alpha.css';
 @import '@radix-ui/colors/mauve.css';
 @import '@radix-ui/colors/violet.css';
+@import '@radix-ui/colors/slate.css';
+
+.header {
+  background-color: var(--slate-1);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--slate-6);
+}
 
 .logo {
   box-shadow: 0px 0px 8px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
   border-radius: 4px;
+  background: var(--slate-2);
   &:hover {
     cursor: pointer;
     background: gray;
     color: white;
   }
+}
+
+.gearBox {
+  cursor: pointer;
+  display: inline-block;
 }
 
 img:hover {
