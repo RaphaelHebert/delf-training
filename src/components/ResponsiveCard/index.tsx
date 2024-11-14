@@ -20,7 +20,7 @@ const ResponsiveCard: React.FC<PropsWithMandatoryChildren<Props>> = ({
   }
   return (
     <Flex
-      id='exerciceCard'
+      id='exerciseCard'
       direction='column'
       justify='center'
       align='center'

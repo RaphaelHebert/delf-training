@@ -20,7 +20,7 @@ const TextQuestions: React.FC = () => {
 
   return allQuestion ? (
     <TextQuestion
-      exercice={level.questions.text[questionNumber]}
+      exercise={level.questions.text[questionNumber]}
       nextQuestion={nextQuestion}
     />
   ) : (

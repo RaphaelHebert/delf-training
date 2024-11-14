@@ -245,7 +245,7 @@ const textB1: text[] = [
     ],
   },
   {
-    text: "Paul est un jeune homme très organisé. Il commence chaque journée en faisant une liste de tâches à accomplir. Le matin, il fait du ménage dans son appartement, puis il prépare un bon petit-déjeuner. Après avoir pris son café, il part travailler à 9 heures. Il travaille en freelance, donc il peut organiser ses horaires. Le soir, il aime cuisiner des repas équilibrés et faire un peu d'exercice à la maison. Avant de dormir, il prend toujours un moment pour méditer et se détendre.",
+    text: "Paul est un jeune homme très organisé. Il commence chaque journée en faisant une liste de tâches à accomplir. Le matin, il fait du ménage dans son appartement, puis il prépare un bon petit-déjeuner. Après avoir pris son café, il part travailler à 9 heures. Il travaille en freelance, donc il peut organiser ses horaires. Le soir, il aime cuisiner des repas équilibrés et faire un peu d'exercise à la maison. Avant de dormir, il prend toujours un moment pour méditer et se détendre.",
     questions: [
       {
         question: 'Quelle est la première chose que Paul fait chaque matin?',
@@ -270,12 +270,12 @@ const textB1: text[] = [
       {
         question: 'Que fait Paul le soir?',
         answers: [
-          "Il cuisine et fait de l'exercice",
+          "Il cuisine et fait de l'exercise",
           'Il regarde la télévision',
           'Il sort avec des amis',
           'Il lit un livre',
         ],
-        correct: "Il cuisine et fait de l'exercice",
+        correct: "Il cuisine et fait de l'exercise",
       },
       {
         question: "Qu'est-ce que Paul fait avant de dormir?",
@@ -655,7 +655,7 @@ const textB1: text[] = [
     ],
   },
   {
-    text: "Sophie adore passer son temps libre à faire du sport. Elle va à la salle de sport trois fois par semaine et aime pratiquer la natation. Le week-end, elle préfère faire des randonnées en montagne avec ses amis. Elle trouve que c'est un excellent moyen de se détendre et de profiter de la nature. Sophie est aussi passionnée de yoga et pratique régulièrement chez elle. Selon elle, l'exercice physique est essentiel pour garder la forme et se sentir bien dans son corps.",
+    text: "Sophie adore passer son temps libre à faire du sport. Elle va à la salle de sport trois fois par semaine et aime pratiquer la natation. Le week-end, elle préfère faire des randonnées en montagne avec ses amis. Elle trouve que c'est un excellent moyen de se détendre et de profiter de la nature. Sophie est aussi passionnée de yoga et pratique régulièrement chez elle. Selon elle, l'exercise physique est essentiel pour garder la forme et se sentir bien dans son corps.",
     questions: [
       {
         question: 'Quel sport Sophie pratique-t-elle trois fois par semaine?',
