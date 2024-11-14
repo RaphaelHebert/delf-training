@@ -1,5 +1,5 @@
-import { Button, Flex, Text } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
+import { Button, Flex, Text } from '@radix-ui/themes'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
 
 import {
@@ -9,24 +9,12 @@ import {
   COLOR_SUCCESS,
   COLOR_FAIL,
 } from '@/constants'
+import { ButtonVariantType } from '@/types'
+import { qcm } from '@/data'
 import './styles.css'
 
-// TODO extract type from Radix
-type Variant =
-  | 'surface'
-  | 'classic'
-  | 'solid'
-  | 'soft'
-  | 'outline'
-  | 'ghost'
-  | undefined
-
 type Props = {
-  qcm: {
-    question: string
-    answers: string[]
-    correct: string
-  }
+  qcm: qcm
   sendSummary?: (isCorrect?: boolean, done?: boolean) => void
   count?: number
   isExamMode?: boolean
@@ -42,8 +30,6 @@ const ExerciseCard: React.FC<Props> = ({
 
   const [selectedOption, setSelectedOption] = useState('')
   const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
-
-  const isMobileScreen = window.innerWidth <= 768
 
   const handleSubmit = () => {
     if (hasFormBeenSubmitted || isExamMode) {
@@ -85,14 +71,12 @@ const ExerciseCard: React.FC<Props> = ({
     return answer !== correct ? COLOR_ERROR : COLOR_CORRECT
   }
 
-  const defineVariant = (answer: string): Variant => {
+  const defineVariant = (answer: string): ButtonVariantType => {
     if (!hasFormBeenSubmitted) {
       return answer === selectedOption ? 'surface' : 'outline'
     }
     return 'soft'
   }
-
-  const isLongAnswer = answers.some((answer) => answer.length > 37)
 
   return (
     <Flex
@@ -118,6 +102,7 @@ const ExerciseCard: React.FC<Props> = ({
               data-testid='cross-icon'
             />
           )}
+
           {hasFormBeenSubmitted && selectedOption === correct && (
             <CheckIcon
               color={COLOR_CORRECT}
@@ -135,7 +120,6 @@ const ExerciseCard: React.FC<Props> = ({
           </Text>
         </Flex>
       </Flex>
-      {/* </Flex> */}
       <Flex
         width='100%'
         align='stretch'
@@ -146,7 +130,7 @@ const ExerciseCard: React.FC<Props> = ({
         {answers.map((answer) => (
           <Button
             key={answer}
-            my={isLongAnswer && isMobileScreen ? '1' : '2'}
+            my='1'
             size='3'
             mx='4'
             onClick={() => setSelectedOption(answer)}

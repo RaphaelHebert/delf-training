@@ -1,7 +1,9 @@
-import * as React from 'react'
-import { Slot } from '@radix-ui/react-slot' // Import Slot from Radix
+import React from 'react'
+import classnames from 'classnames'
+import { Slot } from '@radix-ui/react-slot'
 import { Flex, Card, Section } from '@radix-ui/themes'
-import './styles.css' // Import your CSS file
+
+import './styles.css'
 
 type PropsWithMandatoryChildren<P = unknown> = P & { children: React.ReactNode }
 
@@ -15,12 +17,9 @@ const ResponsiveCard: React.FC<PropsWithMandatoryChildren<Props>> = ({
   ghost,
   header,
 }) => {
-  const styleOverride = {
-    boxShadow: ghost ? 'unset' : ' 2px 4px 8px 6px rgba(0, 0, 0, 0.15)',
-  }
   return (
     <Flex
-      id='exerciceCard'
+      id='exerciseCard'
       direction='column'
       justify='center'
       align='center'
@@ -29,8 +28,10 @@ const ResponsiveCard: React.FC<PropsWithMandatoryChildren<Props>> = ({
       mx='auto'
     >
       <Slot
-        className='responsive-container'
-        style={styleOverride}
+        className={classnames(
+          'responsive-container',
+          `${ghost ? 'noShadow' : ''}`
+        )}
       >
         <Card variant='ghost'>
           <Flex

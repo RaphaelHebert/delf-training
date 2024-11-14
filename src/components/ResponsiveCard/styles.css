@@ -9,8 +9,12 @@
   border-width: '';
 }
 
+.noShadow {
+  box-shadow: unset;
+}
+
 dialog {
-  width: 100%; /* Default width for larger screens */
+  max-width: 50%; /* Default width for larger screens */
 }
 
 /* Media query for mobile screens */

@@ -1,0 +1,17 @@
+@import '@radix-ui/colors/slate.css';
+
+.buttonStyle {
+  border: 1px dotted green;
+  border-radius: 18px;
+  background: var(--slate-2);
+}
+
+.rightButton {
+  position: relative;
+  right: 10px;
+}
+
+.leftButton {
+  position: relative;
+  left: 10px;
+}

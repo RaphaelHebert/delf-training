@@ -3,6 +3,7 @@ import { Flex, Heading } from '@radix-ui/themes'
 
 import { useModeAndLevel } from '@/contexts/modeAndLevel'
 import { capitalizeFirstLetter } from '@/utils'
+
 import './styles.css'
 
 type Props = {
