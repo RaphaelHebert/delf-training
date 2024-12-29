@@ -112,10 +112,8 @@ export const ModeAndLevelProvider: React.FC<ProviderProps> = ({
   }, [value])
 
   return (
-    <ModeAndLevelContext.Provider
-      value={{ modeAndLevel, setMode, setLevel, retry }}
-    >
+    <ModeAndLevelContext value={{ modeAndLevel, setMode, setLevel, retry }}>
       {children}
-    </ModeAndLevelContext.Provider>
+    </ModeAndLevelContext>
   )
 }
