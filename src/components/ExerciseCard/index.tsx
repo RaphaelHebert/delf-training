@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useActionState } from 'react'
 import { Button, Flex, Text } from '@radix-ui/themes'
 import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
 
@@ -28,25 +28,22 @@ const ExerciseCard: React.FC<Props> = ({
 }) => {
   const { question, answers, correct } = qcm
 
-  const [selectedOption, setSelectedOption] = useState('')
-  const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
+  const [selectedValue, setSelectedValue] = React.useState('')
 
-  const handleSubmit = () => {
-    if (hasFormBeenSubmitted || isExamMode) {
-      setHasFormBeenSubmitted(false)
-      setSelectedOption('')
-      sendSummary(
-        selectedOption === correct,
-        isExamMode && count === EXAM_QUESTION
-      )
-      return
-    }
-    setHasFormBeenSubmitted(true)
-  }
+  const [data, formAction, isPending] = useActionState(
+    async (previousState: unknown, formData: FormData) => {
+      if (previousState || isExamMode) {
+        sendSummary(data === correct, isExamMode && count === EXAM_QUESTION)
+        setSelectedValue('')
+        return null
+      }
+      return formData.get('selectedValue')
+    },
+    null // initial state
+  )
 
   useEffect(() => {
-    setHasFormBeenSubmitted(false)
-    setSelectedOption('')
+    setSelectedValue('')
   }, [isExamMode])
 
   const fullAnswer = (question: string, answer: string): string => {
@@ -64,97 +61,105 @@ const ExerciseCard: React.FC<Props> = ({
 
   const defineColor = (answer: string) => {
     // TODO find types for radix colors
-    if (!hasFormBeenSubmitted) {
-      return answer === selectedOption ? COLOR_SUCCESS : COLOR_FAIL
+    if (!data) {
+      return answer === selectedValue ? COLOR_SUCCESS : COLOR_FAIL
     }
 
-    return answer !== correct ? COLOR_ERROR : COLOR_CORRECT
+    return correct !== answer ? COLOR_ERROR : COLOR_CORRECT
   }
 
   const defineVariant = (answer: string): ButtonVariantType => {
-    if (!hasFormBeenSubmitted) {
-      return answer === selectedOption ? 'surface' : 'outline'
+    if (!data) {
+      return answer === selectedValue ? 'surface' : 'outline'
     }
     return 'soft'
   }
 
   return (
-    <Flex
-      direction='column'
-      justify='between'
-      flexGrow='1'
-      width='100%'
+    <form
+      action={formAction}
+      style={{ display: 'flex', flexGrow: 1 }}
     >
       <Flex
         direction='column'
-        justify='center'
+        justify='between'
         flexGrow='1'
+        width='100%'
       >
         <Flex
-          align='center'
+          direction='column'
+          justify='center'
+          flexGrow='1'
+        >
+          <Flex
+            align='center'
+            justify='center'
+          >
+            {data && data !== correct && (
+              <Cross2Icon
+                color={COLOR_ERROR}
+                width='30'
+                height='30'
+                data-testid='cross-icon'
+              />
+            )}
+
+            {data && selectedValue === correct && (
+              <CheckIcon
+                color={COLOR_CORRECT}
+                width='30'
+                height='30'
+                data-testid='check-icon'
+              />
+            )}
+            <Text
+              as='div'
+              align='center'
+              wrap='pretty'
+            >
+              {selectedValue ? fullAnswer(question, selectedValue) : question}
+            </Text>
+          </Flex>
+        </Flex>
+        <Flex
+          width='100%'
+          align='stretch'
+          direction='column'
+          flexGrow='1'
           justify='center'
         >
-          {hasFormBeenSubmitted && selectedOption !== correct && (
-            <Cross2Icon
-              color={COLOR_ERROR}
-              width='30'
-              height='30'
-              data-testid='cross-icon'
-            />
-          )}
-
-          {hasFormBeenSubmitted && selectedOption === correct && (
-            <CheckIcon
-              color={COLOR_CORRECT}
-              width='30'
-              height='30'
-              data-testid='check-icon'
-            />
-          )}
-          <Text
-            as='div'
-            align='center'
-            wrap='pretty'
-          >
-            {selectedOption ? fullAnswer(question, selectedOption) : question}
-          </Text>
+          <input
+            type='hidden'
+            name='selectedValue'
+            value={selectedValue}
+          />
+          {answers.map((answer) => (
+            <Button
+              type='button'
+              key={answer}
+              my='1'
+              mx='4'
+              size='3'
+              onClick={() => setSelectedValue(answer)}
+              variant={defineVariant(answer)}
+              color={defineColor(answer)}
+              className={`flexibleButton ${data ? 'noHover' : 'simple'}`}
+            >
+              {answer}
+            </Button>
+          ))}
         </Flex>
+        <Button
+          autoFocus
+          mx='7'
+          my='5'
+          size='4'
+          loading={isPending}
+        >
+          {data || isExamMode ? 'Next' : 'Check'}
+        </Button>
       </Flex>
-      <Flex
-        width='100%'
-        align='stretch'
-        direction='column'
-        flexGrow='1'
-        justify='center'
-      >
-        {answers.map((answer) => (
-          <Button
-            key={answer}
-            my='1'
-            size='3'
-            mx='4'
-            onClick={() => setSelectedOption(answer)}
-            type='button'
-            variant={defineVariant(answer)}
-            color={defineColor(answer)}
-            className={`flexibleButton ${hasFormBeenSubmitted ? 'noHover' : 'simple'}`}
-          >
-            {answer}
-          </Button>
-        ))}
-      </Flex>
-      <Button
-        type='button'
-        onClick={handleSubmit}
-        autoFocus
-        size='4'
-        mx='7'
-        mb='5'
-        mt='5'
-      >
-        {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
-      </Button>
-    </Flex>
+    </form>
   )
 }
 
