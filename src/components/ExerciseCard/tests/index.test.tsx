@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, fireEvent, screen, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import ExerciseCard from '../../ExerciseCard'
 
@@ -37,7 +37,7 @@ describe('ExerciseCard Component', () => {
     expect(answerButton).toHaveClass('rt-variant-surface')
   })
 
-  it('displays the correct icon after submitting an incorrect answer', () => {
+  it('displays the correct icon after submitting an incorrect answer', async () => {
     render(<ExerciseCard {...mockProps} />)
 
     // Select an incorrect answer
@@ -48,11 +48,13 @@ describe('ExerciseCard Component', () => {
     const submitButton = screen.getByText('Check')
     fireEvent.click(submitButton)
 
-    // Check for Cross2Icon indicating incorrect answer
-    expect(screen.getByTestId('cross-icon')).toBeInTheDocument()
+    // Check for Cross2Icon indicating incorrect answe
+    await waitFor(() => {
+      expect(screen.getByTestId('cross-icon')).toBeInTheDocument()
+    })
   })
 
-  it('displays the correct icon after submitting a correct answer', () => {
+  it('displays the correct icon after submitting a correct answer', async () => {
     render(<ExerciseCard {...mockProps} />)
 
     // Select the correct answer
@@ -64,10 +66,12 @@ describe('ExerciseCard Component', () => {
     fireEvent.click(submitButton)
 
     // Check for CheckIcon indicating correct answer
-    expect(screen.getByTestId('check-icon')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('check-icon')).toBeInTheDocument()
+    })
   })
 
-  it('resets the form after submitting and clicking Next', () => {
+  it('resets the form after submitting and clicking Next', async () => {
     render(<ExerciseCard {...mockProps} />)
 
     // Select an answer and submit
@@ -77,8 +81,11 @@ describe('ExerciseCard Component', () => {
     fireEvent.click(submitButton)
 
     // Click "Next" to reset the form
-    const nextButton = screen.getByText('Next')
-    fireEvent.click(nextButton)
+    let nextButton
+    await waitFor(() => {
+      nextButton = screen.getByText('Next')
+      fireEvent.click(nextButton)
+    })
 
     // Ensure form is reset
     expect(screen.getByText('Check')).toBeInTheDocument()
@@ -88,7 +95,7 @@ describe('ExerciseCard Component', () => {
     })
   })
 
-  it('calls sendSummary with correct parameter for right answer after submission', () => {
+  it('calls sendSummary with correct parameter for right answer after submission', async () => {
     render(<ExerciseCard {...mockProps} />)
 
     // Select the correct answer and submit
@@ -96,13 +103,14 @@ describe('ExerciseCard Component', () => {
     fireEvent.click(correctAnswerButton)
     const submitButton = screen.getByText('Check')
     fireEvent.click(submitButton)
-    const nextButton = screen.getByText('Next')
-
-    fireEvent.click(nextButton)
-
+    let nextButton
+    await waitFor(() => {
+      nextButton = screen.getByText('Next')
+      fireEvent.click(nextButton)
+    })
     expect(mockProps.sendSummary).toHaveBeenCalledWith(true, false)
   })
-  it('calls sendSummary with correct for wrong answer parameter after submission', () => {
+  it('calls sendSummary with correct for wrong answer parameter after submission', async () => {
     render(<ExerciseCard {...mockProps} />)
 
     // Select a wrong answer and submit
@@ -110,9 +118,11 @@ describe('ExerciseCard Component', () => {
     fireEvent.click(correctAnswerButton)
     const submitButton = screen.getByText('Check')
     fireEvent.click(submitButton)
-    const nextButton = screen.getByText('Next')
-
-    fireEvent.click(nextButton)
+    let nextButton
+    await waitFor(() => {
+      nextButton = screen.getByText('Next')
+      fireEvent.click(nextButton)
+    })
 
     expect(mockProps.sendSummary).toHaveBeenCalledWith(false, false)
   })
