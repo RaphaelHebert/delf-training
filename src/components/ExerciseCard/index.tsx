@@ -1,17 +1,10 @@
-import React, { useEffect, useActionState } from 'react'
-import { Button, Flex, Text } from '@radix-ui/themes'
-import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
+import React, { useActionState } from 'react'
+import { Flex, Text } from '@radix-ui/themes'
 
-import {
-  EXAM_QUESTION,
-  COLOR_CORRECT,
-  COLOR_ERROR,
-  COLOR_SUCCESS,
-  COLOR_FAIL,
-} from '@/constants'
-import { ButtonVariantType } from '@/types'
+import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
+import { EXAM_QUESTION, COLOR_CORRECT, COLOR_ERROR } from '@/constants'
 import { qcm } from '@/data'
-import './styles.css'
+import { SubmitButton, RadioButtons } from '@/components'
 
 type Props = {
   qcm: qcm
@@ -28,23 +21,16 @@ const ExerciseCard: React.FC<Props> = ({
 }) => {
   const { question, answers, correct } = qcm
 
-  const [selectedValue, setSelectedValue] = React.useState('')
-
-  const [data, formAction, isPending] = useActionState(
+  const [data, formAction] = useActionState(
     async (previousState: unknown, formData: FormData) => {
       if (previousState || isExamMode) {
         sendSummary(data === correct, isExamMode && count === EXAM_QUESTION)
-        setSelectedValue('')
         return null
       }
-      return formData.get('selectedValue')
+      return formData.get('answer')
     },
     null // initial state
   )
-
-  useEffect(() => {
-    setSelectedValue('')
-  }, [isExamMode])
 
   const fullAnswer = (question: string, answer: string): string => {
     const splitQuestion = question.split('_____')
@@ -59,26 +45,11 @@ const ExerciseCard: React.FC<Props> = ({
     return question.replace('_____', answer)
   }
 
-  const defineColor = (answer: string) => {
-    // TODO find types for radix colors
-    if (!data) {
-      return answer === selectedValue ? COLOR_SUCCESS : COLOR_FAIL
-    }
-
-    return correct !== answer ? COLOR_ERROR : COLOR_CORRECT
-  }
-
-  const defineVariant = (answer: string): ButtonVariantType => {
-    if (!data) {
-      return answer === selectedValue ? 'surface' : 'outline'
-    }
-    return 'soft'
-  }
-
   return (
     <form
       action={formAction}
-      style={{ display: 'flex', flexGrow: 1 }}
+      style={{ display: 'contents' }}
+      name='answerForm'
     >
       <Flex
         direction='column'
@@ -104,7 +75,7 @@ const ExerciseCard: React.FC<Props> = ({
               />
             )}
 
-            {data && selectedValue === correct && (
+            {data && data === correct && (
               <CheckIcon
                 color={COLOR_CORRECT}
                 width='30'
@@ -117,7 +88,7 @@ const ExerciseCard: React.FC<Props> = ({
               align='center'
               wrap='pretty'
             >
-              {selectedValue ? fullAnswer(question, selectedValue) : question}
+              {data ? fullAnswer(question, data as string) : question}
             </Text>
           </Flex>
         </Flex>
@@ -128,36 +99,20 @@ const ExerciseCard: React.FC<Props> = ({
           flexGrow='1'
           justify='center'
         >
-          <input
-            type='hidden'
-            name='selectedValue'
-            value={selectedValue}
+          <RadioButtons
+            values={answers}
+            name='answer'
+            correctedAnswer={data ? correct : null}
           />
-          {answers.map((answer) => (
-            <Button
-              type='button'
-              key={answer}
-              my='1'
-              mx='4'
-              size='3'
-              onClick={() => setSelectedValue(answer)}
-              variant={defineVariant(answer)}
-              color={defineColor(answer)}
-              className={`flexibleButton ${data ? 'noHover' : 'simple'}`}
-            >
-              {answer}
-            </Button>
-          ))}
         </Flex>
-        <Button
+        <SubmitButton
           autoFocus
           mx='7'
           my='5'
           size='4'
-          loading={isPending}
         >
           {data || isExamMode ? 'Next' : 'Check'}
-        </Button>
+        </SubmitButton>
       </Flex>
     </form>
   )
