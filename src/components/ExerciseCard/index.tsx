@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Flex, Text } from '@radix-ui/themes'
-import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
+import React, { useActionState } from 'react'
+import { Flex, Text } from '@radix-ui/themes'
 
-import {
-  EXAM_QUESTION,
-  COLOR_CORRECT,
-  COLOR_ERROR,
-  COLOR_SUCCESS,
-  COLOR_FAIL,
-} from '@/constants'
-import { ButtonVariantType } from '@/types'
+import { CheckIcon, Cross2Icon } from '@radix-ui/react-icons'
+import { EXAM_QUESTION, COLOR_CORRECT, COLOR_ERROR } from '@/constants'
 import { qcm } from '@/data'
-import './styles.css'
+import { SubmitButton, RadioButtons } from '@/components'
 
 type Props = {
   qcm: qcm
@@ -28,26 +21,16 @@ const ExerciseCard: React.FC<Props> = ({
 }) => {
   const { question, answers, correct } = qcm
 
-  const [selectedOption, setSelectedOption] = useState('')
-  const [hasFormBeenSubmitted, setHasFormBeenSubmitted] = useState(false)
-
-  const handleSubmit = () => {
-    if (hasFormBeenSubmitted || isExamMode) {
-      setHasFormBeenSubmitted(false)
-      setSelectedOption('')
-      sendSummary(
-        selectedOption === correct,
-        isExamMode && count === EXAM_QUESTION
-      )
-      return
-    }
-    setHasFormBeenSubmitted(true)
-  }
-
-  useEffect(() => {
-    setHasFormBeenSubmitted(false)
-    setSelectedOption('')
-  }, [isExamMode])
+  const [data, formAction] = useActionState(
+    async (previousState: unknown, formData: FormData) => {
+      if (previousState || isExamMode) {
+        sendSummary(data === correct, isExamMode && count === EXAM_QUESTION)
+        return null
+      }
+      return formData.get('answer')
+    },
+    null // initial state
+  )
 
   const fullAnswer = (question: string, answer: string): string => {
     const splitQuestion = question.split('_____')
@@ -62,99 +45,76 @@ const ExerciseCard: React.FC<Props> = ({
     return question.replace('_____', answer)
   }
 
-  const defineColor = (answer: string) => {
-    // TODO find types for radix colors
-    if (!hasFormBeenSubmitted) {
-      return answer === selectedOption ? COLOR_SUCCESS : COLOR_FAIL
-    }
-
-    return answer !== correct ? COLOR_ERROR : COLOR_CORRECT
-  }
-
-  const defineVariant = (answer: string): ButtonVariantType => {
-    if (!hasFormBeenSubmitted) {
-      return answer === selectedOption ? 'surface' : 'outline'
-    }
-    return 'soft'
-  }
-
   return (
-    <Flex
-      direction='column'
-      justify='between'
-      flexGrow='1'
-      width='100%'
+    <form
+      action={formAction}
+      style={{ display: 'contents' }}
+      name='answerForm'
     >
       <Flex
         direction='column'
-        justify='center'
+        justify='between'
         flexGrow='1'
+        width='100%'
       >
         <Flex
-          align='center'
+          direction='column'
+          justify='center'
+          flexGrow='1'
+        >
+          <Flex
+            align='center'
+            justify='center'
+          >
+            {data && data !== correct && (
+              <Cross2Icon
+                color={COLOR_ERROR}
+                width='30'
+                height='30'
+                data-testid='cross-icon'
+              />
+            )}
+
+            {data && data === correct && (
+              <CheckIcon
+                color={COLOR_CORRECT}
+                width='30'
+                height='30'
+                data-testid='check-icon'
+              />
+            )}
+            <Text
+              as='div'
+              align='center'
+              wrap='pretty'
+            >
+              {data ? fullAnswer(question, data as string) : question}
+            </Text>
+          </Flex>
+        </Flex>
+        <Flex
+          width='100%'
+          align='stretch'
+          direction='column'
+          flexGrow='1'
           justify='center'
         >
-          {hasFormBeenSubmitted && selectedOption !== correct && (
-            <Cross2Icon
-              color={COLOR_ERROR}
-              width='30'
-              height='30'
-              data-testid='cross-icon'
-            />
-          )}
-
-          {hasFormBeenSubmitted && selectedOption === correct && (
-            <CheckIcon
-              color={COLOR_CORRECT}
-              width='30'
-              height='30'
-              data-testid='check-icon'
-            />
-          )}
-          <Text
-            as='div'
-            align='center'
-            wrap='pretty'
-          >
-            {selectedOption ? fullAnswer(question, selectedOption) : question}
-          </Text>
+          <RadioButtons
+            values={answers}
+            name='answer'
+            correctedAnswer={data ? correct : null}
+          />
         </Flex>
+        <SubmitButton
+          autoFocus
+          mx='7'
+          my='5'
+          size='4'
+        >
+          {data || isExamMode ? 'Next' : 'Check'}
+        </SubmitButton>
       </Flex>
-      <Flex
-        width='100%'
-        align='stretch'
-        direction='column'
-        flexGrow='1'
-        justify='center'
-      >
-        {answers.map((answer) => (
-          <Button
-            key={answer}
-            my='1'
-            size='3'
-            mx='4'
-            onClick={() => setSelectedOption(answer)}
-            type='button'
-            variant={defineVariant(answer)}
-            color={defineColor(answer)}
-            className={`flexibleButton ${hasFormBeenSubmitted ? 'noHover' : 'simple'}`}
-          >
-            {answer}
-          </Button>
-        ))}
-      </Flex>
-      <Button
-        type='button'
-        onClick={handleSubmit}
-        autoFocus
-        size='4'
-        mx='7'
-        mb='5'
-        mt='5'
-      >
-        {hasFormBeenSubmitted || isExamMode ? 'Next' : 'Check'}
-      </Button>
-    </Flex>
+    </form>
   )
 }
 

@@ -49,7 +49,6 @@ const ResponsiveCard: React.FC<PropsWithMandatoryChildren<Props>> = ({
               width='100%'
               minWidth={'30px'}
             >
-              {' '}
               {header}
             </Section>
             <Flex
