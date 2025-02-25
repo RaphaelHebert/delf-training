@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           pr='2'
         >
           <a
-            href='https://www.youtube.com/@Chiasekinhnghiem-je5ys'
+            href='https://www.youtube.com/@atofrench'
             target='_blank'
             rel='noreferrer'
           >
