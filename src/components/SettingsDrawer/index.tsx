@@ -10,7 +10,6 @@ import { allQuestions, type levelName } from '@/data'
 import { capitalizeFirstLetter } from '@/utils'
 import { useModeAndLevel, modes, type mode } from '@/contexts/modeAndLevel'
 
-
 import './styles.css' // This file will contain the custom CSS for animations
 
 interface Props {
